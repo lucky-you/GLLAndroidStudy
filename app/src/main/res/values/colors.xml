@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="theme_color">#56abe4</color>
+    <color name="white">#ffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="font_black">#2a2a2a</color>
+    <color name="font_grey">#848484</color>
+    <color name="line_grey">#F4F4F4</color>
+    <color name="transparent_00ffffff">#00ffffff</color>
+    <color name="grey_color_ccc">#cccccc</color>
+    <color name="background_color">#f8f8f8</color>
+    <color name="divide_line_color">#f2f2f2</color>
+
+
+    <color name="green_color">#7bc759</color>
+    <color name="submit_btn_dis_bg">#DADADA</color>
+    <color name="text_color_333">#333333</color>
+    <color name="text_color_666">#666666</color>
+    <color name="text_color_999">#999999</color>
+    <color name="red_color_ff404a">#ff404a</color>
+    <color name="grey_color_ab9993">#ab9993</color>
+    <color name="red_color_ff6971">#ff6971</color>
+    <color name="black_color_4e2206">#4e2206</color>
+    <color name="red_color_ff4040">#ff4040</color>
+    <color name="red_color_f44d4d">#f44d4d</color>
+    <color name="black_4e2e1f">#4e2e1f</color>
+    <color name="color_7d718f">#7d718f</color>
+    <color name="color_a462ff">#a462ff</color>
+    <color name="blue_color">#5eaeff</color>
+    <color name="green_color_63d86b">#63d86b</color>
+    <color name="yellow_color_ffd071">#ffd071</color>
+    <color name="yellow_color_ffbd49">#ffbd49</color>
+    <color name="green_color_93e363">#93e363</color>
+    <color name="yellow_color_ffe84d">#ffe84d</color>
+    <color name="black_color_4d000000">#4d000000</color>
+    <color name="red_color_df4c56">#df4c56</color>
+
+    <color name="color_000">#000000</color>
+    <color name="color_f5f5f5">#f5f5f5</color>
+    <color name="color_df4c56">#df4c56</color>
+
+</resources>
