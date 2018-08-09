@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".activity.ViewFlipperActivity">
+    android:orientation="vertical">
 
     <include layout="@layout/include_titlebar" />
 
@@ -19,4 +17,12 @@
         android:inAnimation="@anim/anim_in"
         android:outAnimation="@anim/anim_out" />
 
+    <com.gll.gllandroidstudy.view.MarqueeView
+        android:id="@+id/marqueeView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:scrollItemCount="1"
+        app:showItemCount="5"
+        app:standDuration="2000"
+        app:turningDuration="1000" />
 </LinearLayout>

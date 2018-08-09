@@ -10,6 +10,9 @@ import android.widget.ListView;
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
 
+/**
+ * 链接夜神模拟器 adb connect 127.0.0.1:62001
+ */
 public class MainActivity extends BaseActivity {
 
     private final String[] mItems = {
@@ -21,6 +24,8 @@ public class MainActivity extends BaseActivity {
             ViewFlipperActivity.class,
             RecyclerViewAddHeaderActivity.class
     };
+
+
 
     private ListView listView;
 
