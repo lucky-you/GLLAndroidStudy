@@ -1,6 +1,7 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -9,12 +10,21 @@ import com.gll.gllandroidstudy.adapter.PublicRecyclerViewAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
 import com.gll.gllandroidstudy.model.NoticeMessage;
 import com.gll.gllandroidstudy.view.RecyclerViewHeaderView;
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
+import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
+import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
+import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
+import com.scwang.smartrefresh.layout.header.ClassicsHeader;
+import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RecyclerViewAddHeaderActivity extends BaseActivity {
 
+    private SmartRefreshLayout smartRefreshLayout;
     private RecyclerView publicRecyclerView;
     private PublicRecyclerViewAdapter publicRecyclerViewAdapter;
 
@@ -27,14 +37,20 @@ public class RecyclerViewAddHeaderActivity extends BaseActivity {
     protected void bindViews() {
         initTitle("RecyclerView添加头部");
         publicRecyclerView = get(R.id.publicRecyclerView);
+        smartRefreshLayout = get(R.id.smartRefreshLayout);
+
+        smartRefreshLayout.setRefreshHeader(new ClassicsHeader(this).setFinishDuration(500));
+        smartRefreshLayout.setRefreshFooter(new ClassicsFooter(this).setSpinnerStyle(SpinnerStyle.Scale));
+
     }
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        publicRecyclerViewAdapter=new PublicRecyclerViewAdapter(getDateList());
+        publicRecyclerViewAdapter = new PublicRecyclerViewAdapter(getDateList());
         publicRecyclerView.setAdapter(publicRecyclerViewAdapter);
         publicRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        RecyclerViewHeaderView recyclerViewHeaderView=new RecyclerViewHeaderView(mContext);
+
+        RecyclerViewHeaderView recyclerViewHeaderView = new RecyclerViewHeaderView(mContext);
         publicRecyclerViewAdapter.addHeaderView(recyclerViewHeaderView);
 
     }
@@ -51,6 +67,15 @@ public class RecyclerViewAddHeaderActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
+        smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
+                if (smartRefreshLayout.getState().isOpening) {
 
+
+                }
+
+            }
+        });
     }
 }
