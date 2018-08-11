@@ -15,10 +15,6 @@ import android.widget.LinearLayout;
 
 import com.gll.gllandroidstudy.R;
 
-/**
- * Created by fxd on 2016/11/17.
- */
-
 public class MarqueeView extends LinearLayout {
     private Context mContext;
     private RecyclerView mRv;
@@ -39,7 +35,7 @@ public class MarqueeView extends LinearLayout {
     private final String TAG = "MarqueeTag";
 
     private MarqueeScrollListener marqueeScrollListener;
-    private SmoothScrolLinearLayoutManager layoutManager;
+    private SmoothScrollLinearLayoutManager layoutManager;
 
     public MarqueeView(Context context) {
         this(context, null);
@@ -61,7 +57,6 @@ public class MarqueeView extends LinearLayout {
         init(context, attrs);
     }
 
-
     private void init(Context context, AttributeSet attrs) {
         this.mContext = context;
         if (attrs != null) {
@@ -76,13 +71,13 @@ public class MarqueeView extends LinearLayout {
             mTurningDuration = a.getInteger(R.styleable.MarqueeView_turningDuration, MILLISECONDS_MARQUEE_TURNING);
             a.recycle();
         }
-
         if (DEBUG) {
             Log.i(TAG, "item count " + mScrollItemCount);
         }
         mRv = new RecyclerView(context);
         mRv.setHasFixedSize(true);
-        layoutManager = new SmoothScrolLinearLayoutManager(context);
+
+        layoutManager = new SmoothScrollLinearLayoutManager(context);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRv.setLayoutManager(layoutManager);
 
@@ -118,6 +113,7 @@ public class MarqueeView extends LinearLayout {
 
     private class MarqueeScrollListener extends RecyclerView.OnScrollListener {
         MarqueeScrollListener() {
+
         }
 
         public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
@@ -142,22 +138,22 @@ public class MarqueeView extends LinearLayout {
         }
 
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+            super.onScrolled(recyclerView, dx, dy);
         }
     }
 
-
+    //滚动到下一个
     private void smoothNextPosition(RecyclerView rv) {
         if (rv != null) {
             LinearLayoutManager llm = (LinearLayoutManager) rv.getLayoutManager();
-
             int lastVisibleItemPosition = llm.findLastVisibleItemPosition();
             int totalCount = llm.getItemCount();
-            if (totalCount == lastVisibleItemPosition + 1) {
-                rv.scrollToPosition(0);
-            }
-            int nextPosition = llm.findLastVisibleItemPosition() + mScrollItemCount;
+            int nextPosition = lastVisibleItemPosition + mScrollItemCount;
             if (nextPosition < totalCount) {
                 rv.smoothScrollToPosition(nextPosition);
+            }
+            if (totalCount == lastVisibleItemPosition) {
+                rv.scrollToPosition(0);
             }
         }
     }

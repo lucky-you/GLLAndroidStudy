@@ -7,15 +7,12 @@ import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 
-/**
- * Created by fxd on 2016/11/16.
- */
 
-public class SmoothScrolLinearLayoutManager extends LinearLayoutManager {
+public class SmoothScrollLinearLayoutManager extends LinearLayoutManager {
     private float MILLISECONDS_PER_INCH = 10f;
     private Context context;
 
-    public SmoothScrolLinearLayoutManager(Context context) {
+    public SmoothScrollLinearLayoutManager(Context context) {
         super(context);
         this.context = context;
     }
@@ -25,7 +22,7 @@ public class SmoothScrolLinearLayoutManager extends LinearLayoutManager {
         LinearSmoothScroller linearSmoothScroller = new LinearSmoothScroller(recyclerView.getContext()) {
             @Override
             public PointF computeScrollVectorForPosition(int targetPosition) {
-                return SmoothScrolLinearLayoutManager.this
+                return SmoothScrollLinearLayoutManager.this
                         .computeScrollVectorForPosition(targetPosition);
             }
 
@@ -42,13 +39,14 @@ public class SmoothScrolLinearLayoutManager extends LinearLayoutManager {
         startSmoothScroll(linearSmoothScroller);
     }
 
-
+    //缓慢滑动
     public void setSpeedSlow() {
         //自己在这里用density去乘，希望不同分辨率设备上滑动速度相同
         //0.3f是自己估摸的一个值，可以根据不同需求自己修改
         MILLISECONDS_PER_INCH = context.getResources().getDisplayMetrics().density * 0.3f;
     }
 
+    //快速滑动
     public void setSpeedFast() {
         MILLISECONDS_PER_INCH = context.getResources().getDisplayMetrics().density * 0.03f;
     }

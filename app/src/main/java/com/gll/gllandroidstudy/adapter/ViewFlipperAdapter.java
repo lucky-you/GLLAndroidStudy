@@ -21,6 +21,6 @@ public class ViewFlipperAdapter extends BaseQuickAdapter<NoticeMessage, BaseView
     @Override
     protected void convert(BaseViewHolder helper, NoticeMessage item) {
         helper.setText(R.id.tv_member_name, item.messageTitle)
-                .setText(R.id.tv_member_number, item.messageUrl);
+                .setText(R.id.tv_member_number, "优惠金额"+item.messageUrl);
     }
 }
