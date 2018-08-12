@@ -27,7 +27,7 @@ import static android.Manifest.permission.WRITE_SETTINGS;
  *     author: Blankj
  *     blog  : http://blankj.com
  *     time  : 2016/08/02
- *     desc  : utils about screen
+ *     desc  : utils about screen 屏幕相关的
  * </pre>
  */
 public final class ScreenUtils {
