@@ -18,7 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.ViewFlipperActivity" />
-        <activity android:name=".activity.RecyclerViewAddHeaderActivity"></activity>
+        <activity android:name=".activity.RecyclerViewAddHeaderActivity"/>
+        <activity android:name=".activity.CacheActivity"/>
     </application>
 
 </manifest>

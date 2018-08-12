@@ -47,7 +47,7 @@ public class ViewFlipperActivity extends BaseActivity {
         noticeMessageList.add(new NoticeMessage("会员8", "87248778"));
         noticeMessageList.add(new NoticeMessage("会员9", "87248779"));
         MarqueeAdapter marqueeAdapter=new MarqueeAdapter();
-        marqueeAdapter.setData(noticeMessageList,2);
+        marqueeAdapter.setData(noticeMessageList,5);
         marqueeView.setAdapter(marqueeAdapter);
     }
 

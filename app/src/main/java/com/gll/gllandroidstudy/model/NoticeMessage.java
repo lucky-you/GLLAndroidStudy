@@ -8,9 +8,16 @@ public class NoticeMessage {
 
     public String messageTitle;
     public String messageUrl;
+    public boolean isFired;
 
     public NoticeMessage(String messageTitle, String messageUrl) {
         this.messageTitle = messageTitle;
         this.messageUrl = messageUrl;
+    }
+
+    public NoticeMessage(String messageTitle, String messageUrl, boolean isFired) {
+        this.messageTitle = messageTitle;
+        this.messageUrl = messageUrl;
+        this.isFired = isFired;
     }
 }

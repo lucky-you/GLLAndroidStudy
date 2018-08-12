@@ -17,12 +17,14 @@ public class MainActivity extends BaseActivity {
 
     private final String[] mItems = {
             "ViewFlipper实现垂直轮播广告效果",
-            "RecyclerView添加头部布局使用"
+            "RecyclerView添加头部布局使用",
+            "Cache的使用"
 
     };
     private final Class<?>[] mClasses = {
             ViewFlipperActivity.class,
-            RecyclerViewAddHeaderActivity.class
+            RecyclerViewAddHeaderActivity.class,
+            CacheActivity.class
     };
 
 
