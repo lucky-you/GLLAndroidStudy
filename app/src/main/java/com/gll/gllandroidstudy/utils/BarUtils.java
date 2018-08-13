@@ -32,6 +32,7 @@ import static android.Manifest.permission.EXPAND_STATUS_BAR;
  *     blog  : http://blankj.com
  *     time  : 2016/09/23
  *     desc  : utils about bar
+ *     状态栏的工具类
  * </pre>
  */
 public final class BarUtils {

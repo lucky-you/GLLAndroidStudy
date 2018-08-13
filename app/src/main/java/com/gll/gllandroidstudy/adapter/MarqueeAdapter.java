@@ -20,6 +20,7 @@ public class MarqueeAdapter extends RecyclerView.Adapter<MarqueeAdapter.ViewHold
 
     private List<NoticeMessage> marqueeEntities;
 
+//    设置数据
     public void setData(List<NoticeMessage> marqueeEntities, int itemCount) {
         this.marqueeEntities = marqueeEntities;
         int remainder = marqueeEntities.size() % itemCount;
