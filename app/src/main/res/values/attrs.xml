@@ -7,5 +7,24 @@
         <attr name="showItemCount" format="integer|reference" />
         <attr name="scrollItemCount" format="integer|reference" />
     </declare-styleable>
+    <!--签到的View-->
+    <declare-styleable name="SignInStepView">
+        <!--圆的颜色-->
+        <attr name="svCircleColor" format="color" />
+        <!--字体的颜色-->
+        <attr name="svTextColor" format="color" />
+        <!--字体被选中时的颜色-->
+        <attr name="svSelectedColor" format="color" />
+        <!--圆角-->
+        <attr name="svFillRadius" format="dimension" />
+        <!--间距的宽度-->
+        <attr name="svStrokeWidth" format="dimension" />
+        <!--线宽-->
+        <attr name="svLineWidth" format="dimension" />
+        <!--字体大小-->
+        <attr name="svTextSize" format="dimension" />
+        <!--间距-->
+        <attr name="svDrawablePadding" format="dimension" />
 
+    </declare-styleable>
 </resources>

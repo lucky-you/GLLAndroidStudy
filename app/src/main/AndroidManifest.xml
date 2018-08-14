@@ -20,6 +20,7 @@
         <activity android:name=".activity.ViewFlipperActivity" />
         <activity android:name=".activity.RecyclerViewAddHeaderActivity"/>
         <activity android:name=".activity.CacheActivity"/>
+        <activity android:name=".activity.SignInStepViewActivity"/>
     </application>
 
 </manifest>
