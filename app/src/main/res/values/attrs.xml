@@ -27,4 +27,13 @@
         <attr name="svDrawablePadding" format="dimension" />
 
     </declare-styleable>
+
+
+    <declare-styleable name="CustomTitleView">
+        <attr name="cusTextViewText" format="string" />
+        <attr name="cusTextViewColor" format="color" />
+        <attr name="cusTextViewSize" format="dimension" />
+
+    </declare-styleable>
+
 </resources>
