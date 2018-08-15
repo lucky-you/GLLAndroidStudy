@@ -136,7 +136,6 @@ public class MarqueeView extends LinearLayout {
                     break;
             }
         }
-
         public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
             super.onScrolled(recyclerView, dx, dy);
         }
@@ -153,7 +152,8 @@ public class MarqueeView extends LinearLayout {
                 rv.smoothScrollToPosition(nextPosition);
             }
             if (totalCount == lastVisibleItemPosition) {
-                rv.scrollToPosition(0);
+//                rv.scrollToPosition(0);
+                rv.smoothScrollToPosition(0);
             }
         }
     }
@@ -196,7 +196,8 @@ public class MarqueeView extends LinearLayout {
         super.onDetachedFromWindow();
         if (marqueeHandler != null) {
             marqueeHandler.removeCallbacks(marqueeRunnable);
-            mRv.scrollToPosition(0);
+//            mRv.scrollToPosition(0);
+            mRv.smoothScrollToPosition(0);
         }
     }
 

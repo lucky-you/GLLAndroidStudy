@@ -1,13 +1,12 @@
 package com.gll.gllandroidstudy.activity;
 
-import android.databinding.DataBindingUtil;
+import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.app.ActionBar;
 import android.view.View;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
-import com.gll.gllandroidstudy.databinding.ActivityCacheBinding;
 
 /**
  * Created by: Z_B on 2018/8/12.
@@ -15,31 +14,17 @@ import com.gll.gllandroidstudy.databinding.ActivityCacheBinding;
  */
 public class CacheActivity extends BaseActivity {
 
-    ActivityCacheBinding binding;
 
     @Override
     protected void loadViewLayout() {
-//        setContentView(R.layout.activity_cache);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_cache);
-        binding.cacheRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-
-
-
-    }
-
-    public class Presenter {
-        public void onClickAddItem(View view) {
-        }
-
-        public void onClickRemoveItem(View view) {
-        }
+        setContentView(R.layout.activity_cache);
 
 
     }
 
     @Override
     protected void bindViews() {
-
+        initTitle("磁盘缓存");
     }
 
     @Override
