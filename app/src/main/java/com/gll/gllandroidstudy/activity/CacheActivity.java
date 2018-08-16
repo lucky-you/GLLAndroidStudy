@@ -1,9 +1,6 @@
 package com.gll.gllandroidstudy.activity;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.view.View;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
