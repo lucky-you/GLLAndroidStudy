@@ -19,14 +19,16 @@ public class MainActivity extends BaseActivity {
             "ViewFlipper实现垂直轮播广告效果",
             "RecyclerView添加头部布局使用",
             "Cache的使用",
-            "SignInStepView"
+            "SignInStepView",
+            "SpannableString"
 
     };
     private final Class<?>[] mClasses = {
             ViewFlipperActivity.class,
             RecyclerViewAddHeaderActivity.class,
             CacheActivity.class,
-            SignInStepViewActivity.class
+            SignInStepViewActivity.class,
+            SpannableStringActivity.class
     };
 
 
