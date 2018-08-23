@@ -7,31 +7,6 @@
 
     <include layout="@layout/include_titlebar" />
 
-    <com.gll.gllandroidstudy.view.SignInStepView
-        android:id="@+id/sivView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_100"
-        app:svCircleColor="@color/red_color_df4c56"
-        app:svDrawablePadding="@dimen/spacing_10"
-        app:svFillRadius="@dimen/spacing_2"
-        app:svLineWidth="@dimen/spacing_4"
-        app:svSelectedColor="@color/red_color_df4c56"
-        app:svStrokeWidth="@dimen/spacing_4"
-        app:svTextSize="@dimen/sp_14" />
-
-    <com.gll.gllandroidstudy.view.StepView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_40" />
-
-    <com.gll.gllandroidstudy.view.CustomTitleView
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_60"
-        android:layout_gravity="center"
-        android:layout_marginTop="@dimen/spacing_10"
-        android:background="@color/red_color_df4c56"
-        app:cusTextViewColor="@color/white"
-        app:cusTextViewSize="30sp"
-        app:cusTextViewText="哈哈哈哈哈" />
-
+    <include layout="@layout/include_recyclerview_layout" />
 
 </LinearLayout>

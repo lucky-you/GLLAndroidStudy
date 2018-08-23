@@ -1,6 +1,7 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public class SignInStepViewActivity extends BaseActivity {
 
-    private SignInStepView signInStepView;
+    private RecyclerView publicRecyclerView;
 
     @Override
     protected void loadViewLayout() {
@@ -26,14 +27,11 @@ public class SignInStepViewActivity extends BaseActivity {
 
     @Override
     protected void bindViews() {
-        signInStepView = get(R.id.sivView);
+        publicRecyclerView = get(R.id.publicRecyclerView);
     }
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        List<String> mDateList = Arrays.asList("今天", "明天", "后天");
-        signInStepView.setSteps(mDateList);
-        signInStepView.selectedStep(2);
 
 
     }
