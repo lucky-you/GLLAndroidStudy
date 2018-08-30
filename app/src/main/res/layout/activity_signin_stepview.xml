@@ -1,12 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/include_titlebar" />
 
-    <include layout="@layout/include_recyclerview_layout" />
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
 
-</LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_banner_imageView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_150"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall06" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_44"
+                android:gravity="center"
+                android:text="以上是头部banner的布局"
+                android:textColor="@color/color_a462ff"
+                android:textSize="@dimen/sp_14" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_150"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall06" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_150"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall10" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_150"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall11" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_150"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall12" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_150"
+                android:scaleType="centerCrop"
+                android:src="@drawable/wall06" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_44"
+                android:gravity="center"
+                android:text="以上是内容的布局"
+                android:textColor="@color/color_a462ff"
+                android:textSize="@dimen/sp_14" />
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_top_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_20" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/spacing_40">
+
+            <ImageView
+                android:id="@+id/iv_back_return"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/spacing_10"
+                android:src="@drawable/ic_back_return" />
+
+            <ImageView
+                android:id="@+id/iv_collection_grey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/spacing_10"
+                android:src="@drawable/ic_collection_grey" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

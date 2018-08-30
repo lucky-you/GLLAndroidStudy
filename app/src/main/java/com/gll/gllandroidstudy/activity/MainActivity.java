@@ -19,7 +19,7 @@ public class MainActivity extends BaseActivity {
             "ViewFlipper实现垂直轮播广告效果",
             "RecyclerView添加头部布局使用",
             "Cache的使用",
-            "RxJava2+Retrofit2+MVP的使用",
+            "NestedScrollView滑动的监听",
             "SpannableString",
 
     };
