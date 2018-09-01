@@ -3,15 +3,20 @@ package com.gll.gllandroidstudy.activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.utils.BarUtils;
+import com.gll.gllandroidstudy.view.JudgeNestedScrollView;
 import com.gll.gllandroidstudy.view.SignInStepView;
+import com.scwang.smartrefresh.layout.util.DensityUtil;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,9 +27,10 @@ import java.util.List;
  * @function : 签到流程的activity
  */
 public class SignInStepViewActivity extends BaseActivity {
-    private NestedScrollView nestScrollView;
+    private JudgeNestedScrollView nestScrollView;
     private LinearLayout llTopTitleLayout;
     private ImageView ivTopBannerImageView, ivBackReturnImageView, ivCollectionImageView;
+    private TextView tvDetails;
 
 
     @Override
@@ -40,6 +46,8 @@ public class SignInStepViewActivity extends BaseActivity {
         ivTopBannerImageView = get(R.id.iv_banner_imageView);
         ivBackReturnImageView = get(R.id.iv_back_return);
         ivCollectionImageView = get(R.id.iv_collection_grey);
+        tvDetails = get(R.id.tv_details);
+
     }
 
     @Override
@@ -47,6 +55,8 @@ public class SignInStepViewActivity extends BaseActivity {
 
 
     }
+
+    private int mScrollY = 0;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -58,13 +68,31 @@ public class SignInStepViewActivity extends BaseActivity {
             }
         });
 
-        nestScrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+        nestScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
+            int lastScrollY = 0;
+            int height = DensityUtil.dp2px(170);
+            int color = ContextCompat.getColor(getApplicationContext(), R.color.white) & 0x00ffffff;
 
+            @Override
+            public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+                if (lastScrollY < height) {
+                    scrollY = Math.min(height, scrollY);
+                    mScrollY = scrollY > height ? height : scrollY;
+                    llTopTitleLayout.setBackgroundColor(((255 * mScrollY / height) << 24) | color);
+//                    ivTopBannerImageView.setAlpha(1f * mScrollY / height);
+                }
+                if (scrollY == 0) {
+                    ivBackReturnImageView.setImageResource(R.drawable.ic_white_back_return);
+                    ivCollectionImageView.setImageResource(R.drawable.ic_collection_white);
+                    tvDetails.setVisibility(View.GONE);
+                } else {
+                    ivBackReturnImageView.setImageResource(R.drawable.ic_back_return);
+                    ivCollectionImageView.setImageResource(R.drawable.ic_collection_grey);
+                    tvDetails.setVisibility(View.VISIBLE);
+                }
+                lastScrollY = scrollY;
             }
         });
-
 
     }
 }

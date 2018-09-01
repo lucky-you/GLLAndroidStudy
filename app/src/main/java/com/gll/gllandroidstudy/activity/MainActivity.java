@@ -21,6 +21,7 @@ public class MainActivity extends BaseActivity {
             "Cache的使用",
             "NestedScrollView滑动的监听",
             "SpannableString",
+            "选择图片并且九宫格展示"
 
     };
     private final Class<?>[] mClasses = {
@@ -28,7 +29,8 @@ public class MainActivity extends BaseActivity {
             RecyclerViewAddHeaderActivity.class,
             CacheActivity.class,
             SignInStepViewActivity.class,
-            SpannableStringActivity.class
+            SpannableStringActivity.class,
+            SelectImageViewActivity.class
     };
 
 

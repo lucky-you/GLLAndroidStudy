@@ -21,7 +21,6 @@ public class BaseApplication extends Application {
     }
 
 
-
     public static BaseApplication getInstance() {
         return baseApplication;
     }
@@ -29,6 +28,7 @@ public class BaseApplication extends Application {
 
     /**
      * 获取版本号
+     *
      * @return
      */
     public static int getAppVersionCode() {

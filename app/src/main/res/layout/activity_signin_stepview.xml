@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
 
-    <android.support.v4.widget.NestedScrollView
+    <com.gll.gllandroidstudy.view.JudgeNestedScrollView
         android:id="@+id/nestScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
             <ImageView
                 android:id="@+id/iv_banner_imageView"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/spacing_150"
+                android:layout_height="@dimen/spacing_200"
                 android:scaleType="centerCrop"
                 android:src="@drawable/wall06" />
 
@@ -74,7 +74,7 @@
         </LinearLayout>
 
 
-    </android.support.v4.widget.NestedScrollView>
+    </com.gll.gllandroidstudy.view.JudgeNestedScrollView>
 
     <LinearLayout
         android:id="@+id/ll_top_title_layout"
@@ -84,7 +84,8 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/spacing_20" />
+            android:layout_height="@dimen/spacing_20"
+            android:visibility="gone" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -95,8 +96,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/spacing_10"
-                android:src="@drawable/ic_back_return" />
+                android:padding="@dimen/spacing_10"
+                android:src="@drawable/ic_white_back_return" />
+
+
+            <TextView
+                android:id="@+id/tv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="商品详情"
+                android:textColor="@color/text_color_333"
+                android:textSize="@dimen/sp_16"
+                android:visibility="gone" />
 
             <ImageView
                 android:id="@+id/iv_collection_grey"
@@ -104,8 +116,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="@dimen/spacing_10"
-                android:src="@drawable/ic_collection_grey" />
+                android:padding="@dimen/spacing_10"
+                android:src="@drawable/ic_collection_white" />
 
         </RelativeLayout>
 
