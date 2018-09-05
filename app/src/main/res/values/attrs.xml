@@ -36,4 +36,24 @@
 
     </declare-styleable>
 
+
+    <declare-styleable name="MomentPicView">
+        <attr name="mpvHorizontalSpace" format="dimension" />
+        <attr name="mpvVerticalSpace" format="dimension" />
+        <attr name="mpvRadius" format="dimension" />
+        <attr name="mpvRatio" format="float" />
+        <attr name="mpvColumns" format="integer" />
+        <attr name="mpvPrevNum" format="integer" />
+        <attr name="mpvTest" format="boolean" />
+        <attr name="mpvShowRule" format="enum">
+            <enum name="RULE_123" value="1" />
+            <enum name="RULE_13" value="2" />
+            <enum name="RULE_3" value="3" />
+            <enum name="RULE_1" value="4" />
+        </attr>
+        <attr name="mpvAddIcon" format="reference" />
+        <attr name="mpvAddIconInStart" format="boolean" />
+        <attr name="mpvDelIcon" format="reference" />
+        <attr name="mpvMaxImg" format="integer" />
+    </declare-styleable>
 </resources>

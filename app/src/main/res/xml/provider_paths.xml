@@ -13,7 +13,4 @@
         name="external_storage_root"
         path="." />
 
-    <cache-path name="internal" path="boxing" />
-
-    <external-path name="external" path="DCIM/bili/boxing" />
 </paths>

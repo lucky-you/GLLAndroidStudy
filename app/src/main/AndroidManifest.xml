@@ -47,6 +47,22 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
+        <!--boxing-->
+        <provider
+            android:name=".provider.ImageFileProvider"
+            android:authorities="com.gll.gllandroidstudy.file.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/boxing_file_provider" />
+        </provider>
+
+
+        <activity
+            android:name="com.yalantis.ucrop.UCropActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Boxing.AppTheme.NoActionBar" />
 
         <activity android:name=".activity.MainActivity">
             <intent-filter>

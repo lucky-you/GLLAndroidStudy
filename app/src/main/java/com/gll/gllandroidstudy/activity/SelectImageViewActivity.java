@@ -1,31 +1,36 @@
 package com.gll.gllandroidstudy.activity;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.Manifest;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bilibili.boxing.Boxing;
+import com.bilibili.boxing.model.config.BoxingConfig;
+import com.bilibili.boxing.model.config.BoxingCropOption;
+import com.bilibili.boxing.model.entity.BaseMedia;
+import com.bilibili.boxing.model.entity.impl.ImageMedia;
+import com.bilibili.boxing.utils.BoxingFileHelper;
+import com.bilibili.boxing.utils.ImageCompressor;
+import com.bilibili.boxing_impl.ui.BoxingActivity;
 import com.gll.gllandroidstudy.R;
-import com.gll.gllandroidstudy.adapter.ImagePickerAdapter;
+import com.gll.gllandroidstudy.adapter.MediaResultAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
-import com.gll.gllandroidstudy.utils.GlideImageLoader;
-import com.lzy.imagepicker.ImagePicker;
-import com.lzy.imagepicker.bean.ImageItem;
-import com.lzy.imagepicker.ui.ImageGridActivity;
-import com.lzy.imagepicker.ui.ImagePreviewDelActivity;
-import com.lzy.imagepicker.view.CropImageView;
+import com.gll.gllandroidstudy.callback.OnRecyclerViewItemClickListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import me.weyye.hipermission.HiPermission;
 import me.weyye.hipermission.PermissionCallback;
+import me.weyye.hipermission.PermissionItem;
 
 /**
  * 选择图片
@@ -33,188 +38,181 @@ import me.weyye.hipermission.PermissionCallback;
 public class SelectImageViewActivity extends BaseActivity {
 
 
-    private TextView tv_choose_one_imageView, tv_choose_more_imageView;
+    private TextView tv_choose_one_imageView, tv_choose_one_imageView_and_croup, tv_choose_more_imageView;
     private RecyclerView imageViewRecyclerView;
-    public static final int IMAGE_ITEM_ADD = -1;
-    public static final int REQUEST_CODE_SELECT = 100;
-    public static final int REQUEST_CODE_PREVIEW = 101;
+    private static final int COMPRESS_REQUEST_CODE = 2048;
+    private static final int REQUEST_CODE = 1024;
 
-    private ImagePickerAdapter adapter;
-    private ArrayList<ImageItem> selImageList = new ArrayList<>(); //当前选择的所有图片
+    private MediaResultAdapter mediaResultAdapter;
+    private ArrayList<BaseMedia> selImageList = new ArrayList<>(); //当前选择的所有图片
     private int maxImgCount = 9;               //允许选择图片最大数
+
+    private int chooseType = 1;
 
     @Override
     protected void loadViewLayout() {
         setContentView(R.layout.activity_select_image_view);
+        setPermission();
     }
 
     @Override
     protected void bindViews() {
         initTitle("图片选择");
         tv_choose_one_imageView = get(R.id.tv_choose_one_imageView);
+        tv_choose_one_imageView_and_croup = get(R.id.tv_choose_one_imageView_and_croup);
         tv_choose_more_imageView = get(R.id.tv_choose_more_imageView);
         imageViewRecyclerView = get(R.id.imageViewRecyclerView);
-        initImagePicker();
     }
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
 
-        adapter = new ImagePickerAdapter(this, selImageList, maxImgCount);
+        mediaResultAdapter = new MediaResultAdapter(maxImgCount, selImageList);
         imageViewRecyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         imageViewRecyclerView.setHasFixedSize(true);
-        imageViewRecyclerView.setAdapter(adapter);
+        imageViewRecyclerView.setAdapter(mediaResultAdapter);
     }
 
-    private void initImagePicker() {
-        ImagePicker imagePicker = ImagePicker.getInstance();
-        imagePicker.setImageLoader(new GlideImageLoader());   //设置图片加载器
-        imagePicker.setShowCamera(true);                      //显示拍照按钮
-        imagePicker.setCrop(true);                           //允许裁剪（单选才有效）
-        imagePicker.setSaveRectangle(true);                   //是否按矩形区域保存
-        imagePicker.setSelectLimit(9);              //选中数量限制
-        imagePicker.setStyle(CropImageView.Style.RECTANGLE);  //裁剪框的形状
-        imagePicker.setFocusWidth(800);                       //裁剪框的宽度。单位像素（圆形自动取宽高最小值）
-        imagePicker.setFocusHeight(800);                      //裁剪框的高度。单位像素（圆形自动取宽高最小值）
-        imagePicker.setOutPutX(1000);                         //保存文件的宽度。单位像素
-        imagePicker.setOutPutY(1000);                         //保存文件的高度。单位像素
-    }
 
     @Override
     protected void setListener() {
         tv_choose_one_imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setPermission(1);
+                chooseType = 1;
+                chooseOneImageView();
+
+            }
+        });
+
+        tv_choose_one_imageView_and_croup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chooseType = 2;
+                chooseOneImageAndCrop();
             }
         });
         tv_choose_more_imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setPermission(2);
+                chooseType = 3;
+                chooseMoreImage();
             }
         });
 
-        adapter.setOnItemClickListener(new ImagePickerAdapter.OnRecyclerViewItemClickListener() {
+        mediaResultAdapter.setOnItemClickListener(new OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                switch (position) {
-                    case IMAGE_ITEM_ADD:
-                        String[] title = {"拍照", "相册"};
-                        AlertDialog.Builder builder = new AlertDialog.Builder(mContext)
-                                .setItems(title, new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialogInterface, int index) {
-                                        switch (index) {
-                                            case 0: // 直接调起相机
-                                                /**
-                                                 * 0.4.7 目前直接调起相机不支持裁剪，如果开启裁剪后不会返回图片，请注意，后续版本会解决
-                                                 *
-                                                 * 但是当前直接依赖的版本已经解决，考虑到版本改动很少，所以这次没有上传到远程仓库
-                                                 *
-                                                 * 如果实在有所需要，请直接下载源码引用。
-                                                 */
-                                                //打开选择,本次允许选择的数量
-                                                ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
-                                                Intent intent = new Intent(mContext, ImageGridActivity.class);
-                                                intent.putExtra(ImageGridActivity.EXTRAS_TAKE_PICKERS, true); // 是否是直接打开相机
-                                                startActivityForResult(intent, REQUEST_CODE_SELECT);
-                                                break;
-                                            case 1:
-                                                //打开选择,本次允许选择的数量
-                                                ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
-                                                Intent intent1 = new Intent(mContext, ImageGridActivity.class);
-                                                /* 如果需要进入选择的时候显示已经选中的图片，
-                                                 * 详情请查看ImagePickerActivity
-                                                 * */
-//                                intent1.putExtra(ImageGridActivity.EXTRAS_IMAGES,images);
-                                                startActivityForResult(intent1, REQUEST_CODE_SELECT);
-                                                break;
-                                            default:
-                                                break;
-                                        }
-                                    }
-                                });
-                        builder.show();
-
-
+                switch (chooseType) {
+                    case 1:
+                        chooseOneImageView();
                         break;
-                    default:
-                        //打开预览
-                        Intent intentPreview = new Intent(mContext, ImagePreviewDelActivity.class);
-                        intentPreview.putExtra(ImagePicker.EXTRA_IMAGE_ITEMS, (ArrayList<ImageItem>) adapter.getImages());
-                        intentPreview.putExtra(ImagePicker.EXTRA_SELECTED_IMAGE_POSITION, position);
-                        intentPreview.putExtra(ImagePicker.EXTRA_FROM_ITEMS, true);
-                        startActivityForResult(intentPreview, REQUEST_CODE_PREVIEW);
+                    case 2:
+                        chooseOneImageAndCrop();
+                        break;
+                    case 3:
+                        chooseMoreImage();
                         break;
                 }
+
             }
         });
 
     }
 
-
-    private void setPermission(final int type) {
-        HiPermission.create(mContext)
-                .checkMutiPermission(new PermissionCallback() {
-                    @Override
-                    public void onClose() {
-                        showToast("They cancelled our request");
-                    }
-
-                    @Override
-                    public void onFinish() {
-                        if (1 == type) {
-                            //打开选择,本次允许选择的数量
-                            ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
-                            Intent intent = new Intent(mContext, ImageGridActivity.class);
-                            intent.putExtra(ImageGridActivity.EXTRAS_TAKE_PICKERS, true); // 是否是直接打开相机
-                            startActivityForResult(intent, REQUEST_CODE_SELECT);
-                        } else {
-                            ImagePicker.getInstance().setSelectLimit(maxImgCount - selImageList.size());
-                            Intent intent1 = new Intent(mContext, ImageGridActivity.class);
-                            startActivityForResult(intent1, REQUEST_CODE_SELECT);
-
-                        }
-                    }
-
-                    @Override
-                    public void onDeny(String permission, int position) {
-                    }
-
-                    @Override
-                    public void onGuarantee(String permission, int position) {
-                    }
-                });
-    }
-
-
-    ArrayList<ImageItem> images = null;
-
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == ImagePicker.RESULT_CODE_ITEMS) {
-            //添加图片返回
-            if (data != null && requestCode == REQUEST_CODE_SELECT) {
-                images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_RESULT_ITEMS);
-                if (images != null) {
-                    selImageList.addAll(images);
-                    adapter.setImages(selImageList);
+        if (resultCode == RESULT_OK) {
+            final ArrayList<BaseMedia> medias = Boxing.getResult(data);
+            if (requestCode == REQUEST_CODE) {
+                mediaResultAdapter.setList(medias);
+            } else if (requestCode == COMPRESS_REQUEST_CODE) {
+                final List<BaseMedia> imageMedias = new ArrayList<>(1);
+                BaseMedia baseMedia = medias.get(0);
+                if (!(baseMedia instanceof ImageMedia)) {
+                    return;
                 }
-            }
-        } else if (resultCode == ImagePicker.RESULT_CODE_BACK) {
-            //预览图片返回
-            if (data != null && requestCode == REQUEST_CODE_PREVIEW) {
-                images = (ArrayList<ImageItem>) data.getSerializableExtra(ImagePicker.EXTRA_IMAGE_ITEMS);
-                if (images != null) {
-                    selImageList.clear();
-                    selImageList.addAll(images);
-                    adapter.setImages(selImageList);
+                final ImageMedia imageMedia = (ImageMedia) baseMedia;
+                // the compress task may need time
+                if (imageMedia.compress(new ImageCompressor(this))) {
+                    imageMedia.removeExif();
+                    imageMedias.add(imageMedia);
+                    mediaResultAdapter.setList(imageMedias);
                 }
+
             }
         }
     }
 
+    /**
+     * 选择单张并且裁剪
+     */
+    private void chooseOneImageAndCrop() {
+        String cachePath = BoxingFileHelper.getCacheDir(mContext);
+        if (TextUtils.isEmpty(cachePath)) {
+            Toast.makeText(getApplicationContext(), R.string.boxing_storage_deny, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        Uri destUri = new Uri.Builder()
+                .scheme("file")
+                .appendPath(cachePath)
+                .appendPath(String.format(Locale.US, "%s.png", System.currentTimeMillis()))
+                .build();
+        BoxingConfig singleCropImgConfig = new BoxingConfig(BoxingConfig.Mode.SINGLE_IMG).withCropOption(new BoxingCropOption(destUri))
+                .withMediaPlaceHolderRes(R.drawable.ic_boxing_default_image);
+        Boxing.of(singleCropImgConfig).withIntent(mContext, BoxingActivity.class).start(SelectImageViewActivity.this, REQUEST_CODE);
+    }
 
+    /**
+     * 选择单张
+     */
+    private void chooseOneImageView() {
+        BoxingConfig singleImgConfig = new BoxingConfig(BoxingConfig.Mode.SINGLE_IMG).withMediaPlaceHolderRes(R.drawable.ic_boxing_default_image);
+        Boxing.of(singleImgConfig).withIntent(mContext, BoxingActivity.class).start(SelectImageViewActivity.this, COMPRESS_REQUEST_CODE);
+    }
+
+    /**
+     * /选择多张
+     */
+    private void chooseMoreImage() {
+        BoxingConfig config = new BoxingConfig(BoxingConfig.Mode.MULTI_IMG)
+                .needCamera(R.drawable.ic_camera_image)
+//                .withMaxCount(3)
+                .needGif();
+        Boxing.of(config).withIntent(mContext, BoxingActivity.class).start(SelectImageViewActivity.this, REQUEST_CODE);
+    }
+
+
+    public void setPermission() {
+        List<PermissionItem> permissionItems = new ArrayList<PermissionItem>();
+        permissionItems.add(new PermissionItem(Manifest.permission.WRITE_EXTERNAL_STORAGE, "存储空间", R.drawable.permission_ic_storage));
+        permissionItems.add(new PermissionItem(Manifest.permission.CAMERA, "照相机", R.drawable.permission_ic_camera));
+        permissionItems.add(new PermissionItem(Manifest.permission.ACCESS_FINE_LOCATION, "位置信息", R.drawable.permission_ic_location));
+        HiPermission.create(this)
+                .permissions(permissionItems)
+                .checkMutiPermission(new PermissionCallback() {
+                    @Override
+                    public void onClose() {
+
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        showToast("权限获取成功");
+
+                    }
+
+                    @Override
+                    public void onDeny(String permission, int position) {
+
+                    }
+
+                    @Override
+                    public void onGuarantee(String permission, int position) {
+
+                    }
+                });
+
+    }
 }

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GLLAndroidStudy</string>
+    <string name="storage_deny">设备存储读取出错或暂不可用，请稍候重试</string>
+    <string name="boxing_storage_deny">设备存储读取出错或暂不可用，请稍候重试</string>
 </resources>
