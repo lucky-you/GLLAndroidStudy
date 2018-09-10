@@ -12,11 +12,11 @@ import java.util.List;
  *     desc  :
  * </pre>
  */
-public abstract class SingleAdapter<M> extends BaseAdapter<M> {
+public abstract class SimpleAdapter<M> extends BaseAdapter<M> {
 
     private final int mLayoutId;
 
-    public SingleAdapter(List<M> list, @LayoutRes int layoutId) {
+    public SimpleAdapter(List<M> list, @LayoutRes int layoutId) {
         setData(list);
         mLayoutId = layoutId;
     }
