@@ -22,7 +22,8 @@ public class MainActivity extends BaseActivity {
             "NestedScrollView滑动的监听",
             "SpannableString",
             "BaseRecyclerViewAdapter",
-            "选择图片并且九宫格展示"
+            "选择图片并且九宫格展示",
+            "城市的三级选择"
 
     };
     private final Class<?>[] mClasses = {
@@ -31,9 +32,9 @@ public class MainActivity extends BaseActivity {
             CacheActivity.class,
             SignInStepViewActivity.class,
             SpannableStringActivity.class,
-            SpannableStringActivity.class,
             BaseRecyclerViewAdapter.class,
-            SelectImageViewActivity.class
+            SelectImageViewActivity.class,
+            SelectCityActivity.class
     };
 
 

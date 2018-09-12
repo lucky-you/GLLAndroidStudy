@@ -27,5 +27,6 @@
     <string name="image_compress_by_quality_max_size">Compress By Quality Max Size</string>
     <string name="image_compress_by_sample_size">Compress By Sample Size</string>
 
+    <string name="storage_deny">这是一个提示</string>
 
 </resources>

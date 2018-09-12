@@ -22,7 +22,9 @@
         <activity android:name=".activity.CacheActivity" />
         <activity android:name=".activity.SignInStepViewActivity" />
         <activity android:name=".activity.SpannableStringActivity" />
-        <activity android:name=".activity.BaseRecyclerViewAdapter"></activity>
+        <activity android:name=".activity.BaseRecyclerViewAdapter" />
+        <activity android:name=".activity.SelectImageViewActivity" />
+        <activity android:name=".activity.SelectCityActivity"></activity>
     </application>
 
 </manifest>
