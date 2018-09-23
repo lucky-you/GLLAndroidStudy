@@ -81,10 +81,10 @@
 //     * @param listener
 //     * @return
 //     */
-//    Dialog bulidDateDialog(Context context, final TextView textView, final CustomWheelDatePicker.OnDateSelectedListener listener) {
+//    Dialog bulidDateDialog  final View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_select_time, null);
+////       (Context context, final TextView textView, final CustomWheelDatePicker.OnDateSelectedListener listener) {
 //        if (dialog == null) {
-//            final View dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_select_time, null);
-//            dialog = UIUtils.createDialog(context, dialogView, true);
+//               dialog = UIUtils.createDialog(context, dialogView, true);
 //            final CustomWheelDatePicker wheelPicker = (CustomWheelDatePicker) dialogView.findViewById(R.id.wheel_date_picker);
 //            Date tmpDate = (Date) textView.getTag();
 //            if (tmpDate != null) {
