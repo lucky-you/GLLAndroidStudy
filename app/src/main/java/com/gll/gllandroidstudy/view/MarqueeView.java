@@ -35,7 +35,8 @@ public class MarqueeView extends LinearLayout {
     private final String TAG = "MarqueeTag";
 
     private MarqueeScrollListener marqueeScrollListener;
-    private SmoothScrollLinearLayoutManager layoutManager;
+//    private SmoothScrollLinearLayoutManager layoutManager;
+    private AutoScrollLayoutManager layoutManager;
 
     public MarqueeView(Context context) {
         this(context, null);
@@ -77,7 +78,8 @@ public class MarqueeView extends LinearLayout {
         mRv = new RecyclerView(context);
         mRv.setHasFixedSize(true);
 
-        layoutManager = new SmoothScrollLinearLayoutManager(context);
+//        layoutManager = new SmoothScrollLinearLayoutManager(context);
+        layoutManager = new AutoScrollLayoutManager(context);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRv.setLayoutManager(layoutManager);
 

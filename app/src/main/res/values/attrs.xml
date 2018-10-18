@@ -7,6 +7,8 @@
         <attr name="showItemCount" format="integer|reference" />
         <attr name="scrollItemCount" format="integer|reference" />
     </declare-styleable>
+
+
     <!--签到的View-->
     <declare-styleable name="SignInStepView">
         <!--圆的颜色-->

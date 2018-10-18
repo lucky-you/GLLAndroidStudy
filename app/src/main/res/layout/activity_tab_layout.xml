@@ -16,4 +16,16 @@
         app:showItemCount="5"
         app:standDuration="2000"
         app:turningDuration="1000" />
+
+
+    <com.gll.gllandroidstudy.view.UPMarqueeView
+        android:id="@+id/uPMarqueeView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/noticeRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>

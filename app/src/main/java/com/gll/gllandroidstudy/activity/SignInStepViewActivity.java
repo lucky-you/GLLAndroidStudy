@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -13,13 +12,8 @@ import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
-import com.gll.gllandroidstudy.utils.BarUtils;
 import com.gll.gllandroidstudy.view.JudgeNestedScrollView;
-import com.gll.gllandroidstudy.view.SignInStepView;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author : Z_B
@@ -79,7 +73,6 @@ public class SignInStepViewActivity extends BaseActivity {
                     scrollY = Math.min(height, scrollY);
                     mScrollY = scrollY > height ? height : scrollY;
                     llTopTitleLayout.setBackgroundColor(((255 * mScrollY / height) << 24) | color);
-//                    ivTopBannerImageView.setAlpha(1f * mScrollY / height);
                 }
                 if (scrollY == 0) {
                     ivBackReturnImageView.setImageResource(R.drawable.ic_white_back_return);
