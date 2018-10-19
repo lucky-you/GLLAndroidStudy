@@ -52,7 +52,6 @@ public class AutoScrollRecyclerView extends RecyclerView {
 
     }
 
-
     @Override
     public boolean onTouchEvent(MotionEvent e) {
         return true;

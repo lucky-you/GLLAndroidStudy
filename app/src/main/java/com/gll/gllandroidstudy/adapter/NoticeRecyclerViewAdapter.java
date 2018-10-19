@@ -21,7 +21,6 @@ public class NoticeRecyclerViewAdapter extends BaseQuickAdapter<NoticeMessage, B
         super(R.layout.include_view_flipper_view, data);
     }
 
-
     @Override
     protected void convert(BaseViewHolder helper, NoticeMessage item) {
         helper.setText(R.id.tv_member_name, item.messageTitle)
@@ -37,6 +36,7 @@ public class NoticeRecyclerViewAdapter extends BaseQuickAdapter<NoticeMessage, B
 
     @Override
     public int getItemViewType(int position) {
+        //刚开始进入包含该类的activity时,count为0。就会出现0%0的情况，这会抛出异常，所以我们要在下面做一下判断
         int count = getHeaderLayoutCount() + getData().size();
         if (count <= 0) {
             count = 1;

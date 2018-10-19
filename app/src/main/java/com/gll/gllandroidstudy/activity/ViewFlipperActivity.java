@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
@@ -93,21 +94,22 @@ public class ViewFlipperActivity extends BaseActivity {
     }
 
     private void AutoStart() {
-        if (mAutoTask != null && (mAutoTask.isDisposed() == true)) {
+        if (mAutoTask != null && (!mAutoTask.isDisposed())) {
             mAutoTask.dispose();
         }
         mAutoTask = Observable.interval(1, 2, TimeUnit.SECONDS)
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(Long aLong) throws Exception {
-                        noticeRecyclerView.smoothScrollToPosition((int) (4 + aLong));
+                        noticeRecyclerView.smoothScrollToPosition((int) (3 + aLong));
                     }
                 });
 //        noticeRecyclerView.start();
     }
 
     private void stopAuto() {
-        if (mAutoTask != null && (mAutoTask.isDisposed() == true)) {
+        if (mAutoTask != null && (!mAutoTask.isDisposed())) {
             mAutoTask.dispose();
             mAutoTask = null;
         }

@@ -18,10 +18,8 @@ public class AutoScrollLayoutManager extends LinearLayoutManager {
         super(context);
     }
 
-    //  客制化需要实现该方法；
     @Override
-    public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int
-            position) {
+    public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int position) {
         LinearSmoothScroller linearSmoothScroller =
                 new LinearSmoothScroller(recyclerView.getContext()) {
                     @Nullable
@@ -31,6 +29,7 @@ public class AutoScrollLayoutManager extends LinearLayoutManager {
                                 (targetPosition);
                     }
 
+                    //返回滑动一个pixel需要多少毫秒
                     @Override
                     protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
                         // 计算滑动每个像素需要的时间，这里应该与屏幕适配；
