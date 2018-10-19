@@ -98,11 +98,10 @@ public class ViewFlipperActivity extends BaseActivity {
             mAutoTask.dispose();
         }
         mAutoTask = Observable.interval(1, 2, TimeUnit.SECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(Long aLong) throws Exception {
-                        noticeRecyclerView.smoothScrollToPosition((int) (3 + aLong));
+                        noticeRecyclerView.smoothScrollToPosition((int) (3+ aLong));
                     }
                 });
 //        noticeRecyclerView.start();

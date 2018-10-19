@@ -26,6 +26,6 @@
     <com.gll.gllandroidstudy.view.AutoScrollRecyclerView
         android:id="@+id/noticeRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_90" />
+        android:layout_height="@dimen/spacing_120" />
 
 </LinearLayout>
