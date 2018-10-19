@@ -1,7 +1,6 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.gll.gllandroidstudy.R;
@@ -11,12 +10,18 @@ import com.gll.gllandroidstudy.adapter.NoticeRecyclerViewAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
 import com.gll.gllandroidstudy.model.NoticeMessage;
 import com.gll.gllandroidstudy.view.AutoScrollLayoutManager;
+import com.gll.gllandroidstudy.view.AutoScrollRecyclerView;
 import com.gll.gllandroidstudy.view.MarqueeView;
 import com.gll.gllandroidstudy.view.MemberTitleView;
 import com.gll.gllandroidstudy.view.UPMarqueeView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 public class ViewFlipperActivity extends BaseActivity {
 
@@ -25,9 +30,10 @@ public class ViewFlipperActivity extends BaseActivity {
     private UPMarqueeView upMarqueeView;
 
     private MembershipListAdapter membershipListAdapter;
-    private RecyclerView noticeRecyclerView;
-    private NoticeRecyclerViewAdapter noticeRecyclerViewAdapter;
 
+    private AutoScrollRecyclerView noticeRecyclerView;
+    private NoticeRecyclerViewAdapter noticeRecyclerViewAdapter;
+    private Disposable mAutoTask;
 
     @Override
     protected void loadViewLayout() {
@@ -71,34 +77,46 @@ public class ViewFlipperActivity extends BaseActivity {
         upMarqueeView.setViews(viewList);
 
 
-        noticeRecyclerViewAdapter = new NoticeRecyclerViewAdapter(mContext, noticeMessageList);
+        noticeRecyclerViewAdapter = new NoticeRecyclerViewAdapter(noticeMessageList);
         AutoScrollLayoutManager autoScrollLayoutManager = new AutoScrollLayoutManager(mContext);
         noticeRecyclerView.setLayoutManager(autoScrollLayoutManager);
         noticeRecyclerView.setAdapter(noticeRecyclerViewAdapter);
+//        noticeRecyclerView.start();
+
+        AutoStart();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        stopAuto();
+    }
+
+    private void AutoStart() {
+        if (mAutoTask != null && (mAutoTask.isDisposed() == true)) {
+            mAutoTask.dispose();
+        }
+        mAutoTask = Observable.interval(1, 2, TimeUnit.SECONDS)
+                .subscribe(new Consumer<Long>() {
+                    @Override
+                    public void accept(Long aLong) throws Exception {
+                        noticeRecyclerView.smoothScrollToPosition((int) (4 + aLong));
+                    }
+                });
+//        noticeRecyclerView.start();
+    }
+
+    private void stopAuto() {
+        if (mAutoTask != null && (mAutoTask.isDisposed() == true)) {
+            mAutoTask.dispose();
+            mAutoTask = null;
+        }
+        noticeRecyclerView.stop();
 
     }
 
 
-
     @Override
     protected void setListener() {
-        noticeRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    // 如果自动滑动到最后一个位置，则此处状态为SCROLL_STATE_IDLE
-                    AutoScrollLayoutManager lm = (AutoScrollLayoutManager) recyclerView
-                            .getLayoutManager();
-                    int position = lm.findLastCompletelyVisibleItemPosition();
-                    int count = lm.getItemCount();
-                    if(position == count-1){
-                        lm.scrollToPosition(0);
-                        recyclerView.smoothScrollToPosition(noticeRecyclerViewAdapter.getItemCount());
-                    }
-                }
-
-            }
-        });
     }
 }

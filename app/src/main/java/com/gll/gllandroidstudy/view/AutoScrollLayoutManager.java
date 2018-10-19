@@ -34,7 +34,7 @@ public class AutoScrollLayoutManager extends LinearLayoutManager {
                     @Override
                     protected float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
                         // 计算滑动每个像素需要的时间，这里应该与屏幕适配；
-                        return 15f / displayMetrics.density;
+                        return 5f / displayMetrics.density;
                     }
                 };
         linearSmoothScroller.setTargetPosition(position);
