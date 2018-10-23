@@ -36,6 +36,7 @@ public class AutoScrollLayoutManager extends LinearLayoutManager {
                         return 5f / displayMetrics.density;
                     }
                 };
+
         linearSmoothScroller.setTargetPosition(position);
         startSmoothScroll(linearSmoothScroller);
 

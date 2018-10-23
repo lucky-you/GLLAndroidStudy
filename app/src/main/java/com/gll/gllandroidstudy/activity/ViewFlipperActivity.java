@@ -1,7 +1,6 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.RecyclerView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.adapter.MarqueeAdapter;
@@ -20,7 +19,6 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 
@@ -82,10 +80,11 @@ public class ViewFlipperActivity extends BaseActivity {
         AutoScrollLayoutManager autoScrollLayoutManager = new AutoScrollLayoutManager(mContext);
         noticeRecyclerView.setLayoutManager(autoScrollLayoutManager);
         noticeRecyclerView.setAdapter(noticeRecyclerViewAdapter);
-//        noticeRecyclerView.start();
 
         AutoStart();
+
     }
+
 
     @Override
     protected void onDestroy() {
@@ -101,10 +100,9 @@ public class ViewFlipperActivity extends BaseActivity {
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(Long aLong) throws Exception {
-                        noticeRecyclerView.smoothScrollToPosition((int) (3+ aLong));
+                        noticeRecyclerView.smoothScrollToPosition((int) (5 + aLong));
                     }
                 });
-//        noticeRecyclerView.start();
     }
 
     private void stopAuto() {

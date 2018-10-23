@@ -49,9 +49,7 @@ public class AutoScrollRecyclerView extends RecyclerView {
             mAutoTask.dispose();
             mAutoTask = null;
         }
-
     }
-
 
     @Override
     public boolean onTouchEvent(MotionEvent e) {

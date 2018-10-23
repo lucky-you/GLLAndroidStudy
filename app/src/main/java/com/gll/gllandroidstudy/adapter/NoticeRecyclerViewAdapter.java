@@ -30,7 +30,7 @@ public class NoticeRecyclerViewAdapter extends BaseQuickAdapter<NoticeMessage, B
     @Nullable
     @Override
     public NoticeMessage getItem(int position) {
-        int newPosition = position % mData.size();
+        int newPosition = position % getData().size();
         return getData().get(newPosition);
     }
 
