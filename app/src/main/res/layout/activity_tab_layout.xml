@@ -8,21 +8,6 @@
     <include layout="@layout/include_titlebar" />
 
 
-    <com.gll.gllandroidstudy.view.MarqueeView
-        android:id="@+id/marqueeView"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_90"
-        app:scrollItemCount="1"
-        app:showItemCount="5"
-        app:standDuration="2000"
-        app:turningDuration="1000" />
-
-
-    <com.gll.gllandroidstudy.view.UPMarqueeView
-        android:id="@+id/uPMarqueeView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
     <com.gll.gllandroidstudy.view.AutoScrollRecyclerView
         android:id="@+id/noticeRecyclerView"
         android:layout_width="match_parent"

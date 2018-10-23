@@ -15,9 +15,4 @@ public class NoticeMessage {
         this.messageUrl = messageUrl;
     }
 
-    public NoticeMessage(String messageTitle, String messageUrl, boolean isFired) {
-        this.messageTitle = messageTitle;
-        this.messageUrl = messageUrl;
-        this.isFired = isFired;
-    }
 }
