@@ -45,7 +45,7 @@ public class ViewFlipperActivity extends BaseActivity {
     protected void processLogic(Bundle savedInstanceState) {
         List<NoticeMessage> noticeMessageList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            noticeMessageList.add(new NoticeMessage("会员" + i, "编号:4877" + i));
+            noticeMessageList.add(new NoticeMessage("会员120" + i, "编号:4877" + i));
         }
 
         noticeRecyclerViewAdapter = new NoticeRecyclerViewAdapter(noticeMessageList);
@@ -72,7 +72,7 @@ public class ViewFlipperActivity extends BaseActivity {
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(Long aLong) throws Exception {
-                        noticeRecyclerView.smoothScrollToPosition((int) (5 + aLong));
+                        noticeRecyclerView.smoothScrollToPosition( (5 + aLong.intValue()));
                     }
                 });
     }
