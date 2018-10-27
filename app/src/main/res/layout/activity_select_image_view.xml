@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -10,53 +8,33 @@
 
     <include layout="@layout/include_titlebar" />
 
-    <LinearLayout
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/RefreshLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_40"
-        android:orientation="horizontal">
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/ll_button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
 
 
-        <TextView
-            android:id="@+id/tv_choose_one_imageView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/red_color_df4c56"
-            android:gravity="center"
-            android:text="选择单张图片"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp_14" />
-
-        <TextView
-            android:id="@+id/tv_choose_one_imageView_and_croup"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/red_color_ff6971"
-            android:gravity="center"
-            android:text="选择单张并裁剪"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp_14" />
-
-        <TextView
-            android:id="@+id/tv_choose_more_imageView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/red_color_ff404a"
-            android:gravity="center"
-            android:text="选择多张图片"
-            android:textColor="@color/white"
-            android:textSize="@dimen/sp_14" />
-
-    </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/imageViewRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none" />
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/imageViewRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scrollbars="none" />
+        </LinearLayout>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 
 </LinearLayout>

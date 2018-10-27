@@ -1,20 +1,19 @@
 package com.gll.gllandroidstudy.activity;
 
-import android.Manifest;
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.TextView;
+import android.view.Gravity;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.model.TimeAndStatus;
+import com.gll.gllandroidstudy.utils.CommonUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import me.weyye.hipermission.HiPermission;
-import me.weyye.hipermission.PermissionCallback;
-import me.weyye.hipermission.PermissionItem;
 
 /**
  * 选择图片
@@ -22,108 +21,60 @@ import me.weyye.hipermission.PermissionItem;
 public class SelectImageViewActivity extends BaseActivity {
 
 
-    private TextView tv_choose_one_imageView, tv_choose_one_imageView_and_croup, tv_choose_more_imageView;
-    private RecyclerView imageViewRecyclerView;
-    private static final int COMPRESS_REQUEST_CODE = 2048;
-    private static final int REQUEST_CODE = 1024;
-
+    SwipeRefreshLayout RefreshLayout;
+    RecyclerView imageViewRecyclerView;
+    RadioGroup ll_button_layout;
 
     @Override
     protected void loadViewLayout() {
         setContentView(R.layout.activity_select_image_view);
-        setPermission();
     }
 
     @Override
     protected void bindViews() {
-        initTitle("图片选择");
-        tv_choose_one_imageView = get(R.id.tv_choose_one_imageView);
-        tv_choose_one_imageView_and_croup = get(R.id.tv_choose_one_imageView_and_croup);
-        tv_choose_more_imageView = get(R.id.tv_choose_more_imageView);
+        initTitle("TabLayout");
+        RefreshLayout = get(R.id.RefreshLayout);
+        ll_button_layout = get(R.id.ll_button_layout);
         imageViewRecyclerView = get(R.id.imageViewRecyclerView);
     }
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
 
+        List<TimeAndStatus> timeAndStatusList = new ArrayList<>();
+        timeAndStatusList.add(new TimeAndStatus("11:00", "抢购中"));
+        timeAndStatusList.add(new TimeAndStatus("12:00", "即将开始"));
+        timeAndStatusList.add(new TimeAndStatus("13:00", "即将开始"));
+        timeAndStatusList.add(new TimeAndStatus("14:00", "即将开始"));
+        timeAndStatusList.add(new TimeAndStatus("15:00", "即将开始"));
+
+        for (int i = 0; i < timeAndStatusList.size(); i++) {
+            RadioButton radioButton = new RadioButton(this);
+            RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, CommonUtil.dip2px(mContext, 40));
+            layoutParams.setMargins(10, 10, 10, 10);
+            radioButton.setLayoutParams(layoutParams);
+            radioButton.setText(timeAndStatusList.get(i).getStatus());
+            radioButton.setTextSize(12);
+            radioButton.setButtonDrawable(android.R.color.transparent);//隐藏单选圆形按钮
+            radioButton.setGravity(Gravity.CENTER);
+//            radioButton.setPadding(10, 10, 10, 10);
+            ll_button_layout.addView(radioButton);//将单选按钮添加到RadioGroup中
+
+        }
+
+
     }
 
 
     @Override
     protected void setListener() {
-        tv_choose_one_imageView.setOnClickListener(new View.OnClickListener() {
+        RefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public void onClick(View view) {
-                chooseOneImageView();
-
+            public void onRefresh() {
+                RefreshLayout.setRefreshing(false);
             }
         });
-
-        tv_choose_one_imageView_and_croup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                chooseOneImageAndCrop();
-            }
-        });
-        tv_choose_more_imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                chooseMoreImage();
-            }
-        });
-
-
     }
 
 
-    /**
-     * 选择单张并且裁剪
-     */
-    private void chooseOneImageAndCrop() {
-    }
-
-    /**
-     * 选择单张
-     */
-    private void chooseOneImageView() {
-    }
-
-    /**
-     * /选择多张
-     */
-    private void chooseMoreImage() {
-    }
-
-
-    public void setPermission() {
-        List<PermissionItem> permissionItems = new ArrayList<PermissionItem>();
-        permissionItems.add(new PermissionItem(Manifest.permission.WRITE_EXTERNAL_STORAGE, "存储空间", R.drawable.permission_ic_storage));
-        permissionItems.add(new PermissionItem(Manifest.permission.CAMERA, "照相机", R.drawable.permission_ic_camera));
-        permissionItems.add(new PermissionItem(Manifest.permission.ACCESS_FINE_LOCATION, "位置信息", R.drawable.permission_ic_location));
-        HiPermission.create(this)
-                .permissions(permissionItems)
-                .checkMutiPermission(new PermissionCallback() {
-                    @Override
-                    public void onClose() {
-
-                    }
-
-                    @Override
-                    public void onFinish() {
-                        showToast("权限获取成功");
-
-                    }
-
-                    @Override
-                    public void onDeny(String permission, int position) {
-
-                    }
-
-                    @Override
-                    public void onGuarantee(String permission, int position) {
-
-                    }
-                });
-
-    }
 }

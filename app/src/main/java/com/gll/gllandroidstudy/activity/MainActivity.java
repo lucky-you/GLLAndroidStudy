@@ -22,7 +22,7 @@ public class MainActivity extends BaseActivity {
             "NestedScrollView滑动的监听",
             "SpannableString",
             "BaseRecyclerViewAdapter",
-            "选择图片并且九宫格展示",
+            "自定义TabLayout",
             "城市的三级选择"
 
     };
