@@ -20,8 +20,10 @@ import com.gll.gllandroidstudy.model.NoticeMessage;
 import com.gll.gllandroidstudy.utils.ToastUtils;
 import com.gll.gllandroidstudy.view.TitleBuilder;
 
-import org.greenrobot.eventbus.EventBus;
+import net.zhiyuan51.dev.android.selectimage.activity.ChoiceImageActivity;
+import net.zhiyuan51.dev.android.selectimage.view.MProgressDialog;
 
+import org.greenrobot.eventbus.EventBus;
 
 
 /**
@@ -211,5 +213,32 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 .into(imageView);
     }
 
+    protected MProgressDialog progressDialog;
 
+    /**
+     * 显示对话框
+     */
+    public MProgressDialog showDialog() {
+        if (progressDialog == null) {
+            progressDialog = new MProgressDialog(mContext);
+            progressDialog = progressDialog.createLoadingDialog("加载中...");
+            progressDialog.show();
+        } else if (!progressDialog.isShowing()) {
+            progressDialog.show();
+        }
+        return progressDialog;
+    }
+
+    /**
+     * 关闭提示框
+     */
+    public void dismissDialog() {
+        if (progressDialog != null) {
+            if (progressDialog.isShowing()) {
+                progressDialog.dismiss();
+            }
+            progressDialog = null;
+        }
+
+    }
 }

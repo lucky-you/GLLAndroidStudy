@@ -7,6 +7,7 @@ import android.widget.TextView;
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
 
+import net.zhiyuan51.dev.android.selectimage.activity.ChoiceImageActivity;
 import net.zhiyuan51.dev.android.selectimage.view.MProgressDialog;
 
 /**
@@ -45,7 +46,14 @@ public class SelectCityActivity extends BaseActivity {
     }
 
     private void selectCity() {
-
-
+        showDialog();
+        tvSelectCity.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                dismissDialog();
+            }
+        },3000);
     }
+
+
 }
