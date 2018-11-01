@@ -47,6 +47,7 @@ dependencies {
     implementation 'com.android.support:design:27.1.1'
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
     implementation project(':mylibrary')
+    implementation project(':selectimage')
     implementation 'me.weyye.hipermission:library:1.0.7'
 
     implementation "io.reactivex.rxjava2:rxjava:2.1.16"

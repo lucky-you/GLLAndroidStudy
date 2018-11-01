@@ -7,6 +7,8 @@ import android.widget.TextView;
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
 
+import net.zhiyuan51.dev.android.selectimage.view.MProgressDialog;
+
 /**
  * 城市选择的activity
  */

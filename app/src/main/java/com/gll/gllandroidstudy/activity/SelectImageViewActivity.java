@@ -41,26 +41,6 @@ public class SelectImageViewActivity extends BaseActivity {
     @Override
     protected void processLogic(Bundle savedInstanceState) {
 
-        List<TimeAndStatus> timeAndStatusList = new ArrayList<>();
-        timeAndStatusList.add(new TimeAndStatus("11:00", "抢购中"));
-        timeAndStatusList.add(new TimeAndStatus("12:00", "即将开始"));
-        timeAndStatusList.add(new TimeAndStatus("13:00", "即将开始"));
-        timeAndStatusList.add(new TimeAndStatus("14:00", "即将开始"));
-        timeAndStatusList.add(new TimeAndStatus("15:00", "即将开始"));
-
-        for (int i = 0; i < timeAndStatusList.size(); i++) {
-            RadioButton radioButton = new RadioButton(this);
-            RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, CommonUtil.dip2px(mContext, 40));
-            layoutParams.setMargins(10, 10, 10, 10);
-            radioButton.setLayoutParams(layoutParams);
-            radioButton.setText(timeAndStatusList.get(i).getStatus());
-            radioButton.setTextSize(12);
-            radioButton.setButtonDrawable(android.R.color.transparent);//隐藏单选圆形按钮
-            radioButton.setGravity(Gravity.CENTER);
-//            radioButton.setPadding(10, 10, 10, 10);
-            ll_button_layout.addView(radioButton);//将单选按钮添加到RadioGroup中
-
-        }
 
 
     }
@@ -68,12 +48,6 @@ public class SelectImageViewActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-        RefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                RefreshLayout.setRefreshing(false);
-            }
-        });
     }
 
 
