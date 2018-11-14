@@ -11,6 +11,7 @@ import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
 import com.gll.gllandroidstudy.model.TimeAndStatus;
 import com.gll.gllandroidstudy.utils.CommonUtil;
+import com.gll.gllandroidstudy.utils.SharedPreferenceHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +41,7 @@ public class SelectImageViewActivity extends BaseActivity {
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-
+        SharedPreferenceHelper.setIsFirstStartApp(true);
 
 
     }
