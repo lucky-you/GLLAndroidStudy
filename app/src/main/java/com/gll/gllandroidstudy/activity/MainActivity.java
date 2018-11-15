@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.utils.BarUtils;
 
 /**
  * 链接夜神模拟器 adb connect 127.0.0.1:62001
@@ -40,6 +42,8 @@ public class MainActivity extends BaseActivity {
 
     private ListView listView;
 
+    private LinearLayout llRootLayout;
+
     @Override
     protected void loadViewLayout() {
         setContentView(R.layout.activity_main);
@@ -49,6 +53,8 @@ public class MainActivity extends BaseActivity {
     protected void bindViews() {
         initNoBackTitle("首页内容");
         listView = get(R.id.listView);
+        llRootLayout = get(R.id.ll_root_layout);
+        BarUtils.addMarginTopEqualStatusBarHeight(llRootLayout);
     }
 
     @Override

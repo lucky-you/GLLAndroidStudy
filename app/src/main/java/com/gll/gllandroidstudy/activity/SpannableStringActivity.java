@@ -8,10 +8,12 @@ import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.UnderlineSpan;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.utils.BarUtils;
 import com.gll.gllandroidstudy.utils.StringUtils;
 
 /**
@@ -41,7 +43,8 @@ public class SpannableStringActivity extends BaseActivity {
         tvTextTwo = get(R.id.tv_text_Two);
         tvTextThree = get(R.id.tv_text_Three);
         tvTextFour = get(R.id.tv_text_Four);
-
+        LinearLayout llRootLayout = get(R.id.ll_root_layout);
+        BarUtils.addMarginTopEqualStatusBarHeight(llRootLayout);
     }
 
     @Override

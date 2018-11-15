@@ -8,10 +8,12 @@ import android.support.v4.widget.NestedScrollView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.utils.BarUtils;
 import com.gll.gllandroidstudy.view.JudgeNestedScrollView;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
 
@@ -41,6 +43,9 @@ public class SignInStepViewActivity extends BaseActivity {
         ivBackReturnImageView = get(R.id.iv_back_return);
         ivCollectionImageView = get(R.id.iv_collection_grey);
         tvDetails = get(R.id.tv_details);
+
+        RelativeLayout llRootLayout = get(R.id.ll_root_layout);
+        BarUtils.addMarginTopEqualStatusBarHeight(llRootLayout);
 
     }
 

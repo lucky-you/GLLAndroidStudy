@@ -6,11 +6,13 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.adapter.ImageViewAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
 import com.gll.gllandroidstudy.model.ImageBean;
+import com.gll.gllandroidstudy.utils.BarUtils;
 import com.gll.gllandroidstudy.utils.ImageUtils;
 
 import java.util.ArrayList;
@@ -32,6 +34,8 @@ public class BaseRecyclerViewAdapter extends BaseActivity {
     protected void bindViews() {
         initTitle("RecyclerViewAdapter");
         publicRecyclerView = get(R.id.publicRecyclerView);
+        LinearLayout llRootLayout = get(R.id.ll_root_layout);
+        BarUtils.addMarginTopEqualStatusBarHeight(llRootLayout);
     }
 
     @Override

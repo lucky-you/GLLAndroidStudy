@@ -2,10 +2,12 @@ package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.utils.BarUtils;
 
 import net.zhiyuan51.dev.android.selectimage.activity.ChoiceImageActivity;
 import net.zhiyuan51.dev.android.selectimage.view.MProgressDialog;
@@ -26,7 +28,8 @@ public class SelectCityActivity extends BaseActivity {
     protected void bindViews() {
         initTitle("城市的三级选择");
         tvSelectCity = get(R.id.tv_select_city);
-
+        LinearLayout llRootLayout = get(R.id.ll_root_layout);
+        BarUtils.addMarginTopEqualStatusBarHeight(llRootLayout);
     }
 
     @Override

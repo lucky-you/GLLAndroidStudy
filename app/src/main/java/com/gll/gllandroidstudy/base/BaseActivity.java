@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.model.NoticeMessage;
+import com.gll.gllandroidstudy.utils.BarUtils;
 import com.gll.gllandroidstudy.utils.ToastUtils;
 import com.gll.gllandroidstudy.view.TitleBuilder;
 
@@ -33,14 +35,14 @@ import org.greenrobot.eventbus.EventBus;
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
     protected Context mContext;
-    public static int currentStatusColor;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
         initView(savedInstanceState);
-        initSystemBarTint();
+//        initSystemBarTint();
+        BarUtils.setStatusBarColor(this, ContextCompat.getColor(BaseApplication.getInstance(), R.color.colorPrimary), 0);
     }
 
     public TitleBuilder initTitle(Object obj) {
@@ -67,7 +69,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         setListener();
 
     }
-
 
     /**
      * 设置状态栏

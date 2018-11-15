@@ -4,11 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.LinearLayout;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.adapter.PublicRecyclerViewAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
 import com.gll.gllandroidstudy.model.NoticeMessage;
+import com.gll.gllandroidstudy.utils.BarUtils;
 import com.gll.gllandroidstudy.view.RecyclerViewHeaderView;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -36,6 +38,9 @@ public class RecyclerViewAddHeaderActivity extends BaseActivity {
         initTitle("RecyclerView添加头部");
         publicRecyclerView = get(R.id.publicRecyclerView);
         smartRefreshLayout = get(R.id.smartRefreshLayout);
+
+        LinearLayout llRootLayout = get(R.id.ll_root_layout);
+        BarUtils.addMarginTopEqualStatusBarHeight(llRootLayout);
 
         smartRefreshLayout.setRefreshHeader(new ClassicsHeader(this).setFinishDuration(500));
         smartRefreshLayout.setRefreshFooter(new ClassicsFooter(this).setSpinnerStyle(SpinnerStyle.Scale));
