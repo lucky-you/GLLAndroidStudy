@@ -70,11 +70,12 @@ public class SpannableStringActivity extends BaseActivity {
 
 
         SpannableString ss3 = new SpannableString("设置文本颜色");
-        ss3.setSpan(new ForegroundColorSpan(Color.parseColor("#FF3030")), 0,
+        ss3.setSpan(new ForegroundColorSpan(Color.parseColor("#FF3030")), 3,
                 ss3.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 //        tvTextThree.setText(ss3);
 
         SpannableString textStringThree=    StringUtils.getTheCpecifiedTextColor("开通会员立即享受八折优惠",2,5,mContext.getResources().getColor(R.color.color_a462ff));
+
         tvTextThree.setText(textStringThree);
 
 
