@@ -24,7 +24,7 @@ public class MainActivity extends BaseActivity {
             "NestedScrollView滑动的监听",
             "SpannableString",
             "BaseRecyclerViewAdapter",
-            "自定义TabLayout",
+            "图片选择",
             "城市的三级选择"
 
     };

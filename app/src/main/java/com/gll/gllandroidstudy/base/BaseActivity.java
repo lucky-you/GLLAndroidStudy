@@ -201,18 +201,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         EventBus.getDefault().post(msg);
     }
 
-    /**
-     * 加载图片
-     *
-     * @param url
-     * @param imageView
-     */
-    public void displayImage(String url, ImageView imageView) {
-        Glide.with(getApplicationContext())//
-                .load(url)//
-                .error(R.mipmap.ic_launcher)//
-                .into(imageView);
-    }
 
     protected MProgressDialog progressDialog;
 
