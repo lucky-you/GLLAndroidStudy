@@ -1,12 +1,14 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.base.BaseApplication;
 import com.gll.gllandroidstudy.utils.BarUtils;
 
 import net.zhiyuan51.dev.android.selectimage.activity.ChoiceImageActivity;
@@ -30,6 +32,8 @@ public class SelectCityActivity extends BaseActivity {
         tvSelectCity = get(R.id.tv_select_city);
         LinearLayout llRootLayout = get(R.id.ll_root_layout);
         BarUtils.addMarginTopEqualStatusBarHeight(llRootLayout);
+        BarUtils.setStatusBarColor(this, ContextCompat.getColor(BaseApplication.getInstance(), R.color.colorPrimary), 0);
+
     }
 
     @Override
@@ -55,7 +59,7 @@ public class SelectCityActivity extends BaseActivity {
             public void run() {
                 dismissDialog();
             }
-        },3000);
+        }, 3000);
     }
 
 

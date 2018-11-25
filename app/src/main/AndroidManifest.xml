@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.gll.gllandroidstudy">
+
     <!-- 网络权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -54,7 +55,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -89,6 +89,7 @@
         <activity android:name=".activity.BaseRecyclerViewAdapter" />
         <activity android:name=".activity.SelectImageViewActivity" />
         <activity android:name=".activity.SelectCityActivity" />
+        <activity android:name=".activity.StarBarActivity" />
     </application>
 
 </manifest>

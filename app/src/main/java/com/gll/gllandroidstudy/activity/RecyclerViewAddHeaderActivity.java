@@ -2,6 +2,7 @@ package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.adapter.PublicRecyclerViewAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.base.BaseApplication;
 import com.gll.gllandroidstudy.model.NoticeMessage;
 import com.gll.gllandroidstudy.utils.BarUtils;
 import com.gll.gllandroidstudy.view.RecyclerViewHeaderView;
@@ -41,6 +43,7 @@ public class RecyclerViewAddHeaderActivity extends BaseActivity {
 
         LinearLayout llRootLayout = get(R.id.ll_root_layout);
         BarUtils.addMarginTopEqualStatusBarHeight(llRootLayout);
+        BarUtils.setStatusBarColor(this, ContextCompat.getColor(BaseApplication.getInstance(), R.color.colorPrimary), 0);
 
         smartRefreshLayout.setRefreshHeader(new ClassicsHeader(this).setFinishDuration(500));
         smartRefreshLayout.setRefreshFooter(new ClassicsFooter(this).setSpinnerStyle(SpinnerStyle.Scale));

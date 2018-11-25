@@ -2,6 +2,7 @@ package com.gll.gllandroidstudy.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,6 +11,7 @@ import android.widget.ListView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.base.BaseApplication;
 import com.gll.gllandroidstudy.utils.BarUtils;
 
 /**
@@ -25,7 +27,8 @@ public class MainActivity extends BaseActivity {
             "SpannableString",
             "BaseRecyclerViewAdapter",
             "图片选择",
-            "城市的三级选择"
+            "城市的三级选择",
+            "沉浸式渐变状态栏"
 
     };
     private final Class<?>[] mClasses = {
@@ -36,7 +39,8 @@ public class MainActivity extends BaseActivity {
             SpannableStringActivity.class,
             BaseRecyclerViewAdapter.class,
             SelectImageViewActivity.class,
-            SelectCityActivity.class
+            SelectCityActivity.class,
+            StarBarActivity.class
     };
 
 
@@ -55,6 +59,7 @@ public class MainActivity extends BaseActivity {
         listView = get(R.id.listView);
         llRootLayout = get(R.id.ll_root_layout);
         BarUtils.addMarginTopEqualStatusBarHeight(llRootLayout);
+        BarUtils.setStatusBarColor(this, ContextCompat.getColor(BaseApplication.getInstance(), R.color.colorPrimary), 0);
     }
 
     @Override

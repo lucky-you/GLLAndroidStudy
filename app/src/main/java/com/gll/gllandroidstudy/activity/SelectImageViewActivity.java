@@ -56,10 +56,11 @@ public class SelectImageViewActivity extends BaseActivity {
     @Override
     protected void bindViews() {
         initTitle("图片选择");
-        BarUtils.addMarginTopEqualStatusBarHeight(get(R.id.ll_root_layout));
         tvTypeOne = get(R.id.tv_select_one);
         tvTypeTwo = get(R.id.tv_select_two);
         selectImageRecyclerView = get(R.id.selectImageRecyclerView);
+        BarUtils.addMarginTopEqualStatusBarHeight(get(R.id.ll_root_layout));
+        BarUtils.setStatusBarColor(this, ContextCompat.getColor(BaseApplication.getInstance(), R.color.colorPrimary), 0);
         questPermission();
     }
 

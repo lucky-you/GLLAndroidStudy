@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.IntRange;
@@ -146,6 +147,30 @@ public final class BarUtils {
      */
     public static void addMarginTopEqualStatusBarHeight(@NonNull View view) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) return;
+        view.setTag(TAG_OFFSET);
+        Object haveSetOffset = view.getTag(KEY_OFFSET);
+        if (haveSetOffset != null && (Boolean) haveSetOffset) return;
+        MarginLayoutParams layoutParams = (MarginLayoutParams) view.getLayoutParams();
+        layoutParams.setMargins(layoutParams.leftMargin,
+                layoutParams.topMargin + getStatusBarHeight(),
+                layoutParams.rightMargin,
+                layoutParams.bottomMargin);
+        view.setTag(KEY_OFFSET, true);
+    }
+
+    public static void addMarginTopEqualStatusBarHeightTwo(Activity activity,@NonNull View view) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT) return;
+        if (Build.VERSION.SDK_INT >=  Build.VERSION_CODES.LOLLIPOP) {
+            View decorView = activity.getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
+            decorView.setSystemUiVisibility(option);
+            activity.getWindow().setNavigationBarColor(Color.TRANSPARENT);
+            activity.getWindow().setStatusBarColor(Color.TRANSPARENT);
+
+        }
+
         view.setTag(TAG_OFFSET);
         Object haveSetOffset = view.getTag(KEY_OFFSET);
         if (haveSetOffset != null && (Boolean) haveSetOffset) return;

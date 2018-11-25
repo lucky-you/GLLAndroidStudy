@@ -41,8 +41,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         mContext = this;
         initView(savedInstanceState);
-//        initSystemBarTint();
-        BarUtils.setStatusBarColor(this, ContextCompat.getColor(BaseApplication.getInstance(), R.color.colorPrimary), 0);
+//
     }
 
     public TitleBuilder initTitle(Object obj) {

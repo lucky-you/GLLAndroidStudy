@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.adapter.ImageViewAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.base.BaseApplication;
 import com.gll.gllandroidstudy.model.ImageBean;
 import com.gll.gllandroidstudy.utils.BarUtils;
 import com.gll.gllandroidstudy.utils.ImageUtils;
@@ -36,6 +38,7 @@ public class BaseRecyclerViewAdapter extends BaseActivity {
         publicRecyclerView = get(R.id.publicRecyclerView);
         LinearLayout llRootLayout = get(R.id.ll_root_layout);
         BarUtils.addMarginTopEqualStatusBarHeight(llRootLayout);
+        BarUtils.setStatusBarColor(this, ContextCompat.getColor(BaseApplication.getInstance(), R.color.colorPrimary), 0);
     }
 
     @Override
