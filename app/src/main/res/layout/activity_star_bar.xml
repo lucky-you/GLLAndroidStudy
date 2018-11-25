@@ -7,6 +7,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
+    <View
+        android:id="@+id/title_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/shape_title_bg"
+        android:visibility="visible" />
+
     <include layout="@layout/include_titlebar" />
 
     <ImageView

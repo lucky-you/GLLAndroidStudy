@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
+import com.gll.gllandroidstudy.base.BaseApplication;
 
 
 /**
@@ -27,6 +28,7 @@ public class TitleBuilder {
 
     /**
      * 在activity中
+     *
      * @param context
      */
     public TitleBuilder(final Activity context) {
@@ -43,6 +45,7 @@ public class TitleBuilder {
 
     /**
      * 针对fragment
+     *
      * @param context
      */
     public TitleBuilder(View context) {
@@ -69,6 +72,12 @@ public class TitleBuilder {
         viewTitle.setBackgroundColor(color);
         return this;
     }
+
+    public TitleBuilder setTitleBgDrawable(Drawable drawable) {
+        viewTitle.setBackground(drawable);
+        return this;
+    }
+
 
     //设置内容(String类型)
     public TitleBuilder setTitleText(String text) {
