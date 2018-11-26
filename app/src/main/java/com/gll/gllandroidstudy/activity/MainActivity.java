@@ -6,6 +6,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -28,7 +29,8 @@ public class MainActivity extends BaseActivity {
             "BaseRecyclerViewAdapter",
             "图片选择",
             "城市的三级选择",
-            "沉浸式渐变状态栏"
+            "沉浸式渐变状态栏",
+            "自定义验证码输入框"
 
     };
     private final Class<?>[] mClasses = {
@@ -40,7 +42,8 @@ public class MainActivity extends BaseActivity {
             BaseRecyclerViewAdapter.class,
             SelectImageViewActivity.class,
             SelectCityActivity.class,
-            StarBarActivity.class
+            StarBarActivity.class,
+            EditTextCodeActivity.class
     };
 
 

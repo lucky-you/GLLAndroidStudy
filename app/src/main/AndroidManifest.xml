@@ -90,6 +90,7 @@
         <activity android:name=".activity.SelectImageViewActivity" />
         <activity android:name=".activity.SelectCityActivity" />
         <activity android:name=".activity.StarBarActivity" />
+        <activity android:name=".activity.EditTextCodeActivity"></activity>
     </application>
 
 </manifest>
