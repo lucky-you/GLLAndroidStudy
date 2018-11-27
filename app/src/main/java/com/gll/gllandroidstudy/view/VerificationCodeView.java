@@ -47,6 +47,10 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
      * 输入框的宽度
      */
     private int mEtWidth;
+    /**
+     * 输入框高度
+     */
+    private int mEtHeight;
 
     /**
      * 文字颜色
@@ -97,6 +101,15 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
         this.mEtWidth = mEtWidth;
     }
 
+
+    public int getmEtHeight() {
+        return mEtHeight;
+    }
+
+    public void setmEtHeight(int mEtHeight) {
+        this.mEtHeight = mEtHeight;
+    }
+
     public int getmEtTextColor() {
         return mEtTextColor;
     }
@@ -145,6 +158,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
         int inputType = typedArray.getInt(R.styleable.vericationCodeView_vcv_et_inputType, VCInputType.NUMBER.ordinal());
         mEtInputType = VCInputType.values()[inputType];
         mEtWidth = typedArray.getDimensionPixelSize(R.styleable.vericationCodeView_vcv_et_width, 120);
+        mEtHeight = typedArray.getDimensionPixelSize(R.styleable.vericationCodeView_vcv_et_height, 200);
         mEtTextColor = typedArray.getColor(R.styleable.vericationCodeView_vcv_et_text_color, Color.BLACK);
         mEtTextSize = typedArray.getDimensionPixelSize(R.styleable.vericationCodeView_vcv_et_text_size, 16);
         mEtTextBg = typedArray.getResourceId(R.styleable.vericationCodeView_vcv_et_bg, R.drawable.shape_edit_text_code_background);
@@ -169,8 +183,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
     private void initEditText(EditText editText, int i) {
         int childHPadding = 14;
         int childVPadding = 14;
-
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(mEtWidth, mEtWidth);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(mEtWidth, mEtHeight);
         layoutParams.bottomMargin = childVPadding;
         layoutParams.topMargin = childVPadding;
         layoutParams.leftMargin = childHPadding;

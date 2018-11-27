@@ -15,13 +15,14 @@
     <com.gll.gllandroidstudy.view.VerificationCodeView
         android:id="@+id/verCodeView"
         android:layout_width="@dimen/spacing_300"
-        android:layout_height="@dimen/spacing_50"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/spacing_30"
         android:gravity="center"
         android:orientation="horizontal"
         app:vcv_et_bg="@drawable/shape_edit_text_code_background"
         app:vcv_et_cursor="@drawable/shape_cursor_background"
+        app:vcv_et_height="50dp"
         app:vcv_et_inputType="number"
         app:vcv_et_number="6"
         app:vcv_et_text_color="#FFF"
@@ -36,6 +37,7 @@
         ver:box="6"
         ver:box_bg_focus="@drawable/verification_edit_bg_focus"
         ver:box_bg_normal="@drawable/verification_edit_bg_normal"
-        ver:child_h_padding="5dp" />
+        ver:child_h_padding="5dp"
+        ver:inputType="number" />
 
 </LinearLayout>
