@@ -30,7 +30,8 @@ public class MainActivity extends BaseActivity {
             "图片选择",
             "城市的三级选择",
             "沉浸式渐变状态栏",
-            "自定义验证码输入框"
+            "自定义验证码输入框",
+            "仿珍爱网年月日选择"
 
     };
     private final Class<?>[] mClasses = {
@@ -43,7 +44,8 @@ public class MainActivity extends BaseActivity {
             SelectImageViewActivity.class,
             SelectCityActivity.class,
             StarBarActivity.class,
-            EditTextCodeActivity.class
+            EditTextCodeActivity.class,
+            SelectYearAndMouthActivity.class
     };
 
 

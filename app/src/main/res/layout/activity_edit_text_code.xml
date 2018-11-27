@@ -29,15 +29,5 @@
         app:vcv_et_text_size="6sp"
         app:vcv_et_width="34dp" />
 
-    <com.gll.gllandroidstudy.view.VerificationCodeInput
-        android:layout_width="@dimen/spacing_300"
-        android:layout_height="@dimen/spacing_50"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/spacing_20"
-        ver:box="6"
-        ver:box_bg_focus="@drawable/verification_edit_bg_focus"
-        ver:box_bg_normal="@drawable/verification_edit_bg_normal"
-        ver:child_h_padding="5dp"
-        ver:inputType="number" />
 
 </LinearLayout>
