@@ -71,7 +71,6 @@ public class SelectImageViewActivity extends BaseActivity {
 
         nineGridImageAdapter = new NineGridImageAdapter(mContext, onAddPicClickListener);
         nineGridImageAdapter.setList(selectList);
-        nineGridImageAdapter.setSelectMax(maxSelectNum);
         selectImageRecyclerView.setAdapter(nineGridImageAdapter);
 
     }
