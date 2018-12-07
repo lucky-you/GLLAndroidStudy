@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <com.gll.gllandroidstudy.nineimage.NineImageView
+        android:layout_width="@dimen/spacing_76"
+        android:layout_height="@dimen/spacing_76"
+        android:layout_margin="@dimen/spacing_4"
+        app:niv_cornerRadius="@dimen/spacing_6"
+        app:niv_square="true" />
+
+</LinearLayout>

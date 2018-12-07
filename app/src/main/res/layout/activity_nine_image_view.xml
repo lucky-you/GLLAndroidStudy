@@ -9,6 +9,49 @@
 
     <include layout="@layout/include_titlebar" />
 
-    <include layout="@layout/include_recyclerview_layout" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <com.gll.gllandroidstudy.nineimage.NineImageView
+            android:layout_width="@dimen/spacing_70"
+            android:layout_height="@dimen/spacing_70"
+            android:layout_margin="@dimen/spacing_4"
+            android:scaleType="centerCrop"
+            android:src="@drawable/wall10"
+            app:niv_borderColor="@color/red_color_df4c56"
+            app:niv_borderWidth="@dimen/spacing_1"
+            app:niv_circle="true"
+            app:niv_square="false" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="@dimen/spacing_70"
+            android:layout_height="@dimen/spacing_70"
+            android:layout_margin="@dimen/spacing_4"
+            android:scaleType="centerCrop"
+            android:src="@drawable/wall11"
+            app:riv_border_color="@color/red_color_df4c56"
+            app:riv_border_width="@dimen/spacing_1"
+            app:riv_corner_radius="@dimen/spacing_35" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:layout_width="@dimen/spacing_70"
+            android:layout_height="@dimen/spacing_70"
+            android:layout_margin="@dimen/spacing_4"
+            android:scaleType="centerCrop"
+            android:src="@drawable/wall12"
+            app:riv_corner_radius="@dimen/spacing_6" />
+
+
+    </LinearLayout>
+
+
+    <com.gll.gllandroidstudy.nineimage.NineHeightWrapGridView
+        android:id="@+id/nineGridView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:numColumns="3" />
 
 </LinearLayout>

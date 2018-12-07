@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <!--九宫格图片展示-->
+    <declare-styleable name="NineImageViewLayout">
+        <!-- Item 条目圆角尺寸，默认值为 0dp -->
+        <attr name="niv_itemCornerRadius" format="dimension|reference" />
+        <!-- 当只有一张图片时，是否显示成大图，默认值为 true -->
+        <attr name="niv_showAsLargeWhenOnlyOne" format="boolean" />
+        <!-- Item 间的水平和垂直间距，默认值为 4dp -->
+        <attr name="niv_itemWhiteSpacing" format="dimension|reference" />
+        <!-- 出去九宫格部分的空白区域的尺寸，默认值为 100dp -->
+        <attr name="niv_otherWhiteSpacing" format="dimension|reference" />
+        <!-- 占位图资源，默认值为 R.mipmap.bga_pp_ic_holder_light -->
+        <attr name="niv_placeholderDrawable" format="reference" />
+        <!-- item 的尺寸，优先级高于 niv_otherWhiteSpacing，默认值为 0dp -->
+        <attr name="niv_itemWidth" format="dimension|reference" />
+        <!-- 列数,默认值为 3，当该值大于 3 并且数据源里只有四张图片时不会显示成 2 列 -->
+        <attr name="niv_itemSpanCount" format="integer" />
+    </declare-styleable>
+
+    <!--九宫格的图片-->
+    <declare-styleable name="NineImageView">
+        <!-- 默认图片资源，默认值为 null -->
+        <attr name="android:src" />
+        <!-- 是否是圆形，默认值为 false -->
+        <attr name="niv_circle" format="boolean" />
+        <!-- 圆角矩形的半径，默认值为 0dp -->
+        <attr name="niv_cornerRadius" format="reference|dimension" />
+        <!-- 是否是矩形，默认值为 false -->
+        <attr name="niv_square" format="boolean" />
+        <!-- 描边的宽度，默认值为 0dp -->
+        <attr name="niv_borderWidth" format="reference|dimension" />
+        <!-- 描边的颜色，默认值为 Color.WHITE -->
+        <attr name="niv_borderColor" format="reference|color" />
+    </declare-styleable>
+
+
+</resources>
