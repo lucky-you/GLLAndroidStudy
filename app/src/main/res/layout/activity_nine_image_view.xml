@@ -52,6 +52,15 @@
         android:id="@+id/nineGridView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:numColumns="3" />
+        android:numColumns="4" />
+
+    <com.gll.gllandroidstudy.view.LineGridView
+        android:id="@+id/publicRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:listSelector="@color/transparent"
+        android:numColumns="4"
+        android:overScrollMode="never"
+        android:scrollbars="none" />
 
 </LinearLayout>

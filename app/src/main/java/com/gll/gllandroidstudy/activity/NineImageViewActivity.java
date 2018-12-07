@@ -11,6 +11,7 @@ import com.gll.gllandroidstudy.base.BaseActivity;
 import com.gll.gllandroidstudy.base.BaseApplication;
 import com.gll.gllandroidstudy.nineimage.NineHeightWrapGridView;
 import com.gll.gllandroidstudy.utils.BarUtils;
+import com.gll.gllandroidstudy.view.LineGridView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,7 @@ public class NineImageViewActivity extends BaseActivity {
 
 
     private NineHeightWrapGridView nineGridView;
+    private LineGridView lineGridView;
     private NineGridViewImageAdapter nineGridViewImageAdapter;
 
     @Override
@@ -38,6 +40,7 @@ public class NineImageViewActivity extends BaseActivity {
         BarUtils.addMarginTopEqualStatusBarHeight(get(R.id.ll_root_layout));
         BarUtils.setStatusBarColor(this, ContextCompat.getColor(BaseApplication.getInstance(), R.color.colorPrimary), 0);
         nineGridView = get(R.id.nineGridView);
+        lineGridView = get(R.id.publicRecyclerView);
     }
 
     @Override
@@ -47,8 +50,13 @@ public class NineImageViewActivity extends BaseActivity {
         userImageList.add("http://pj94obnsr.bkt.clouddn.com//miyue/uploads/1544147531868");
         userImageList.add("http://pj94obnsr.bkt.clouddn.com//miyue/uploads/1544147531907");
         userImageList.add("http://pj94obnsr.bkt.clouddn.com//miyue/uploads/1544147531900");
-//        nineGridViewImageAdapter = new NineGridViewImageAdapter(userImageList, R.layout.include_nine_image_item_view);
-//        nineGridView.setAdapter(nineGridViewImageAdapter);
+        userImageList.add("http://pj94obnsr.bkt.clouddn.com//miyue/uploads/1544147531868");
+        userImageList.add("http://pj94obnsr.bkt.clouddn.com//miyue/uploads/1544147531907");
+        userImageList.add("http://pj94obnsr.bkt.clouddn.com//miyue/uploads/1544147531907");
+
+        nineGridViewImageAdapter = new NineGridViewImageAdapter(userImageList, mContext);
+        nineGridView.setAdapter(nineGridViewImageAdapter);
+        lineGridView.setAdapter(nineGridViewImageAdapter);
     }
 
     @Override

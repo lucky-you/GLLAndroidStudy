@@ -6,11 +6,12 @@
     android:orientation="vertical">
 
 
-    <com.gll.gllandroidstudy.nineimage.NineImageView
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/rivImageView"
         android:layout_width="@dimen/spacing_76"
         android:layout_height="@dimen/spacing_76"
         android:layout_margin="@dimen/spacing_4"
-        app:niv_cornerRadius="@dimen/spacing_6"
-        app:niv_square="true" />
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="@dimen/spacing_6" />
 
 </LinearLayout>
