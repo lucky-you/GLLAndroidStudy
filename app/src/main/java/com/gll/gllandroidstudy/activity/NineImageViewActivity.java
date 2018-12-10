@@ -20,7 +20,6 @@ public class NineImageViewActivity extends BaseActivity {
 
 
     private NineHeightWrapGridView nineGridView;
-    private LineGridView lineGridView;
     private NineGridViewImageAdapter nineGridViewImageAdapter;
 
     @Override
@@ -40,7 +39,6 @@ public class NineImageViewActivity extends BaseActivity {
         BarUtils.addMarginTopEqualStatusBarHeight(get(R.id.ll_root_layout));
         BarUtils.setStatusBarColor(this, ContextCompat.getColor(BaseApplication.getInstance(), R.color.colorPrimary), 0);
         nineGridView = get(R.id.nineGridView);
-        lineGridView = get(R.id.publicRecyclerView);
     }
 
     @Override
@@ -56,7 +54,6 @@ public class NineImageViewActivity extends BaseActivity {
 
         nineGridViewImageAdapter = new NineGridViewImageAdapter(userImageList, mContext);
         nineGridView.setAdapter(nineGridViewImageAdapter);
-        lineGridView.setAdapter(nineGridViewImageAdapter);
     }
 
     @Override

@@ -26,15 +26,13 @@
             app:niv_circle="true"
             app:niv_square="false" />
 
-        <com.makeramen.roundedimageview.RoundedImageView
+        <com.gll.gllandroidstudy.nineimage.NineImageView
             android:layout_width="@dimen/spacing_70"
             android:layout_height="@dimen/spacing_70"
             android:layout_margin="@dimen/spacing_4"
             android:scaleType="centerCrop"
             android:src="@drawable/wall11"
-            app:riv_border_color="@color/red_color_df4c56"
-            app:riv_border_width="@dimen/spacing_1"
-            app:riv_corner_radius="@dimen/spacing_35" />
+            app:niv_cornerRadius="@dimen/spacing_6" />
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:layout_width="@dimen/spacing_70"
@@ -44,7 +42,6 @@
             android:src="@drawable/wall12"
             app:riv_corner_radius="@dimen/spacing_6" />
 
-
     </LinearLayout>
 
 
@@ -53,14 +50,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:numColumns="4" />
-
-    <com.gll.gllandroidstudy.view.LineGridView
-        android:id="@+id/publicRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:listSelector="@color/transparent"
-        android:numColumns="4"
-        android:overScrollMode="never"
-        android:scrollbars="none" />
 
 </LinearLayout>
