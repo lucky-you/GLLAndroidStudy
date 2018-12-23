@@ -11,8 +11,6 @@ import com.gll.gllandroidstudy.base.BaseActivity;
 import com.gll.gllandroidstudy.base.BaseApplication;
 import com.gll.gllandroidstudy.utils.BarUtils;
 
-import net.zhiyuan51.dev.android.selectimage.activity.ChoiceImageActivity;
-import net.zhiyuan51.dev.android.selectimage.view.MProgressDialog;
 
 /**
  * 城市选择的activity
