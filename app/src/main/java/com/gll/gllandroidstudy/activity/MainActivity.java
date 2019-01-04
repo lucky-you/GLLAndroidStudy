@@ -32,7 +32,8 @@ public class MainActivity extends BaseActivity {
             "沉浸式渐变状态栏",
             "自定义验证码输入框",
             "仿珍爱网年月日选择",
-            "九宫格图片显示"
+            "九宫格图片显示",
+            "从右往左轮播滚动"
 
     };
     private final Class<?>[] mClasses = {
@@ -47,7 +48,8 @@ public class MainActivity extends BaseActivity {
             StarBarActivity.class,
             EditTextCodeActivity.class,
             SelectYearAndMouthActivity.class,
-            NineImageViewActivity.class
+            NineImageViewActivity.class,
+            ScrollWheelSowActivity.class,
     };
 
 

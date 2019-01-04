@@ -92,7 +92,8 @@
         <activity android:name=".activity.StarBarActivity" />
         <activity android:name=".activity.EditTextCodeActivity" />
         <activity android:name=".activity.SelectYearAndMouthActivity" />
-        <activity android:name=".activity.NineImageViewActivity"></activity>
+        <activity android:name=".activity.NineImageViewActivity" />
+        <activity android:name=".activity.ScrollWheelSowActivity"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_titlebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_44"
+        android:background="#d8e7f9"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/spacing_16"
+            android:src="@drawable/ic_hpme_img_rb" />
+
+        <TextView
+            android:id="@+id/tvTitleRadio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/spacing_6"
+            android:gravity="center_vertical"
+            android:text="@string/app_name"
+            android:textColor="#2bb5ff"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_44"
+        android:layout_marginTop="@dimen/spacing_10"
+        android:background="#d8e7f9"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/spacing_16"
+            android:src="@drawable/ic_hpme_img_rb" />
+
+        <com.gll.gllandroidstudy.view.RunTextView
+            android:id="@+id/tvRunTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/spacing_6"
+            android:gravity="center_vertical"
+            android:text="@string/app_name"
+            android:textColor="#2bb5ff"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
