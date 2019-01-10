@@ -5,6 +5,7 @@ import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.view.CustomCountDownTimerView;
 import com.gll.gllandroidstudy.view.RunTextView;
 
 /**
@@ -14,6 +15,7 @@ public class ScrollWheelSowActivity extends BaseActivity {
 
     private TextView tvTitleRadio;
     private RunTextView tvRunTextView;
+    private CustomCountDownTimerView customCountDownTimeView;
 
     @Override
     protected void loadViewLayout() {
@@ -24,6 +26,7 @@ public class ScrollWheelSowActivity extends BaseActivity {
     protected void bindViews() {
         tvTitleRadio = get(R.id.tvTitleRadio);
         tvRunTextView = get(R.id.tvRunTextView);
+        customCountDownTimeView = get(R.id.customCountDownTimeView);
     }
 
     @Override
@@ -32,10 +35,17 @@ public class ScrollWheelSowActivity extends BaseActivity {
         tvRunTextView.setText(radioMessage);
         tvRunTextView.startAnim();
 
+        customCountDownTimeView.setCountdownTime(10);
+        customCountDownTimeView.startCountDown();
     }
 
     @Override
     protected void setListener() {
-
+        customCountDownTimeView.setOnCountDownTimeFinishListener(new CustomCountDownTimerView.OnCountDownTimeFinishListener() {
+            @Override
+            public void countDownFinished() {
+                showToast("倒计时完成");
+            }
+        });
     }
 }

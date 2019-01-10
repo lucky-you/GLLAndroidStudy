@@ -86,4 +86,19 @@
     </declare-styleable>
 
 
+    <declare-styleable name="CustomCountDownTimerView">
+        <!--圆环的背景颜色-->
+        <attr name="cus_roundColor" format="color" />
+        <!--圆环的进度颜色-->
+        <attr name="cus_roundProgressColor" format="color" />
+        <!--圆环的宽度-->
+        <attr name="cus_roundWidth" format="dimension" />
+        <!--中间字体颜色-->
+        <attr name="cus_textColor" format="color" />
+        <!--中间字体的大小-->
+        <attr name="cus_textSize" format="dimension" />
+        <!--倒计时-->
+        <attr name="cus_countdownTime" format="integer" />
+    </declare-styleable>
+
 </resources>
