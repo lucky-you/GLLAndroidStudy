@@ -1,11 +1,9 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.flyco.tablayout.SlidingTabLayout;
@@ -39,7 +37,6 @@ public class SelectYearAndMouthActivity extends BaseActivity {
     @Override
     protected void bindViews() {
         initTitle("仿珍爱网年月日选择");
-
         slidingTabLayout = get(R.id.slidingTabLayout);
         noScrollViewPager = get(R.id.noScrollViewPager);
     }

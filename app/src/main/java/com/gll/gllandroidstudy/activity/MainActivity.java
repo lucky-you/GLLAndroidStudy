@@ -6,7 +6,6 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -33,7 +32,8 @@ public class MainActivity extends BaseActivity {
             "自定义验证码输入框",
             "仿珍爱网年月日选择",
             "九宫格图片显示",
-            "从右往左轮播滚动"
+            "从右往左轮播滚动",
+            "商品总数的滚动监听"
 
     };
     private final Class<?>[] mClasses = {
@@ -50,6 +50,7 @@ public class MainActivity extends BaseActivity {
             SelectYearAndMouthActivity.class,
             NineImageViewActivity.class,
             ScrollWheelSowActivity.class,
+            ProductTotalSizeActivity.class
     };
 
 

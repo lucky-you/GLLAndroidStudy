@@ -24,6 +24,7 @@ public class ScrollWheelSowActivity extends BaseActivity {
 
     @Override
     protected void bindViews() {
+        initTitle("水平滚动TextView");
         tvTitleRadio = get(R.id.tvTitleRadio);
         tvRunTextView = get(R.id.tvRunTextView);
         customCountDownTimeView = get(R.id.customCountDownTimeView);

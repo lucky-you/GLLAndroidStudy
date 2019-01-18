@@ -93,7 +93,8 @@
         <activity android:name=".activity.EditTextCodeActivity" />
         <activity android:name=".activity.SelectYearAndMouthActivity" />
         <activity android:name=".activity.NineImageViewActivity" />
-        <activity android:name=".activity.ScrollWheelSowActivity"></activity>
+        <activity android:name=".activity.ScrollWheelSowActivity" />
+        <activity android:name=".activity.ProductTotalSizeActivity"></activity>
     </application>
 
 </manifest>
