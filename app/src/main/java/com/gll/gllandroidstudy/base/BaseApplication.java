@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
+import com.gll.gllandroidstudy.db.DBManager;
+
 
 /**
  * Created by : Z_B on 2018/1/23.
@@ -19,6 +21,7 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         baseApplication = this;
+        DBManager.initDao();
     }
 
 

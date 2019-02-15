@@ -33,7 +33,8 @@ public class MainActivity extends BaseActivity {
             "仿珍爱网年月日选择",
             "九宫格图片显示",
             "从右往左轮播滚动",
-            "商品总数的滚动监听"
+            "商品总数的滚动监听",
+            "GreenDao的使用"
 
     };
     private final Class<?>[] mClasses = {
@@ -50,7 +51,8 @@ public class MainActivity extends BaseActivity {
             SelectYearAndMouthActivity.class,
             NineImageViewActivity.class,
             ScrollWheelSowActivity.class,
-            ProductTotalSizeActivity.class
+            ProductTotalSizeActivity.class,
+            GreenDaoActivity.class
     };
 
 
