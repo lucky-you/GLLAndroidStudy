@@ -95,7 +95,8 @@
         <activity android:name=".activity.NineImageViewActivity" />
         <activity android:name=".activity.ScrollWheelSowActivity" />
         <activity android:name=".activity.ProductTotalSizeActivity" />
-        <activity android:name=".activity.GreenDaoActivity"></activity>
+        <activity android:name=".activity.GreenDaoActivity" />
+        <activity android:name=".activity.ExpandableTextViewActivity"></activity>
     </application>
 
 </manifest>

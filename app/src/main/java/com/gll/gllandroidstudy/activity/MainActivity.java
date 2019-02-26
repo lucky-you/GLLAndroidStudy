@@ -34,7 +34,8 @@ public class MainActivity extends BaseActivity {
             "九宫格图片显示",
             "从右往左轮播滚动",
             "商品总数的滚动监听",
-            "GreenDao的使用"
+            "GreenDao的使用",
+            "TextView的展开与收起"
 
     };
     private final Class<?>[] mClasses = {
@@ -52,7 +53,8 @@ public class MainActivity extends BaseActivity {
             NineImageViewActivity.class,
             ScrollWheelSowActivity.class,
             ProductTotalSizeActivity.class,
-            GreenDaoActivity.class
+            GreenDaoActivity.class,
+            ExpandableTextViewActivity.class
     };
 
 
