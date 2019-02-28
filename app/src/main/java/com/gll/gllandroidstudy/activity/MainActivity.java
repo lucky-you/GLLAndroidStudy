@@ -35,7 +35,8 @@ public class MainActivity extends BaseActivity {
             "从右往左轮播滚动",
             "商品总数的滚动监听",
             "GreenDao的使用",
-            "TextView的展开与收起"
+            "TextView的展开与收起",
+            "垂直切换视频"
 
     };
     private final Class<?>[] mClasses = {
@@ -54,7 +55,8 @@ public class MainActivity extends BaseActivity {
             ScrollWheelSowActivity.class,
             ProductTotalSizeActivity.class,
             GreenDaoActivity.class,
-            ExpandableTextViewActivity.class
+            ExpandableTextViewActivity.class,
+            ViewPagerVideoActivity.class
     };
 
 
