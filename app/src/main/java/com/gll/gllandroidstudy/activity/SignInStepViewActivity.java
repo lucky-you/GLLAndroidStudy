@@ -1,10 +1,12 @@
 package com.gll.gllandroidstudy.activity;
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.NestedScrollView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -75,16 +77,20 @@ public class SignInStepViewActivity extends BaseActivity {
 
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                if (lastScrollY < height) {
-                    scrollY = Math.min(height, scrollY);
-                    mScrollY = scrollY > height ? height : scrollY;
-                    llTopTitleLayout.setBackgroundColor(((255 * mScrollY / height) << 24) | color);
-                }
+
+                Log.e("xy", "scrollY=" + scrollY + "---oldScrollY--->" + oldScrollY);
+                int alpha = 0;
+                float scale = 0;
                 if (scrollY == 0) {
                     ivBackReturnImageView.setImageResource(R.drawable.ic_white_back_return);
                     ivCollectionImageView.setImageResource(R.drawable.ic_collection_white);
                     tvDetails.setVisibility(View.GONE);
+                } else if (lastScrollY <= height) {
+                    scale = (float) scrollY / height;
+                    alpha = (int) (255 * scale);
+                    llTopTitleLayout.setBackgroundColor(Color.argb(alpha, 255, 255, 255));
                 } else {
+                    llTopTitleLayout.setBackgroundColor(Color.argb(255, 255, 255, 255));
                     ivBackReturnImageView.setImageResource(R.drawable.ic_back_return);
                     ivCollectionImageView.setImageResource(R.drawable.ic_collection_grey);
                     tvDetails.setVisibility(View.VISIBLE);

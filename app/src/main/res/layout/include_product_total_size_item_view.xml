@@ -7,7 +7,7 @@
     <ImageView
         android:id="@+id/ivImageView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_140"
+        android:layout_height="@dimen/spacing_160"
         android:scaleType="centerCrop"
         android:src="@drawable/wall06" />
 
