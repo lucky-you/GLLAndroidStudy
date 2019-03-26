@@ -1,14 +1,25 @@
 package com.gll.gllandroidstudy.adapter;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.chad.library.adapter.base.BaseViewHolder;
 import com.gll.gllandroidstudy.R;
-import com.makeramen.roundedimageview.RoundedImageView;
+import com.gll.gllandroidstudy.model.NineImageList;
+import com.gll.gllandroidstudy.nineimage.GridImageView;
+import com.gll.gllandroidstudy.nineimage.NineGridImageView;
+import com.gll.gllandroidstudy.nineimage.NineGridImageViewAdapter;
 
+import java.security.PrivateKey;
 import java.util.List;
 
 /**
@@ -16,52 +27,57 @@ import java.util.List;
  * date       : 2018/12/7
  * function  :
  */
-public class NineGridViewImageAdapter extends BaseAdapter {
+public class NineGridViewImageAdapter extends RecyclerView.Adapter<NineGridViewImageAdapter.ImageViewHolder> {
+
+    private List<NineImageList> imageList;
+    private Context mContent;
 
 
-    private List<String> imageList;
-    private Context mContext;
-
-    public NineGridViewImageAdapter(List<String> imageList, Context mContext) {
+    public NineGridViewImageAdapter(List<NineImageList> imageList, Context mContent) {
         this.imageList = imageList;
-        this.mContext = mContext;
+        this.mContent = mContent;
+    }
+
+    @NonNull
+    @Override
+    public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ImageViewHolder(View.inflate(mContent, R.layout.include_nine_image_item_view, null));
     }
 
     @Override
-    public int getCount() {
+    public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
+        holder.bind(position);
+    }
+
+    @Override
+    public int getItemCount() {
         return imageList.size();
     }
 
-    @Override
-    public String getItem(int position) {
-        return imageList.get(position);
-    }
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
+    public class ImageViewHolder extends RecyclerView.ViewHolder {
+        private NineGridImageView<String> nineImageContent;
+        private TextView tvContent;
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        ViewHolder viewHolder = null;
-        if (convertView == null) {
-            viewHolder = new ViewHolder();
-            convertView = View.inflate(mContext, R.layout.include_nine_image_item_view, null);
-            viewHolder.roundedImageView = convertView.findViewById(R.id.rivImageView);
-            convertView.setTag(viewHolder);
-        } else {
-            viewHolder = (ViewHolder) convertView.getTag();
+        public ImageViewHolder(View itemView) {
+            super(itemView);
+            nineImageContent = itemView.findViewById(R.id.nineGridView);
+            tvContent = itemView.findViewById(R.id.tvContent);
+            nineImageContent.setAdapter(mAdapter);
         }
-        Glide.with(mContext).load(imageList.get(position)).into(viewHolder.roundedImageView);
-        return convertView;
+
+        public void bind(int position) {
+            nineImageContent.setImagesData(imageList.get(position).getImageList());
+            tvContent.setText(imageList.get(position).getTitle());
+        }
     }
 
+    private NineGridImageViewAdapter<String> mAdapter = new NineGridImageViewAdapter<String>() {
+        @Override
+        protected void onDisplayImage(Context context, ImageView imageView, String s) {
+            Glide.with(mContent).load(s).into(imageView);
+        }
 
-    public class ViewHolder {
 
-        RoundedImageView roundedImageView;
-
-    }
+    };
 }
