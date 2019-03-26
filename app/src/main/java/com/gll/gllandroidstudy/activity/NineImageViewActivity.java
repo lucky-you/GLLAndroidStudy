@@ -22,11 +22,6 @@ public class NineImageViewActivity extends BaseActivity {
     private RecyclerView recyclerView;
     private NineGridViewImageAdapter nineGridViewImageAdapter;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Override
     protected void loadViewLayout() {
