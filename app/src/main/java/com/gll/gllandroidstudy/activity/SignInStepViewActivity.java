@@ -76,7 +76,6 @@ public class SignInStepViewActivity extends BaseActivity {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
 
-                Log.e("xy", "scrollY=" + scrollY + "---oldScrollY--->" + oldScrollY);
                 int alpha = 0;
                 float scale = 0;
                 if (scrollY == 0) {
