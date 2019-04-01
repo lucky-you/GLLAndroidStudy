@@ -21,8 +21,9 @@ import com.gll.gllandroidstudy.view.JudgeNestedScrollView;
 import com.scwang.smartrefresh.layout.util.DensityUtil;
 
 /**
- * @author : Z_B
- * @date : 2018/8/14
+ * author : Z_B
+ * date : 2018/8/14
+ * function : 签到流程的activity
  */
 public class SignInStepViewActivity extends BaseActivity {
     private JudgeNestedScrollView nestScrollView;

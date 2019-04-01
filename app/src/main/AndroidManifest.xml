@@ -98,6 +98,8 @@
         <activity android:name=".activity.GreenDaoActivity" />
         <activity android:name=".activity.ExpandableTextViewActivity" />
         <activity android:name=".activity.ViewPagerVideoActivity"></activity>
+        <activity android:name=".activity.ScrollWheelSowActivity" />
+        <activity android:name=".activity.ShopCarActivity"></activity>
     </application>
 
 </manifest>

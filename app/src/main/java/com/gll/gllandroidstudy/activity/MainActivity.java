@@ -32,11 +32,11 @@ public class MainActivity extends BaseActivity {
             "自定义验证码输入框",
             "仿珍爱网年月日选择",
             "九宫格图片显示",
-            "从右往左轮播滚动",
             "商品总数的滚动监听",
             "GreenDao的使用",
             "TextView的展开与收起",
-            "垂直切换视频"
+            "垂直切换视频",
+            "RecyclerView实现购物车逻辑"
 
     };
     private final Class<?>[] mClasses = {
@@ -56,7 +56,8 @@ public class MainActivity extends BaseActivity {
             ProductTotalSizeActivity.class,
             GreenDaoActivity.class,
             ExpandableTextViewActivity.class,
-            ViewPagerVideoActivity.class
+            ViewPagerVideoActivity.class,
+            ShopCarActivity.class
     };
 
 
