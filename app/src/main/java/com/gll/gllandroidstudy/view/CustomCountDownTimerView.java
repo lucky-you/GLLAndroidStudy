@@ -130,14 +130,14 @@ public class CustomCountDownTimerView extends View {
         progressPaint.setStrokeWidth(roundWidth);
         canvas.drawArc(mRectF, -90, mCurrentProgress - 360, false, progressPaint);
 
-        //绘制文本
-//        currentTextTime = mCountdownTime - (int) (mCurrentProgress / 360f * mCountdownTime) + "s";
-//        textPaint.setTextSize(textSize);
-//        textPaint.setColor(textColor);
-//        //文字居中显示
-//        Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
-//        int baseline = (int) ((mRectF.bottom + mRectF.top - fontMetrics.bottom - fontMetrics.top) / 2);
-//        canvas.drawText(currentTextTime, mRectF.centerX(), baseline, textPaint);
+//        绘制文本
+        currentTextTime = mCountdownTime - (int) (mCurrentProgress / 360f * mCountdownTime) + "s";
+        textPaint.setTextSize(textSize);
+        textPaint.setColor(textColor);
+        //文字居中显示
+        Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
+        int baseline = (int) ((mRectF.bottom + mRectF.top - fontMetrics.bottom - fontMetrics.top) / 2);
+        canvas.drawText(currentTextTime, mRectF.centerX(), baseline, textPaint);
 
 
     }
