@@ -32,6 +32,7 @@ public class MainActivity extends BaseActivity {
             "自定义验证码输入框",
             "仿珍爱网年月日选择",
             "九宫格图片显示",
+            "水平跑马灯",
             "商品总数的滚动监听",
             "GreenDao的使用",
             "TextView的展开与收起",

@@ -32,4 +32,5 @@ public class ShopGoodListAdapter extends BaseQuickAdapter<GoodMessageList, BaseV
                 .addOnClickListener(R.id.tvNumberAdd);
 
     }
+
 }

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.adapter.ShopCarAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.callback.OnShopCarGoodClickListener;
 import com.gll.gllandroidstudy.model.GoodMessageList;
 import com.gll.gllandroidstudy.model.ShopMessageList;
 import com.gll.gllandroidstudy.utils.ConstantValue;
@@ -21,13 +22,14 @@ import java.util.List;
 /**
  * 购物车的逻辑
  */
-public class ShopCarActivity extends BaseActivity implements View.OnClickListener {
+public class ShopCarActivity extends BaseActivity implements View.OnClickListener, OnShopCarGoodClickListener {
 
     private RecyclerView recyclerView;
     private ImageView ivAllSelect;
     private TextView tvTotalPrice, tvSettleAccount;
     private List<ShopMessageList> shopMessageLists = new ArrayList<>();
     private ShopCarAdapter shopCarAdapter;
+    private boolean isAllSelect = false;
 
     @Override
     protected void loadViewLayout() {
@@ -74,6 +76,7 @@ public class ShopCarActivity extends BaseActivity implements View.OnClickListene
         shopMessageLists.add(new ShopMessageList("千千伊颂", goodMessageListsFour));
 
         shopCarAdapter = new ShopCarAdapter(shopMessageLists);
+        shopCarAdapter.setOnShopCarGoodClickListener(this);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView.addItemDecoration(new DivideLineItemDecoration(mContext, mContext.getResources().getColor(R.color.color_f3f3f3), 8));
         recyclerView.setAdapter(shopCarAdapter);
@@ -83,7 +86,15 @@ public class ShopCarActivity extends BaseActivity implements View.OnClickListene
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ivAllSelect:
-
+                //全选或者全部不选
+                if (isAllSelect) {
+                    ivAllSelect.setImageResource(R.drawable.ic_grey_choice);
+                    isAllSelect = !isAllSelect;
+                } else {
+                    ivAllSelect.setImageResource(R.drawable.ic_red_choice);
+                    isAllSelect = !isAllSelect;
+                }
+                shopCarAdapter.setAllShopSelect(isAllSelect);
                 break;
             case R.id.tvSettleAccount:
                 showToast("去结算");
@@ -94,5 +105,31 @@ public class ShopCarActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void setListener() {
+
+    }
+
+    @Override
+    public void isAllSelect(boolean isAllSelect, String totalPrice) {
+        if (isAllSelect) {
+            ivAllSelect.setImageResource(R.drawable.ic_red_choice);
+        } else {
+            ivAllSelect.setImageResource(R.drawable.ic_grey_choice);
+        }
+        tvTotalPrice.setText("合计:" + totalPrice + "元");
+    }
+
+    @Override
+    public void changeTheNumberOfGood(GoodMessageList goodMessage, int changeType, int goodNumber) {
+        switch (changeType) {
+            case ShopCarAdapter.GOOD_NUMBER_INCREASE_TYPE:
+                showToast("数量+1");
+                break;
+            case ShopCarAdapter.GOOD_NUMBER_REDUCE_TYPE:
+                showToast("数量-1");
+                break;
+            case ShopCarAdapter.GOOD_ITEM_CLICK_TYPE:
+                showToast("点击了商品");
+                break;
+        }
     }
 }
