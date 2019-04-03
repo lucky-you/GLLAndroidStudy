@@ -48,7 +48,12 @@ public class ShopCarActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        initTitle("购物车结算逻辑");
+        initTitle("购物车结算逻辑").setRightText("编辑").setRightOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         List<GoodMessageList> goodMessageListsOne = new ArrayList<>();
         goodMessageListsOne.add(new GoodMessageList(ConstantValue.imageThumbUrls[11], "白衬衣", 2, 85));

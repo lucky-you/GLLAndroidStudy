@@ -24,7 +24,7 @@ public class ShopGoodListAdapter extends BaseQuickAdapter<GoodMessageList, BaseV
     protected void convert(BaseViewHolder helper, GoodMessageList item) {
         Glide.with(mContext).load(item.getGoodUrl()).into((ImageView) helper.getView(R.id.ivGoodUrl));
         helper.setText(R.id.tvGoodName, item.getGoodName())
-                .setText(R.id.tvGoodPrice, "单价：" + item.getGoodPrice() + "元")
+                .setText(R.id.tvGoodPrice, "单价:" + item.getGoodPrice() + "元")
                 .setText(R.id.tvGoodNumber, String.valueOf(item.getGoodNumber()))
                 .setImageResource(R.id.ivGoodSelect, item.isGoodSelect() ? R.drawable.ic_red_choice : R.drawable.ic_grey_choice)
                 .addOnClickListener(R.id.ivGoodSelect)

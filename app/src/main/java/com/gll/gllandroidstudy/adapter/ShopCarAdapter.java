@@ -159,6 +159,21 @@ public class ShopCarAdapter extends BaseQuickAdapter<ShopMessageList, BaseViewHo
     }
 
     /**
+     * 全选
+     */
+    public boolean isSelectedAll(List<ShopMessageList> lists, boolean isSelectedAll) {
+        isSelectedAll = !isSelectedAll;
+        for (int i = 0; i < lists.size(); i++) {
+            lists.get(i).setShopSelect(isSelectedAll);
+            for (int j = 0; j < lists.get(i).getGoodList().size(); j++) {
+                lists.get(i).getGoodList().get(j).setGoodSelect(isSelectedAll);
+            }
+        }
+        return isSelectedAll;
+    }
+
+
+    /**
      * 获取总价
      */
     public String getAllPrice() {
@@ -181,9 +196,9 @@ public class ShopCarAdapter extends BaseQuickAdapter<ShopMessageList, BaseViewHo
     /**
      * 获取需要删除的商品id
      *
-     * @return 需要删除的商品的id字符串
+     * @return 选中商品的购物车id的字符串
      */
-    public String getDeleteGoodID() {
+    public String getSelectGoodCartID() {
         StringBuffer stringBuffer = new StringBuffer();
         if (mData != null) {
             for (int i = 0; i < mData.size(); i++) {
