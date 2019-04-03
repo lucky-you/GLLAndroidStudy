@@ -158,20 +158,6 @@ public class ShopCarAdapter extends BaseQuickAdapter<ShopMessageList, BaseViewHo
         notifyDataSetChanged();
     }
 
-    /**
-     * 全选
-     */
-    public boolean isSelectedAll(List<ShopMessageList> lists, boolean isSelectedAll) {
-        isSelectedAll = !isSelectedAll;
-        for (int i = 0; i < lists.size(); i++) {
-            lists.get(i).setShopSelect(isSelectedAll);
-            for (int j = 0; j < lists.get(i).getGoodList().size(); j++) {
-                lists.get(i).getGoodList().get(j).setGoodSelect(isSelectedAll);
-            }
-        }
-        return isSelectedAll;
-    }
-
 
     /**
      * 获取总价
