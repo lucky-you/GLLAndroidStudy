@@ -36,6 +36,7 @@ public class NineImageViewActivity extends BaseActivity {
         recyclerView = get(R.id.recyclerView);
     }
 
+
     @Override
     protected void processLogic(Bundle savedInstanceState) {
 
