@@ -38,7 +38,6 @@ public class ViewPagerVideoActivity extends BaseActivity implements OnViewPagerL
     protected void processLogic(Bundle savedInstanceState) {
         int[] videoList = {R.raw.video_1, R.raw.video_2, R.raw.video_3, R.raw.video_4,
                 R.raw.video_5, R.raw.video_6, R.raw.video_7, R.raw.video_8};
-
         viewPagerVideoAdapter = new ViewPagerVideoAdapter(mContext, videoList);
         VideoRecyclerView.setLayoutManager(mLayoutManager);
         VideoRecyclerView.setAdapter(viewPagerVideoAdapter);
@@ -78,7 +77,7 @@ public class ViewPagerVideoActivity extends BaseActivity implements OnViewPagerL
     protected void onResume() {
         super.onResume();
         Log.e("gll", "onResume:");
-//        playVideo(selectPosition);
+        playVideo(selectPosition);
     }
 
     @Override

@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 购物车的逻辑
+ * 嵌套实现购物车的逻辑
  */
 public class ShopCarActivity extends BaseActivity implements View.OnClickListener, OnShopCarGoodClickListener {
 
@@ -48,7 +48,7 @@ public class ShopCarActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        initTitle("购物车结算逻辑").setRightText("编辑").setRightOnClickListener(new View.OnClickListener() {
+        initTitle("RecyclerView嵌套实现购物车的逻辑").setRightText("编辑").setRightOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

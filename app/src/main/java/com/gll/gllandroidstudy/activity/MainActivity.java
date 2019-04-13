@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity {
             "GreenDao的使用",
             "TextView的展开与收起",
             "垂直切换视频",
-            "RecyclerView实现购物车逻辑"
+            "RecyclerView嵌套实现购物车的逻辑"
 
     };
     private final Class<?>[] mClasses = {
