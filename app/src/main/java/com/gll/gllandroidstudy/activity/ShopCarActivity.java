@@ -55,6 +55,16 @@ public class ShopCarActivity extends BaseActivity implements View.OnClickListene
             }
         });
 
+        initDate();
+
+        shopCarAdapter = new ShopCarAdapter(shopMessageLists);
+        shopCarAdapter.setOnShopCarGoodClickListener(this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        recyclerView.addItemDecoration(new DivideLineItemDecoration(mContext, mContext.getResources().getColor(R.color.color_f3f3f3), 8));
+        recyclerView.setAdapter(shopCarAdapter);
+    }
+
+    private void initDate() {
         List<GoodMessageList> goodMessageListsOne = new ArrayList<>();
         goodMessageListsOne.add(new GoodMessageList(ConstantValue.imageThumbUrls[11], "白衬衣", 2, 85));
         goodMessageListsOne.add(new GoodMessageList(ConstantValue.imageThumbUrls[12], "男款夹克", 3, 140));
@@ -79,12 +89,6 @@ public class ShopCarActivity extends BaseActivity implements View.OnClickListene
         shopMessageLists.add(new ShopMessageList("韩都衣舍", goodMessageListsTwo));
         shopMessageLists.add(new ShopMessageList("拉夏贝尔", goodMessageListsThree));
         shopMessageLists.add(new ShopMessageList("千千伊颂", goodMessageListsFour));
-
-        shopCarAdapter = new ShopCarAdapter(shopMessageLists);
-        shopCarAdapter.setOnShopCarGoodClickListener(this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        recyclerView.addItemDecoration(new DivideLineItemDecoration(mContext, mContext.getResources().getColor(R.color.color_f3f3f3), 8));
-        recyclerView.setAdapter(shopCarAdapter);
     }
 
     @Override
