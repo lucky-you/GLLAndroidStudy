@@ -13,7 +13,6 @@ public interface BaseView extends View.OnClickListener {
 
     /**
      * 初始化数据
-     *
      * @param bundle 传递过来的 bundle
      */
     void initData(@Nullable final Bundle bundle);

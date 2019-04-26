@@ -35,7 +35,6 @@ public class ScrollWheelSowActivity extends BaseActivity {
         String radioMessage = "我就这点出息:我只是个出来打野的，就是一个打野的。";
         tvRunTextView.setText(radioMessage);
         tvRunTextView.startAnim();
-
         customCountDownTimeView.setCountdownTime(10);
         customCountDownTimeView.startCountDown();
     }
