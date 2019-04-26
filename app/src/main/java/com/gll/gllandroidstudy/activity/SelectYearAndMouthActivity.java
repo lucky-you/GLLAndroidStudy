@@ -27,7 +27,6 @@ public class SelectYearAndMouthActivity extends BaseActivity {
     private SlidingTabLayout slidingTabLayout;
     private NoScrollViewPager noScrollViewPager;
 
-    private TextView tvYear, tvMouth, tvDay;
 
     @Override
     protected void loadViewLayout() {
@@ -51,42 +50,10 @@ public class SelectYearAndMouthActivity extends BaseActivity {
         HomeTitlePageAdapter homeTitlePageAdapter = new HomeTitlePageAdapter(getSupportFragmentManager(), mFragmentList, titles);
         noScrollViewPager.setAdapter(homeTitlePageAdapter);
         slidingTabLayout.setViewPager(noScrollViewPager);
-        tvYear = slidingTabLayout.getTitleView(0);
-        tvMouth = slidingTabLayout.getTitleView(1);
-        tvDay = slidingTabLayout.getTitleView(2);
     }
 
     @Override
     protected void setListener() {
-
-        slidingTabLayout.setOnTabSelectListener(new OnTabSelectListener() {
-            @Override
-            public void onTabSelect(int position) {
-
-            }
-
-            @Override
-            public void onTabReselect(int position) {
-
-            }
-        });
-
-        noScrollViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
     }
 
     @Override
