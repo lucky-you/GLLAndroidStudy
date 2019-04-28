@@ -64,13 +64,24 @@
     </LinearLayout>
 
     <com.gll.gllandroidstudy.view.CustomCountDownTimerView
-        android:layout_width="@dimen/spacing_44"
         android:id="@+id/customCountDownTimeView"
+        android:layout_width="@dimen/spacing_44"
         android:layout_height="@dimen/spacing_44"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/spacing_10"
         app:cus_roundWidth="4dp"
         app:cus_textSize="15sp" />
+
+    <com.gll.gllandroidstudy.view.BannerLayout
+        android:id="@+id/bannerView"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="@dimen/spacing_20"
+        app:bannerDelaySecond="5"
+        app:bannerPointDrawableSelected="@drawable/wall11"
+        app:bannerPointDrawableUnselected="@drawable/wall12"
+        app:bannerPointGravity="center"
+        app:bannerPointSize="10dp" />
 
 
 </LinearLayout>
