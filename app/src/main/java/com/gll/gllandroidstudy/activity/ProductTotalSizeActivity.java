@@ -61,6 +61,9 @@ public class ProductTotalSizeActivity extends BaseActivity {
         publicRecyclerView.setHasFixedSize(true);
         publicRecyclerView.setNestedScrollingEnabled(false);
 
+//        View headerView = View.inflate(mContext, R.layout.include_recyclerview_header_layout, null);
+//        productTotalSizeAdapter.setHeaderView(headerView);
+
         llSizeNumberLayout.setVisibility(View.GONE);
 
         WindowManager wm = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
