@@ -37,7 +37,8 @@ public class MainActivity extends BaseActivity {
             "GreenDao的使用",
             "TextView的展开与收起",
             "垂直切换视频",
-            "RecyclerView嵌套实现购物车的逻辑"
+            "RecyclerView嵌套实现购物车的逻辑",
+            "底部导航栏的突起处理"
 
     };
     private final Class<?>[] mClasses = {
@@ -58,7 +59,8 @@ public class MainActivity extends BaseActivity {
             GreenDaoActivity.class,
             ExpandableTextViewActivity.class,
             ViewPagerVideoActivity.class,
-            ShopCarActivity.class
+            ShopCarActivity.class,
+            BottomTabActivity.class
     };
 
 
