@@ -78,7 +78,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_shopmall_tab" />
+            android:src="@drawable/ic_tab_shopping" />
 
         <LinearLayout
             android:layout_width="0dp"

@@ -83,6 +83,7 @@ public class BaseRecyclerViewAdapter extends BaseActivity {
         View headerView = View.inflate(mContext, R.layout.include_recyclerview_header_layout, null);
         imageViewAdapter.setHeaderView(headerView);
 
+
     }
 
     @Override
