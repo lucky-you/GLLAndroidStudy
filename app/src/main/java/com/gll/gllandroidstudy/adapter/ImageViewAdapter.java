@@ -2,7 +2,6 @@ package com.gll.gllandroidstudy.adapter;
 
 import android.support.annotation.LayoutRes;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.rv.BaseViewHolder;
@@ -16,15 +15,17 @@ import java.util.List;
  * Function:
  */
 public class ImageViewAdapter extends SimpleAdapter<ImageBean> {
-    public ImageViewAdapter(List<ImageBean> list,@LayoutRes int layoutId) {
+    public ImageViewAdapter(List<ImageBean> list, @LayoutRes int layoutId) {
         super(list, layoutId);
     }
 
     @Override
     protected void bind(BaseViewHolder holder, ImageBean data) {
-        TextView textView = holder.getView(R.id.tv_image_name);
-        textView.setText(data.getName());
-        ImageView image = holder.getView(R.id.iv_image);
-        image.setImageBitmap(data.getImage());
+//        TextView textView = holder.getView(R.id.tv_image_name);
+//        textView.setText(data.getName());
+//        ImageView image = holder.getView(R.id.iv_image);
+//        image.setImageBitmap(data.getImage());
+        holder.setText(R.id.tv_image_name, data.getName())
+                .setImageBitmap(R.id.iv_image, data.getImage());
     }
 }
