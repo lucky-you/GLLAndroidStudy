@@ -38,7 +38,8 @@ public class MainActivity extends BaseActivity {
             "TextView的展开与收起",
             "垂直切换视频",
             "RecyclerView嵌套实现购物车的逻辑",
-            "底部导航栏的突起处理"
+            "底部导航栏的突起处理",
+            "约束性布局的使用"
 
     };
     private final Class<?>[] mClasses = {
@@ -60,7 +61,8 @@ public class MainActivity extends BaseActivity {
             ExpandableTextViewActivity.class,
             ViewPagerVideoActivity.class,
             ShopCarActivity.class,
-            BottomTabActivity.class
+            BottomTabActivity.class,
+            ConstraintLayoutActivity.class
     };
 
 

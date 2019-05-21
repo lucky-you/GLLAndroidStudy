@@ -100,7 +100,8 @@
         <activity android:name=".activity.ViewPagerVideoActivity" />
         <activity android:name=".activity.ScrollWheelSowActivity" />
         <activity android:name=".activity.ShopCarActivity" />
-        <activity android:name=".activity.BottomTabActivity"></activity>
+        <activity android:name=".activity.BottomTabActivity" />
+        <activity android:name=".activity.ConstraintLayoutActivity"></activity>
     </application>
 
 </manifest>
