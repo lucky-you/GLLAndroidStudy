@@ -2,18 +2,40 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tv_image_name"
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="@dimen/spacing_46"
+        android:layout_height="@dimen/spacing_46"
+        android:layout_margin="@dimen/spacing_8"
+        android:src="@drawable/wall11" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/text_color_333"
-        android:textSize="@dimen/sp_14" />
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/spacing_10"
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/iv_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvMessageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/text_color_666"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvMessageContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_8"
+            android:text="@string/app_name"
+            android:textColor="@color/color_69"
+            android:textSize="13sp" />
+
+
+    </LinearLayout>
 
 </LinearLayout>

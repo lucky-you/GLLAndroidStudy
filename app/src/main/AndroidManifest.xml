@@ -86,7 +86,7 @@
         <activity android:name=".activity.CacheActivity" />
         <activity android:name=".activity.SignInStepViewActivity" />
         <activity android:name=".activity.SpannableStringActivity" />
-        <activity android:name=".activity.BaseRecyclerViewAdapter" />
+        <activity android:name=".activity.RecyclerViewActivity" />
         <activity android:name=".activity.SelectImageViewActivity" />
         <activity android:name=".activity.SelectCityActivity" />
         <activity android:name=".activity.StarBarActivity" />
