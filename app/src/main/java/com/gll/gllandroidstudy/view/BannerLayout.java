@@ -22,7 +22,7 @@ import java.util.List;
 /**
  * author      : Z_B
  * date       : 2019/4/28
- * function  :
+ * function  : 自定义banner
  */
 public class BannerLayout extends LinearLayout {
 
@@ -56,12 +56,13 @@ public class BannerLayout extends LinearLayout {
     private void initView(Context context, AttributeSet attrs) {
         this.context = context;
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.BannerLayout);
-        bannerPointSize = typedArray.getDimensionPixelSize(R.styleable.BannerLayout_bannerPointSize, 10);
+        bannerPointSize = typedArray.getDimensionPixelSize(R.styleable.BannerLayout_bannerPointSize, dp2px(10));
         bannerPointGravity = typedArray.getInt(R.styleable.BannerLayout_bannerPointGravity, Gravity.CENTER);
         bannerDelaySecond = typedArray.getInt(R.styleable.BannerLayout_bannerDelaySecond, 3);
-        bannerPointDrawableSelected = typedArray.getResourceId(R.styleable.BannerLayout_bannerPointDrawableSelected, R.drawable.wall06);
-        bannerPointDrawableUnselected = typedArray.getResourceId(R.styleable.BannerLayout_bannerPointDrawableUnselected, R.drawable.wall10);
+        bannerPointDrawableSelected = typedArray.getResourceId(R.styleable.BannerLayout_bannerPointDrawableSelected, R.drawable.shape_circle_red_bg);
+        bannerPointDrawableUnselected = typedArray.getResourceId(R.styleable.BannerLayout_bannerPointDrawableUnselected, R.drawable.shape_circle_grey_bg);
         typedArray.recycle();
+        //添加布局
         View view = View.inflate(context, R.layout.custom_banner_layout, null);
         addView(view);
         bannerViewPager = (ViewPager) view.findViewById(R.id.bannerViewPager);
@@ -106,7 +107,7 @@ public class BannerLayout extends LinearLayout {
             bannerPointLayout.removeAllViews();
             for (int i = 0; i < mBannerCount; i++) {
                 ImageView imageView = new ImageView(context);
-                LayoutParams layoutParams = new LayoutParams(bannerPointSize, bannerPointSize);
+                LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
                 layoutParams.setMargins(10, 0, 0, 10);
                 imageView.setLayoutParams(layoutParams);
                 if (position == i) {
@@ -171,7 +172,6 @@ public class BannerLayout extends LinearLayout {
             ImageView imageView = new ImageView(context);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             Object object = bannerList.get(position);
-//            ImageLoaderUtil.load(context, object, R.mipmap.horizontal_default, imageView);
             Glide.with(context).load(object).into(imageView);
             imageView.setOnClickListener(new OnClickListener() {
                 @Override

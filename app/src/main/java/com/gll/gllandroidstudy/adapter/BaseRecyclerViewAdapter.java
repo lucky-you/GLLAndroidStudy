@@ -1,6 +1,5 @@
 package com.gll.gllandroidstudy.adapter;
 
-import android.support.annotation.LayoutRes;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -11,6 +10,7 @@ import com.gll.gllandroidstudy.base.rv.adapter.SimpleAdapter;
 import com.gll.gllandroidstudy.model.RecyclerViewList;
 import com.gll.gllandroidstudy.widget.GlideRoundTransform;
 
+
 import java.util.List;
 
 /**
@@ -18,7 +18,8 @@ import java.util.List;
  * Function:
  */
 public class BaseRecyclerViewAdapter extends SimpleAdapter<RecyclerViewList> {
-    public BaseRecyclerViewAdapter(List<RecyclerViewList> list, @LayoutRes int layoutId) {
+
+    public BaseRecyclerViewAdapter(List<RecyclerViewList> list, int layoutId) {
         super(list, layoutId);
     }
 

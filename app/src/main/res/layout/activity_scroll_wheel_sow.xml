@@ -78,10 +78,9 @@
         android:layout_height="160dp"
         android:layout_marginTop="@dimen/spacing_20"
         app:bannerDelaySecond="5"
-        app:bannerPointDrawableSelected="@drawable/wall11"
-        app:bannerPointDrawableUnselected="@drawable/wall12"
-        app:bannerPointGravity="center"
-        app:bannerPointSize="10dp" />
+        app:bannerPointDrawableSelected="@drawable/shape_circle_red_bg"
+        app:bannerPointDrawableUnselected="@drawable/shape_circle_grey_bg"
+        app:bannerPointGravity="center" />
 
 
 </LinearLayout>
