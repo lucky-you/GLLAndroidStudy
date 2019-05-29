@@ -53,12 +53,7 @@ public class RecyclerViewActivity extends BaseActivity {
         baseRecyclerViewAdapter.setHeaderView(headerView);
         baseRecyclerViewAdapter.setFooterView(footView);
 
-        baseRecyclerViewAdapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                showToast("点击了=" + position);
-            }
-        });
+        baseRecyclerViewAdapter.setOnItemClickListener((view, position) -> showToast("点击了=" + position));
 //        baseRecyclerViewAdapter.setEmptyView(new EmptyView(mContext));
 
 

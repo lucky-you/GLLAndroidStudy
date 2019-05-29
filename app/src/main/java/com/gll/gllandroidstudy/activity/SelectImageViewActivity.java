@@ -132,19 +132,16 @@ public class SelectImageViewActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-        nineGridImageAdapter.setOnItemClickListener(new NineGridImageAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position, View v) {
-                if (selectList.size() > 0) {
-                    LocalMedia media = selectList.get(position);
-                    String pictureType = media.getPictureType();
-                    int mediaType = PictureMimeType.pictureToVideo(pictureType);
-                    switch (mediaType) {
-                        case 1:
-                            // 预览图片 可自定长按保存路径
-                            PictureSelector.create(SelectImageViewActivity.this).themeStyle(R.style.picture_QQ_style).openExternalPreview(position, selectList);
-                            break;
-                    }
+        nineGridImageAdapter.setOnItemClickListener((position, v) -> {
+            if (selectList.size() > 0) {
+                LocalMedia media = selectList.get(position);
+                String pictureType = media.getPictureType();
+                int mediaType = PictureMimeType.pictureToVideo(pictureType);
+                switch (mediaType) {
+                    case 1:
+                        // 预览图片 可自定长按保存路径
+                        PictureSelector.create(SelectImageViewActivity.this).themeStyle(R.style.picture_QQ_style).openExternalPreview(position, selectList);
+                        break;
                 }
             }
         });

@@ -21,12 +21,7 @@ public class EditTextCodeActivity extends BaseActivity {
         initTitle("自定义验证码输入框");
         verCodeVIew = get(R.id.verCodeView);
         verCodeVIew.setmEtWidth(CommonUtil.dip2px(mContext, 34));
-        verCodeVIew.setOnCodeFinishListener(new VerificationCodeView.OnCodeFinishListener() {
-            @Override
-            public void onComplete(String content) {
-                showToast(content);
-            }
-        });
+        verCodeVIew.setOnCodeFinishListener(content -> showToast(content));
     }
 
     @Override

@@ -62,12 +62,7 @@ public class SignInStepViewActivity extends BaseActivity {
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void setListener() {
-        ivBackReturnImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        ivBackReturnImageView.setOnClickListener(v -> finish());
 
         nestScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             int lastScrollY = 0;

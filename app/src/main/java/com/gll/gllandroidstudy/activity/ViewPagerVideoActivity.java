@@ -98,21 +98,13 @@ public class ViewPagerVideoActivity extends BaseActivity implements OnViewPagerL
         imgThumb = itemView.findViewById(R.id.img_thumb);
         final MediaPlayer[] mediaPlayer = new MediaPlayer[1];
         videoView.start();
-        videoView.setOnInfoListener(new MediaPlayer.OnInfoListener() {
-            @Override
-            public boolean onInfo(MediaPlayer mp, int what, int extra) {
-                mediaPlayer[0] = mp;
-                mp.setLooping(true);
-                imgThumb.animate().alpha(0).setDuration(200).start();
-                return false;
-            }
+        videoView.setOnInfoListener((mp, what, extra) -> {
+            mediaPlayer[0] = mp;
+            mp.setLooping(true);
+            imgThumb.animate().alpha(0).setDuration(200).start();
+            return false;
         });
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                videoView.setBackgroundColor(0xff000000);
-            }
-        });
+        videoView.setOnPreparedListener(mp -> videoView.setBackgroundColor(0xff000000));
 
         imgPlay.setOnClickListener(new View.OnClickListener() {
             boolean isPlaying = true;

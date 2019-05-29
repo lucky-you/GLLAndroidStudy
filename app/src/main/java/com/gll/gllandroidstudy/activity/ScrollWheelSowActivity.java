@@ -2,6 +2,8 @@ package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
@@ -12,6 +14,7 @@ import com.gll.gllandroidstudy.view.RunTextView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * 滚动轮播的activity
@@ -34,7 +37,7 @@ public class ScrollWheelSowActivity extends BaseActivity {
         tvTitleRadio = get(R.id.tvTitleRadio);
         tvRunTextView = get(R.id.tvRunTextView);
         customCountDownTimeView = get(R.id.customCountDownTimeView);
-        bannerView =  findViewById(R.id.bannerView);
+        bannerView = findViewById(R.id.bannerView);
     }
 
     @Override
@@ -58,19 +61,8 @@ public class ScrollWheelSowActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-        customCountDownTimeView.setOnCountDownTimeFinishListener(new CustomCountDownTimerView.OnCountDownTimeFinishListener() {
-            @Override
-            public void countDownFinished() {
-                showToast("倒计时完成");
-            }
-        });
 
-        bannerView.setOnBannerClickListener(new BannerLayout.OnBannerClickListener() {
-            @Override
-            public void onBannerClick(int position) {
-                showToast("点击了" + position);
-            }
-        });
+
     }
 
     @Override

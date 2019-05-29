@@ -41,23 +41,13 @@ public class SelectCityActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-        tvSelectCity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectCity();
-            }
-        });
+        tvSelectCity.setOnClickListener(v -> selectCity());
 
     }
 
     private void selectCity() {
         showDialog();
-        tvSelectCity.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                dismissDialog();
-            }
-        }, 3000);
+        tvSelectCity.postDelayed(() -> dismissDialog(), 3000);
     }
 
 

@@ -30,4 +30,5 @@
     <string name="to_expand_hint">Expand</string>
     <string name="to_shrink_hint">Shrink</string>
 
+    <string name="footer">一 暂无更多数据 一</string>
 </resources>

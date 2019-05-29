@@ -1,119 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:clipChildren="false">
+    android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/llAboutBottomLayout"
-        android:background="@color/line_grey" />
+    <include layout="@layout/include_titlebar" />
 
-    <LinearLayout
-        android:id="@+id/llAboutBottomLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:clipChildren="false"
-        android:orientation="vertical">
+    <include layout="@layout/include_recyclerview_layout" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/spacing_1"
-            android:background="@color/text_color_999" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clipChildren="false"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/rbHomeTab"
-                style="@style/homeBottomStyle"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:drawableTop="@drawable/select_home_tab_bg"
-                android:text="首页" />
-
-            <RadioButton
-                android:id="@+id/rbForumTab"
-                style="@style/homeBottomStyle"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/select_forum_tab_bg"
-                android:text="论坛" />
-
-
-            <RadioButton
-                android:id="@+id/rShopMall"
-                style="@style/homeBottomStyle"
-                android:layout_marginTop="@dimen/spacing_8"
-                android:text="商城" />
-
-            <RadioButton
-                android:id="@+id/rbFindTab"
-                style="@style/homeBottomStyle"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/select_find_tab_bg"
-                android:text="发现" />
-
-            <RadioButton
-                android:id="@+id/rbMineTab"
-                style="@style/homeBottomStyle"
-                android:layout_height="wrap_content"
-                android:drawableTop="@drawable/select_mine_tab_bg"
-                android:text="我的" />
-
-        </RadioGroup>
-
-
-        <LinearLayout
-            android:id="@+id/llAboutBottomButton"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/spacing_49"
-            android:clipChildren="true"
-            android:orientation="horizontal"
-            android:visibility="gone">
-
-            <TextView
-                style="@style/homeBottomStyle"
-                android:drawableTop="@drawable/select_home_tab_bg"
-                android:text="首页" />
-
-            <TextView
-                style="@style/homeBottomStyle"
-                android:drawableTop="@drawable/select_forum_tab_bg"
-                android:text="论坛" />
-
-            <TextView
-                style="@style/homeBottomStyle"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/spacing_94"
-                android:background="@drawable/select_shopmall_tab_bg"
-                android:visibility="gone" />
-
-            <TextView
-                style="@style/homeBottomStyle"
-                android:drawableTop="@drawable/select_find_tab_bg"
-                android:text="发现" />
-
-            <TextView
-                style="@style/homeBottomStyle"
-                android:drawableTop="@drawable/select_mine_tab_bg"
-                android:text="我的" />
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/img_protruding"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="@dimen/spacing_16"
-        android:src="@drawable/ic_tab_shopping" />
-</RelativeLayout>
+</LinearLayout>

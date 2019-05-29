@@ -7,7 +7,7 @@ package com.gll.gllandroidstudy.model;
 public class RecyclerViewList {
 
 
-    public int resId;
+    public String imageUrl;
     public String title;
     public String content;
 
@@ -16,18 +16,18 @@ public class RecyclerViewList {
         this.content = content;
     }
 
-    public RecyclerViewList(int resId, String title, String content) {
-        this.resId = resId;
+    public RecyclerViewList(String imageUrl, String title, String content) {
+        this.imageUrl = imageUrl;
         this.title = title;
         this.content = content;
     }
 
-    public int getResId() {
-        return resId;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setResId(int resId) {
-        this.resId = resId;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getTitle() {

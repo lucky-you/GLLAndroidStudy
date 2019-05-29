@@ -38,7 +38,7 @@ public class MainActivity extends BaseActivity {
             "TextView的展开与收起",
             "垂直切换视频",
             "RecyclerView嵌套实现购物车的逻辑",
-            "底部导航栏的突起处理",
+            "SectionedRV的使用",
             "约束性布局的使用"
 
     };

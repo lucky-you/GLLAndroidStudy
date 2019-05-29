@@ -10,11 +10,12 @@
         android:layout_height="@dimen/spacing_140">
 
 
-        <ImageView
+        <com.youth.banner.Banner
+            android:id="@+id/banner"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@drawable/wall12" />
+            android:background="@drawable/wall12"
+            android:scaleType="centerCrop" />
 
         <LinearLayout
             android:layout_width="@dimen/spacing_250"
