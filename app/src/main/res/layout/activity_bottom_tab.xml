@@ -7,6 +7,6 @@
 
     <include layout="@layout/include_titlebar" />
 
-    <include layout="@layout/include_recyclerview_layout" />
+    <include layout="@layout/include_refresh_recycler_layout" />
 
 </LinearLayout>

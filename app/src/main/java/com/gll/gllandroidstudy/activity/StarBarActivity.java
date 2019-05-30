@@ -1,11 +1,6 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
@@ -26,11 +21,10 @@ public class StarBarActivity extends BaseActivity {
 
     @Override
     protected void bindViews() {
-        initTitle("沉浸式渐变状态栏").setTitleBgDrawable(BaseApplication.getInstance().getResources().getDrawable(R.drawable.shape_title_bg));
+        initTitle("沉浸式渐变状态栏")
+                .setTitleBgDrawable(BaseApplication.getInstance().getResources().getDrawable(R.drawable.shape_title_bg));
         StatusUtils.transparentStatusBar(this);
-        View titleView = get(R.id.title_view);
-        ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) titleView.getLayoutParams();
-        layoutParams.height= BarUtils.getStatusBarHeight();
+        BarUtils.addMarginTopEqualStatusBarHeight(get(R.id.title_view));
 
     }
 

@@ -1,6 +1,7 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -17,8 +18,12 @@ import com.gll.gllandroidstudy.utils.ConstantValue;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * SectionedRV的使用
+ */
 public class BottomTabActivity extends BaseActivity {
 
+    private SwipeRefreshLayout refreshLayout;
     private RecyclerView recyclerView;
 
     private SectionedRVAdapter sectionedRVAdapter;
@@ -36,7 +41,8 @@ public class BottomTabActivity extends BaseActivity {
     @Override
     protected void bindViews() {
         initTitle("SectionedRV的使用");
-        recyclerView = get(R.id.publicRecyclerView);
+        refreshLayout = get(R.id.refreshLayout);
+        recyclerView = get(R.id.recyclerView);
         getData();
         sectionedRVAdapter = new SectionedRVAdapter();
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
@@ -47,19 +53,25 @@ public class BottomTabActivity extends BaseActivity {
     protected void processLogic(Bundle savedInstanceState) {
 
 
-        sectionedRVAdapter.addSection(new SectionBanner(R.layout.include_recyclerview_header_layout, R.layout.layout_empty, bannerUrlList));
+        initDataToView();
+    }
 
+    private void initDataToView() {
+        sectionedRVAdapter.addSection(new SectionBanner(R.layout.include_recyclerview_header_layout, R.layout.layout_empty, bannerUrlList));
 
         sectionedRVAdapter.addSection(new SectionColumnList(R.layout.layout_item_section_head, R.layout.layout_item_special_body, columnLists));
 
-
-        sectionedRVAdapter.addSection(new SectionMessageList(R.layout.layout_item_section_head, R.layout.include_simple_item_view_layout, recyclerViewLists));
-//        R.layout.layout_item_section_footer,
+        sectionedRVAdapter.addSection(new SectionMessageList(R.layout.layout_item_section_head, R.layout.layout_item_section_footer, R.layout.include_simple_item_view_layout, recyclerViewLists));
 
         sectionedRVAdapter.notifyDataSetChanged();
     }
 
     private void getData() {
+        if (bannerUrlList.size() > 0) bannerUrlList.clear();
+        if (columnLists.size() > 0) columnLists.clear();
+        if (recyclerViewLists.size() > 0) recyclerViewLists.clear();
+
+
         bannerUrlList.add(ConstantValue.imageThumbUrls[0]);
         bannerUrlList.add(ConstantValue.imageThumbUrls[1]);
         bannerUrlList.add(ConstantValue.imageThumbUrls[2]);
@@ -85,8 +97,21 @@ public class BottomTabActivity extends BaseActivity {
 
     }
 
+
     @Override
     protected void setListener() {
+//        refreshLayout.setOnRefreshListener(() -> {
+//
+//            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[10], "成长是一种蜕变，失去了旧的，必然因为又来了新的，这就是公平。", "2019-03-16"));
+//            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[11], "从来没有人读书，只有人在书中读自己，发现自己或检查自己。", "2019-03-23"));
+//            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[12], "你脚踩的地狱只是天堂的倒影,我唇角的故事也是时间的灰烬", "2019-02-27"));
+//            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[13], "十年生死两茫茫，不思量，自难忘，千里孤坟，无处话凄凉", "2019-05-07"));
+//
+//            sectionedRVAdapter.notifyDataSetChanged();
+//
+//            refreshLayout.setRefreshing(false);
+//        });
+
 
     }
 }

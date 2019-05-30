@@ -4,7 +4,7 @@ package com.gll.gllandroidstudy.section;
 import com.gll.gllandroidstudy.R;
 
 /**
- * @author ym  作者 E-mail: 15622113269@163.com
+ * author ym  作者 E-mail: 15622113269@163.com
  * 描述:增加头部或者尾部
  */
 

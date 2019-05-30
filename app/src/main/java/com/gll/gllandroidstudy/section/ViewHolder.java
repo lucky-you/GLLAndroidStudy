@@ -63,7 +63,9 @@ public class ViewHolder extends RecyclerView.ViewHolder {
     private final LinkedHashSet<Integer> childClickViewIds;
 
     private final LinkedHashSet<Integer> itemChildLongClickViewIds;
+
     private BaseQuickAdapter adapter;
+
     /**
      * use itemView instead
      */
@@ -83,8 +85,6 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         this.itemChildLongClickViewIds = new LinkedHashSet<>();
         this.nestViews = new HashSet<>();
         convertView = view;
-
-
     }
 
     private int getClickPosition() {
