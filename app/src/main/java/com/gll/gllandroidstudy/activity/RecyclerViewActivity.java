@@ -54,7 +54,6 @@ public class RecyclerViewActivity extends BaseActivity {
         baseRecyclerViewAdapter.setFooterView(footView);
 
         baseRecyclerViewAdapter.setOnItemClickListener((view, position) -> showToast("点击了=" + position));
-//        baseRecyclerViewAdapter.setEmptyView(new EmptyView(mContext));
 
 
     }

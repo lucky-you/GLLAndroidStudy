@@ -46,8 +46,6 @@ public class SelectCityActivity extends BaseActivity {
     }
 
     private void selectCity() {
-        showDialog();
-        tvSelectCity.postDelayed(() -> dismissDialog(), 3000);
     }
 
 

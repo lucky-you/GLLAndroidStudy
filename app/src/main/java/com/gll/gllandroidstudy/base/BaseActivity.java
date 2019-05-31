@@ -7,23 +7,16 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.model.NoticeMessage;
-import com.gll.gllandroidstudy.utils.BarUtils;
 import com.gll.gllandroidstudy.utils.ToastUtils;
 import com.gll.gllandroidstudy.view.TitleBuilder;
-
-import net.zhiyuan51.dev.android.selectimage.activity.ChoiceImageActivity;
-import net.zhiyuan51.dev.android.selectimage.view.MProgressDialog;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -41,7 +34,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         mContext = this;
         initView(savedInstanceState);
-//
     }
 
     public TitleBuilder initTitle(Object obj) {
@@ -201,32 +193,4 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     }
 
 
-    protected MProgressDialog progressDialog;
-
-    /**
-     * 显示对话框
-     */
-    public MProgressDialog showDialog() {
-        if (progressDialog == null) {
-            progressDialog = new MProgressDialog(mContext);
-            progressDialog = progressDialog.createLoadingDialog("加载中...");
-            progressDialog.show();
-        } else if (!progressDialog.isShowing()) {
-            progressDialog.show();
-        }
-        return progressDialog;
-    }
-
-    /**
-     * 关闭提示框
-     */
-    public void dismissDialog() {
-        if (progressDialog != null) {
-            if (progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-            progressDialog = null;
-        }
-
-    }
 }
