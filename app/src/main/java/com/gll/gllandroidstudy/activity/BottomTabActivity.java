@@ -100,17 +100,17 @@ public class BottomTabActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-//        refreshLayout.setOnRefreshListener(() -> {
-//
-//            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[10], "成长是一种蜕变，失去了旧的，必然因为又来了新的，这就是公平。", "2019-03-16"));
-//            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[11], "从来没有人读书，只有人在书中读自己，发现自己或检查自己。", "2019-03-23"));
-//            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[12], "你脚踩的地狱只是天堂的倒影,我唇角的故事也是时间的灰烬", "2019-02-27"));
-//            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[13], "十年生死两茫茫，不思量，自难忘，千里孤坟，无处话凄凉", "2019-05-07"));
-//
-//            sectionedRVAdapter.notifyDataSetChanged();
-//
-//            refreshLayout.setRefreshing(false);
-//        });
+        refreshLayout.setOnRefreshListener(() -> {
+
+            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[10], "成长是一种蜕变，失去了旧的，必然因为又来了新的，这就是公平。", "2019-03-16"));
+            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[11], "从来没有人读书，只有人在书中读自己，发现自己或检查自己。", "2019-03-23"));
+            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[12], "你脚踩的地狱只是天堂的倒影,我唇角的故事也是时间的灰烬", "2019-02-27"));
+            recyclerViewLists.add(new RecyclerViewList(ConstantValue.imageThumbUrls[13], "十年生死两茫茫，不思量，自难忘，千里孤坟，无处话凄凉", "2019-05-07"));
+
+            sectionedRVAdapter.notifyDataSetChanged();
+
+            refreshLayout.setRefreshing(false);
+        });
 
 
     }
