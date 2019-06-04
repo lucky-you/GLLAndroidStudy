@@ -73,15 +73,10 @@ public class RecyclerViewAddHeaderActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-        smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(@NonNull RefreshLayout refreshLayout) {
-                if (smartRefreshLayout.getState().isOpening) {
-
-
-                }
-
+        smartRefreshLayout.setOnRefreshListener(refreshLayout -> {
+            if (smartRefreshLayout.getState().isOpening) {
             }
+
         });
     }
 }

@@ -91,12 +91,9 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(mContext, mClasses[position]);
-                startActivity(intent);
-            }
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            Intent intent = new Intent(mContext, mClasses[position]);
+            startActivity(intent);
         });
     }
 }
