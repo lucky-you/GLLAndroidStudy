@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * author      : Z_B
  * date       : 2018/12/7
- * function  :
+ * function  : 九宫格图片的展示
  */
 public class NineGridViewImageAdapter extends RecyclerView.Adapter<NineGridViewImageAdapter.ImageViewHolder> {
 

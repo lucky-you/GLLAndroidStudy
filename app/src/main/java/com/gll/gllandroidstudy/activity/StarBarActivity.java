@@ -21,10 +21,7 @@ public class StarBarActivity extends BaseActivity {
 
     @Override
     protected void bindViews() {
-        initTitle("沉浸式渐变状态栏")
-                .setTitleBgDrawable(BaseApplication.getInstance().getResources().getDrawable(R.drawable.shape_title_bg));
-        StatusUtils.transparentStatusBar(this);
-        BarUtils.addMarginTopEqualStatusBarHeight(get(R.id.title_view));
+        initTitle("沉浸式渐变状态栏");
 
     }
 

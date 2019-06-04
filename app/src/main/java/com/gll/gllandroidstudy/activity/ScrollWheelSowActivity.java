@@ -1,28 +1,20 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
 import com.gll.gllandroidstudy.view.BannerLayout;
 import com.gll.gllandroidstudy.view.CustomCountDownTimerView;
-import com.gll.gllandroidstudy.view.RunTextView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * 滚动轮播的activity
  */
 public class ScrollWheelSowActivity extends BaseActivity {
 
-    private TextView tvTitleRadio;
-    private RunTextView tvRunTextView;
     private CustomCountDownTimerView customCountDownTimeView;
     private BannerLayout bannerView;
 
@@ -33,21 +25,17 @@ public class ScrollWheelSowActivity extends BaseActivity {
 
     @Override
     protected void bindViews() {
-        initTitle("水平滚动TextView");
-        tvTitleRadio = get(R.id.tvTitleRadio);
-        tvRunTextView = get(R.id.tvRunTextView);
+        initTitle("自定义Banner");
         customCountDownTimeView = get(R.id.customCountDownTimeView);
         bannerView = findViewById(R.id.bannerView);
+
+
     }
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        String radioMessage = "我就这点出息:我只是个出来打野的，就是一个打野的。";
-        tvRunTextView.setText(radioMessage);
-        tvRunTextView.startAnim();
         customCountDownTimeView.setCountdownTime(10);
         customCountDownTimeView.startCountDown();
-
 
         List<Object> bannerList = new ArrayList<>();
         bannerList.add("http://img.mukewang.com/55237dcc0001128c06000338.jpg");

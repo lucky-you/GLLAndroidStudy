@@ -17,7 +17,6 @@ import com.gll.gllandroidstudy.utils.BarUtils;
  */
 public class SelectCityActivity extends BaseActivity {
 
-    private TextView tvSelectCity;
 
     @Override
     protected void loadViewLayout() {
@@ -27,10 +26,6 @@ public class SelectCityActivity extends BaseActivity {
     @Override
     protected void bindViews() {
         initTitle("城市的三级选择");
-        tvSelectCity = get(R.id.tv_select_city);
-        LinearLayout llRootLayout = get(R.id.ll_root_layout);
-        BarUtils.addMarginTopEqualStatusBarHeight(llRootLayout);
-        BarUtils.setStatusBarColor(this, ContextCompat.getColor(BaseApplication.getInstance(), R.color.colorPrimary), 0);
 
     }
 
@@ -41,11 +36,7 @@ public class SelectCityActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
-        tvSelectCity.setOnClickListener(v -> selectCity());
 
-    }
-
-    private void selectCity() {
     }
 
 

@@ -12,24 +12,5 @@
 
     <include layout="@layout/include_titlebar" />
 
-    <com.flyco.tablayout.SlidingTabLayout
-        android:id="@+id/slidingTabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_40"
-        android:layout_centerInParent="true"
-        android:layout_marginLeft="@dimen/spacing_16"
-        android:layout_marginRight="16sp"
-        app:tl_indicator_color="@color/white"
-        app:tl_indicator_height="0dp"
-        app:tl_tab_space_equal="true"
-        app:tl_textSelectColor="@color/white"
-        app:tl_textUnselectColor="#a3ffffff" />
-
-    <com.gll.gllandroidstudy.view.NoScrollViewPager
-        android:id="@+id/noScrollViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:overScrollMode="never"
-        android:scrollbars="none" />
 
 </LinearLayout>

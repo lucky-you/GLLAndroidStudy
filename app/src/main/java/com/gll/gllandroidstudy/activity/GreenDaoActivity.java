@@ -13,10 +13,10 @@ import com.gll.gllandroidstudy.db.DBManager;
 import com.gll.gllandroidstudy.db.GoodMessage;
 
 import java.util.List;
+import java.util.Random;
 
 public class GreenDaoActivity extends BaseActivity {
 
-    private ListView goodList;
     private TextView tvCurrentNumber;
 
     @Override
@@ -44,7 +44,7 @@ public class GreenDaoActivity extends BaseActivity {
     protected void setListener() {
 
     }
-
+    Random rand = new Random();
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -52,14 +52,14 @@ public class GreenDaoActivity extends BaseActivity {
                 //增加
                 GoodMessage goodMessage = new GoodMessage();
                 goodMessage.setGoodName("农夫山泉");
-                goodMessage.setGoodNumber(String.valueOf(1));
+                goodMessage.setGoodNumber(String.valueOf(rand.nextInt(10)));
                 DBManager.getInstance().getGoodMessageDao().insert(goodMessage);
                 queryGoodNumber();
                 break;
 
             case R.id.tvReduceNumber:
                 //减少
-                GoodMessage goodBean = DBManager.getInstance().getGoodMessageDao().queryBuilder().where(GoodMessageDao.Properties.Id.eq(9)).build().unique();
+                GoodMessage goodBean = DBManager.getInstance().getGoodMessageDao().queryBuilder().where(GoodMessageDao.Properties.Id.eq(4)).build().unique();
                 if (goodBean != null) {
                     DBManager.getInstance().getGoodMessageDao().deleteByKey(goodBean.getId());
                 }
@@ -69,9 +69,9 @@ public class GreenDaoActivity extends BaseActivity {
 
             case R.id.tvEditNumber:
                 //修改
-                GoodMessage message = DBManager.getInstance().getGoodMessageDao().queryBuilder().where(GoodMessageDao.Properties.Id.eq(9)).build().unique();
+                GoodMessage message = DBManager.getInstance().getGoodMessageDao().queryBuilder().where(GoodMessageDao.Properties.Id.eq(3)).build().unique();
                 if (message != null) {
-                    message.setGoodNumber(String.valueOf(2));
+                    message.setGoodNumber(String.valueOf(rand.nextInt(10)));
                     DBManager.getInstance().getGoodMessageDao().update(message);
                 }
                 queryGoodNumber();

@@ -19,13 +19,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 年月日选择
+ * 仿珍爱网年月日选择
  */
 public class SelectYearAndMouthActivity extends BaseActivity {
 
 
-    private SlidingTabLayout slidingTabLayout;
-    private NoScrollViewPager noScrollViewPager;
 
 
     @Override
@@ -36,20 +34,10 @@ public class SelectYearAndMouthActivity extends BaseActivity {
     @Override
     protected void bindViews() {
         initTitle("仿珍爱网年月日选择");
-        slidingTabLayout = get(R.id.slidingTabLayout);
-        noScrollViewPager = get(R.id.noScrollViewPager);
     }
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-        String[] titles = {"年", "月", "日"};
-        List<Fragment> mFragmentList = new ArrayList<>();
-        mFragmentList.add(SelectYearFragment.newInstance(0));
-        mFragmentList.add(SelectYearDateFragment.newInstance(1));
-        mFragmentList.add(SelectYearDateFragment.newInstance(2));
-        HomeTitlePageAdapter homeTitlePageAdapter = new HomeTitlePageAdapter(getSupportFragmentManager(), mFragmentList, titles);
-        noScrollViewPager.setAdapter(homeTitlePageAdapter);
-        slidingTabLayout.setViewPager(noScrollViewPager);
     }
 
     @Override
