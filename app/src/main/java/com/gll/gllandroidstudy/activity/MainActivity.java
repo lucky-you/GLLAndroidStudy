@@ -42,7 +42,7 @@ public class MainActivity extends BaseActivity {
 
         mClassesMap.put("ViewFlipper实现垂直轮播广告效果", ViewFlipperActivity.class);
         mClassesMap.put("RecyclerView添加头部布局使用", RecyclerViewAddHeaderActivity.class);
-        mClassesMap.put("Cache的使用", CacheActivity.class);
+        mClassesMap.put("GuideCaseView的使用", CacheActivity.class);
         mClassesMap.put("NestedScrollView滑动的监听", SignInStepViewActivity.class);
         mClassesMap.put("SpannableString", SpannableStringActivity.class);
         mClassesMap.put("BaseSimpleRecyclerView", RecyclerViewActivity.class);
@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity {
         mClassesMap.put("城市的三级选择", SelectCityActivity.class);
         mClassesMap.put("沉浸式渐变状态栏", StarBarActivity.class);
         mClassesMap.put("自定义验证码输入框", EditTextCodeActivity.class);
-        mClassesMap.put("仿珍爱网年月日选择", SelectYearAndMouthActivity.class);
+        mClassesMap.put("流式布局的自定义", SelectYearAndMouthActivity.class);
         mClassesMap.put("九宫格图片显示", NineImageViewActivity.class);
         mClassesMap.put("自定义Banner", ScrollWheelSowActivity.class);
         mClassesMap.put("商品总数的滚动监听", ProductTotalSizeActivity.class);

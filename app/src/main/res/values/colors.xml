@@ -32,6 +32,7 @@
     <color name="color_7d718f">#7d718f</color>
     <color name="color_a462ff">#a462ff</color>
     <color name="blue_color">#5eaeff</color>
+    <color name="light_blue_color">#299EE3</color>
     <color name="green_color_63d86b">#63d86b</color>
     <color name="yellow_color_ffd071">#ffd071</color>
     <color name="yellow_color_ffbd49">#ffbd49</color>
@@ -40,7 +41,7 @@
     <color name="black_color_4d000000">#4d000000</color>
     <color name="red_color_df4c56">#df4c56</color>
     <color name="color_f3f3f3">#f3f3f3</color>
-
+    <color name="stroke_color">#BEC2C7</color>
     <color name="color_000">#000000</color>
     <color name="color_f5f5f5">#f5f5f5</color>
     <color name="color_df4c56">#df4c56</color>
@@ -61,4 +62,5 @@
     <color name="serialType_courseCount_background">#FEF6F4</color>
     <color name="serialType_courseCount_textColor">#EDA170</color>
     <color name="serialType_price_color">#F87D41</color>
+    <color name="default_guide_case_view_background_color">#801B2939</color>
 </resources>

@@ -88,4 +88,11 @@
 
     </style>
 
+    <style name="DefaultGuideCaseTitleStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textAppearance">@style/TextAppearanceBase</item>
+    </style>
+
+    <style name="TextAppearanceBase" parent="android:TextAppearance.Holo" />
 </resources>

@@ -138,4 +138,21 @@
         <!--轮播图循环时间，单位秒-->
         <attr name="bannerDelaySecond" format="integer" />
     </declare-styleable>
+
+    <!--FlowTagLayout-->
+    <declare-styleable name="FlowTagLayout">
+        <!--选择模式，默认不可选-->
+        <attr name="ftl_check_mode" format="enum">
+            <!--不可选择-->
+            <enum name="none" value="0" />
+            <!--单选-->
+            <enum name="single" value="1" />
+            <!--多选-->
+            <enum name="multi" value="2" />
+            <!--只是展示-->
+            <enum name="display" value="3" />
+        </attr>
+        <attr name="ftl_entries" format="reference" />
+        <attr name="ftl_selecteds" format="reference" />
+    </declare-styleable>
 </resources>
