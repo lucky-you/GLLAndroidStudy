@@ -1,5 +1,6 @@
 package com.gll.gllandroidstudy.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -27,6 +28,11 @@ public class MainActivity extends BaseActivity {
     private final List<Class<?>> classList = new ArrayList<>();
     private ListView listView;
 
+    public static void start(Context context){
+        Intent intent=new Intent(context,MainActivity.class);
+        context.startActivity(intent);
+
+    }
 
     @Override
     protected void loadViewLayout() {
