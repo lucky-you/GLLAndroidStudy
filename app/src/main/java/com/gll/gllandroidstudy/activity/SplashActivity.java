@@ -5,7 +5,7 @@ import com.gll.gllandroidstudy.R;
 /**
  * author      : Z_B
  * date       : 2019/6/6
- * function  :
+ * function  : 引导页
  */
 public class SplashActivity extends BaseSplashActivity {
     @Override
