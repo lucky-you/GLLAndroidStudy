@@ -31,4 +31,8 @@
     <string name="to_shrink_hint">Shrink</string>
     <string name="default_app_font_path"></string>
     <string name="footer">一 暂无更多数据 一</string>
+
+    <integer name="SINGLE_IMAGE_MODE_RELATIVE_TO_SELF">1</integer>
+    <integer name="SINGLE_IMAGE_MODE_SPECIFIED_RATIO">2</integer>
+
 </resources>

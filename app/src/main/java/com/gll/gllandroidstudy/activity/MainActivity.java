@@ -28,8 +28,8 @@ public class MainActivity extends BaseActivity {
     private final List<Class<?>> classList = new ArrayList<>();
     private ListView listView;
 
-    public static void start(Context context){
-        Intent intent=new Intent(context,MainActivity.class);
+    public static void start(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
         context.startActivity(intent);
 
     }
@@ -54,7 +54,8 @@ public class MainActivity extends BaseActivity {
         mClassesMap.put("BaseSimpleRecyclerView", RecyclerViewActivity.class);
         mClassesMap.put("图片选择", SelectImageViewActivity.class);
         mClassesMap.put("城市的三级选择", SelectCityActivity.class);
-        mClassesMap.put("沉浸式渐变状态栏", StarBarActivity.class);
+        mClassesMap.put("自定义ViewGroup显示九宫格图片", StarBarActivity.class);
+        mClassesMap.put("自定义ViewGroup显示九宫格列表展示", ViewPagerVideoActivity.class);
         mClassesMap.put("自定义验证码输入框", EditTextCodeActivity.class);
         mClassesMap.put("流式布局的自定义", SelectYearAndMouthActivity.class);
         mClassesMap.put("九宫格图片显示", NineImageViewActivity.class);
@@ -62,7 +63,6 @@ public class MainActivity extends BaseActivity {
         mClassesMap.put("商品总数的滚动监听", ProductTotalSizeActivity.class);
         mClassesMap.put("GreenDao的使用", GreenDaoActivity.class);
         mClassesMap.put("TextView的展开与收起", ExpandableTextViewActivity.class);
-        mClassesMap.put("仿抖音垂直切换视频", ViewPagerVideoActivity.class);
         mClassesMap.put("RecyclerView嵌套实现购物车的逻辑", ShopCarActivity.class);
         mClassesMap.put("SectionedRV的使用", BottomTabActivity.class);
         mClassesMap.put("约束性布局的使用", ConstraintLayoutActivity.class);
@@ -72,7 +72,6 @@ public class MainActivity extends BaseActivity {
             itemTitle.add(entry.getKey());
             classList.add(entry.getValue());
         }
-
 
 
     }

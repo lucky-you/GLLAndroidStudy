@@ -155,4 +155,13 @@
         <attr name="ftl_entries" format="reference" />
         <attr name="ftl_selecteds" format="reference" />
     </declare-styleable>
+
+
+    <declare-styleable name="LGNineGridView">
+        <attr name="space" format="dimension"/>
+        <attr name="singleImageRatio" format="float"/>
+        <attr name="singleImageWidthRatioToParent" format="float"/>
+        <attr name="singleImageRatioMode" format="integer"/>
+    </declare-styleable>
+
 </resources>

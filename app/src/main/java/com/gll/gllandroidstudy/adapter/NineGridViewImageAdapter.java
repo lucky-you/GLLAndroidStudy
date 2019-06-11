@@ -13,6 +13,8 @@ import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.model.NineImageList;
 import com.gll.gllandroidstudy.nineimage.NineGridImageView;
 import com.gll.gllandroidstudy.nineimage.NineGridImageViewAdapter;
+import com.gll.gllandroidstudy.utils.SizeUtils;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.List;
 
@@ -72,6 +74,12 @@ public class NineGridViewImageAdapter extends RecyclerView.Adapter<NineGridViewI
             Glide.with(mContent).load(s).into(imageView);
         }
 
-
+        @Override
+        protected ImageView generateImageView(Context context) {
+            RoundedImageView roundedImageView = new RoundedImageView(context);
+            roundedImageView.setCornerRadius(SizeUtils.dp2px(4));
+            roundedImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            return roundedImageView;
+        }
     };
 }

@@ -1,18 +1,26 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.gll.gllandroidstudy.R;
+import com.gll.gllandroidstudy.adapter.LGNineGridViewAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
-import com.gll.gllandroidstudy.base.BaseApplication;
-import com.gll.gllandroidstudy.utils.BarUtils;
-import com.gll.gllandroidstudy.utils.StatusUtils;
+import com.gll.gllandroidstudy.utils.DateImageUtils;
+import com.gll.gllandroidstudy.utils.SizeUtils;
+import com.gll.gllandroidstudy.view.LGNineGridView;
 
 /**
  * 沉浸式渐变状态栏
  */
 public class StarBarActivity extends BaseActivity {
 
+
+    private LGNineGridView nineGridView;
 
     @Override
     protected void loadViewLayout() {
@@ -21,12 +29,18 @@ public class StarBarActivity extends BaseActivity {
 
     @Override
     protected void bindViews() {
-        initTitle("沉浸式渐变状态栏");
+        initTitle("自定义ViewGroup显示九宫格图片").setRightText("列表显示")
+                .setRightOnClickListener(v -> intent2Activity(ViewPagerVideoActivity.class));
+        nineGridView = get(R.id.nineGridView);
+
 
     }
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
+
+        nineGridView.setUrls(DateImageUtils.imageData(5));
+
 
     }
 

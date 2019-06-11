@@ -3,6 +3,9 @@ package com.gll.gllandroidstudy.nineimage;
 import android.content.Context;
 import android.widget.ImageView;
 
+import com.gll.gllandroidstudy.utils.SizeUtils;
+import com.makeramen.roundedimageview.RoundedImageView;
+
 import java.util.List;
 
 /**
