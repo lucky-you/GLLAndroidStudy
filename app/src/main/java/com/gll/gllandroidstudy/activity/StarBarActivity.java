@@ -1,17 +1,10 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.LinearLayout;
 
 import com.gll.gllandroidstudy.R;
-import com.gll.gllandroidstudy.adapter.LGNineGridViewAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
 import com.gll.gllandroidstudy.utils.DateImageUtils;
-import com.gll.gllandroidstudy.utils.SizeUtils;
 import com.gll.gllandroidstudy.view.LGNineGridView;
 
 /**
