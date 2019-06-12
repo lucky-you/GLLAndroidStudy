@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.utils.DateImageUtils;
 import com.gll.gllandroidstudy.view.BannerLayout;
 import com.gll.gllandroidstudy.view.CustomCountDownTimerView;
 

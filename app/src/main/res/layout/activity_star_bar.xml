@@ -11,7 +11,6 @@
     <include layout="@layout/include_titlebar" />
 
 
-
     <com.gll.gllandroidstudy.view.LGNineGridView
         android:id="@+id/nineGridView"
         android:layout_width="match_parent"

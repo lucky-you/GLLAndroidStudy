@@ -25,6 +25,7 @@ public class ExpandableTextViewActivity extends BaseActivity {
         initTitle("TextView的展开与收起");
         TextViewRecyclerView = get(R.id.TextViewRecyclerView);
 
+
     }
 
     @Override

@@ -5,11 +5,12 @@ import com.gll.gllandroidstudy.model.NineImageList;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /**
  * author      : Z_B
  * date       : 2019/6/11
- * function  :
+ * function  : 图片数据资源
  */
 public class DateImageUtils {
 
@@ -18,6 +19,13 @@ public class DateImageUtils {
         List<String> listTotalImage = Arrays.asList(ConstantValue.imageThumbUrls);
         List<String> imageList = listTotalImage.subList(0, count);
         return imageList;
+    }
+
+    public static String getImageUrl() {
+        List<String> listTotalImage = Arrays.asList(ConstantValue.imageThumbUrls);
+        Random random = new Random();
+        int position = random.nextInt(listTotalImage.size());
+        return listTotalImage.get(position);
     }
 
     public static List<NineImageList> getNineImageList() {

@@ -14,6 +14,7 @@ import com.gll.gllandroidstudy.callback.OnShopCarGoodClickListener;
 import com.gll.gllandroidstudy.model.GoodMessageList;
 import com.gll.gllandroidstudy.model.ShopMessageList;
 import com.gll.gllandroidstudy.utils.ConstantValue;
+import com.gll.gllandroidstudy.utils.DateImageUtils;
 import com.gll.gllandroidstudy.widget.DivideLineItemDecoration;
 
 import java.util.ArrayList;
@@ -66,24 +67,24 @@ public class ShopCarActivity extends BaseActivity implements View.OnClickListene
 
     private void initDate() {
         List<GoodMessageList> goodMessageListsOne = new ArrayList<>();
-        goodMessageListsOne.add(new GoodMessageList(ConstantValue.imageThumbUrls[11], "白衬衣", 2, 85));
-        goodMessageListsOne.add(new GoodMessageList(ConstantValue.imageThumbUrls[12], "男款夹克", 3, 140));
-        goodMessageListsOne.add(new GoodMessageList(ConstantValue.imageThumbUrls[10], "羽绒服", 1, 588));
+        goodMessageListsOne.add(new GoodMessageList(DateImageUtils.getImageUrl(), "白衬衣", 2, 85));
+        goodMessageListsOne.add(new GoodMessageList(DateImageUtils.getImageUrl(), "男款夹克", 3, 140));
+        goodMessageListsOne.add(new GoodMessageList(DateImageUtils.getImageUrl(), "羽绒服", 1, 588));
 
         List<GoodMessageList> goodMessageListsTwo = new ArrayList<>();
-        goodMessageListsTwo.add(new GoodMessageList(ConstantValue.imageThumbUrls[0], "宝色连衣裙", 5, 118));
-        goodMessageListsTwo.add(new GoodMessageList(ConstantValue.imageThumbUrls[3], "酒红色上衣", 2, 85));
-        goodMessageListsTwo.add(new GoodMessageList(ConstantValue.imageThumbUrls[4], "黑色打底裤", 2, 70));
+        goodMessageListsTwo.add(new GoodMessageList(DateImageUtils.getImageUrl(), "宝色连衣裙", 5, 118));
+        goodMessageListsTwo.add(new GoodMessageList(DateImageUtils.getImageUrl(), "酒红色上衣", 2, 85));
+        goodMessageListsTwo.add(new GoodMessageList(DateImageUtils.getImageUrl(), "黑色打底裤", 2, 70));
 
         List<GoodMessageList> goodMessageListsThree = new ArrayList<>();
-        goodMessageListsThree.add(new GoodMessageList(ConstantValue.imageThumbUrls[7], "女款高跟鞋", 3, 150));
-        goodMessageListsThree.add(new GoodMessageList(ConstantValue.imageThumbUrls[2], "精品凉鞋", 3, 88));
-        goodMessageListsThree.add(new GoodMessageList(ConstantValue.imageThumbUrls[1], "女神贝雷帽", 4, 46));
+        goodMessageListsThree.add(new GoodMessageList(DateImageUtils.getImageUrl(), "女款高跟鞋", 3, 150));
+        goodMessageListsThree.add(new GoodMessageList(DateImageUtils.getImageUrl(), "精品凉鞋", 3, 88));
+        goodMessageListsThree.add(new GoodMessageList(DateImageUtils.getImageUrl(), "女神贝雷帽", 4, 46));
 
         List<GoodMessageList> goodMessageListsFour = new ArrayList<>();
-        goodMessageListsFour.add(new GoodMessageList(ConstantValue.imageThumbUrls[8], "乳白的格子衫", 2, 128));
-        goodMessageListsFour.add(new GoodMessageList(ConstantValue.imageThumbUrls[5], "米黄色外套", 3, 238));
-        goodMessageListsFour.add(new GoodMessageList(ConstantValue.imageThumbUrls[6], "立领羊毛衫", 1, 156));
+        goodMessageListsFour.add(new GoodMessageList(DateImageUtils.getImageUrl(), "乳白的格子衫", 2, 128));
+        goodMessageListsFour.add(new GoodMessageList(DateImageUtils.getImageUrl(), "米黄色外套", 3, 238));
+        goodMessageListsFour.add(new GoodMessageList(DateImageUtils.getImageUrl(), "立领羊毛衫", 1, 156));
 
         shopMessageLists.add(new ShopMessageList("海澜之家", goodMessageListsOne));
         shopMessageLists.add(new ShopMessageList("韩都衣舍", goodMessageListsTwo));

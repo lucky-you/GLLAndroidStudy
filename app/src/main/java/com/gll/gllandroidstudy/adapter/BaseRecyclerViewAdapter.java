@@ -9,6 +9,7 @@ import com.gll.gllandroidstudy.base.rv.BaseViewHolder;
 import com.gll.gllandroidstudy.base.rv.adapter.SimpleAdapter;
 import com.gll.gllandroidstudy.model.RecyclerViewList;
 import com.gll.gllandroidstudy.utils.ConstantValue;
+import com.gll.gllandroidstudy.utils.DateImageUtils;
 import com.gll.gllandroidstudy.widget.GlideRoundTransform;
 
 
@@ -26,12 +27,11 @@ public class BaseRecyclerViewAdapter extends SimpleAdapter<RecyclerViewList> {
 
     @Override
     protected void bind(BaseViewHolder holder, RecyclerViewList data) {
-        String imageUrl = ConstantValue.imageThumbUrls[4];
         RequestOptions myOptions = new RequestOptions()
                 .centerCrop()
                 .transform(new GlideRoundTransform(mContext, 4));
         Glide.with(mContext)
-                .load(imageUrl)
+                .load( DateImageUtils.getImageUrl())
                 .apply(myOptions)
                 .into((ImageView) holder.getView(R.id.ivMessageUrl));
         holder.setText(R.id.tvMessageTitle, data.getTitle())
