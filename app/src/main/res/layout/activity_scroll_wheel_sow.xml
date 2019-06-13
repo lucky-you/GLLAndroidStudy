@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <include layout="@layout/include_titlebar" />
 
-
-    <com.gll.gllandroidstudy.view.CustomCountDownTimerView
-        android:id="@+id/customCountDownTimeView"
-        android:layout_width="@dimen/spacing_44"
-        android:layout_height="@dimen/spacing_44"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/spacing_10"
-        app:cus_roundWidth="4dp"
-        app:cus_textSize="15sp" />
-
     <com.gll.gllandroidstudy.view.BannerLayout
         android:id="@+id/bannerView"
         android:layout_width="match_parent"
         android:layout_height="160dp"
-        android:layout_marginTop="@dimen/spacing_20"
         app:bannerDelaySecond="5"
         app:bannerPointDrawableSelected="@drawable/shape_circle_red_bg"
         app:bannerPointDrawableUnselected="@drawable/shape_circle_grey_bg"

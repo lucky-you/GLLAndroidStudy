@@ -10,13 +10,6 @@
 
     <include layout="@layout/include_titlebar" />
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:id="@+id/smartRefreshLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <include layout="@layout/include_recyclerview_layout" />
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 
 </LinearLayout>

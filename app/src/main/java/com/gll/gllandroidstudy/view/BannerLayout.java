@@ -62,7 +62,6 @@ public class BannerLayout extends LinearLayout {
         bannerPointDrawableSelected = typedArray.getResourceId(R.styleable.BannerLayout_bannerPointDrawableSelected, R.drawable.shape_circle_red_bg);
         bannerPointDrawableUnselected = typedArray.getResourceId(R.styleable.BannerLayout_bannerPointDrawableUnselected, R.drawable.shape_circle_grey_bg);
         typedArray.recycle();
-        //添加布局
         View view = View.inflate(context, R.layout.custom_banner_layout, null);
         addView(view);
         bannerViewPager = (ViewPager) view.findViewById(R.id.bannerViewPager);
@@ -70,7 +69,7 @@ public class BannerLayout extends LinearLayout {
         bannerPointLayout.setGravity(bannerPointGravity);
     }
 
-    public void start(List<Object> bannerList) {
+    public void start(List<String> bannerList) {
         bannerShutdown();
         mBannerCount = bannerList.size();
         BannerPagerAdapter bannerPagerAdapter = new BannerPagerAdapter(context, bannerList);
@@ -147,10 +146,10 @@ public class BannerLayout extends LinearLayout {
     }
 
     private class BannerPagerAdapter extends PagerAdapter {
-        private List<Object> bannerList = new ArrayList<>();
+        private List<String> bannerList = new ArrayList<>();
         private Context context;
 
-        BannerPagerAdapter(Context context, List<Object> bannerList) {
+        BannerPagerAdapter(Context context, List<String> bannerList) {
             this.context = context;
             this.bannerList.clear();
             this.bannerList.addAll(bannerList);
@@ -171,7 +170,7 @@ public class BannerLayout extends LinearLayout {
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             ImageView imageView = new ImageView(context);
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            Object object = bannerList.get(position);
+            String object = bannerList.get(position);
             Glide.with(context).load(object).into(imageView);
             imageView.setOnClickListener(new OnClickListener() {
                 @Override
