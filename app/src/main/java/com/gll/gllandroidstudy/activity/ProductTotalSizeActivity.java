@@ -23,12 +23,12 @@ import java.util.List;
 
 public class ProductTotalSizeActivity extends BaseActivity {
 
-    private NestedScrollView nestedScrollView;
     private RecyclerView publicRecyclerView;
     private ProductTotalSizeAdapter productTotalSizeAdapter;
     private List<String> stringList = new ArrayList<>();
     private TextView tvCurrentNumber, tvTotalNumber;
     private LinearLayout llSizeNumberLayout;
+    private int height;
 
     @Override
     protected void loadViewLayout() {
@@ -39,7 +39,6 @@ public class ProductTotalSizeActivity extends BaseActivity {
     protected void bindViews() {
         initTitle("商品总数的滚动监听");
 
-        nestedScrollView = get(R.id.nestedScrollView);
         publicRecyclerView = get(R.id.publicRecyclerView);
         tvCurrentNumber = get(R.id.tvCurrentNumber);
         tvTotalNumber = get(R.id.tvTotalNumber);
@@ -47,7 +46,7 @@ public class ProductTotalSizeActivity extends BaseActivity {
 
     }
 
-    private int height;
+
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
