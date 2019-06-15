@@ -50,47 +50,6 @@ public class SelectYearDateFragment extends LibFragment {
         publicRecyclerView = get(R.id.publicRecyclerView);
         classType = getArguments().getInt(ConstantValue.TYPE, -1);
 
-        Map<String, List<String>> YearDateMap = new HashMap<>();
-
-        List<String> calendarsYearList = new ArrayList<>();
-        for (int i = 1919; i < 2000; i++) {
-            if (i < 1920) {
-                calendarsYearList.add(i + "");
-                YearDateMap.put("10后", calendarsYearList);
-            } else if (1920 <= i && i < 1930) {
-                calendarsYearList.add(i + "");
-                YearDateMap.put("20后", calendarsYearList);
-            } else if (1930 <= i && i < 1940) {
-                calendarsYearList.add(i + "");
-                YearDateMap.put("30后", calendarsYearList);
-            } else if (1940 <= i && i < 1950) {
-                calendarsYearList.add(i + "");
-                YearDateMap.put("40后", calendarsYearList);
-            } else if (1950 <= i && i < 1960) {
-                calendarsYearList.add(i + "");
-                YearDateMap.put("50后", calendarsYearList);
-            } else if (1960 <= i && i < 1970) {
-                calendarsYearList.add(i + "");
-                YearDateMap.put("60后", calendarsYearList);
-            } else if (1970 <= i && i < 1980) {
-                calendarsYearList.add(i + "");
-                YearDateMap.put("70后", calendarsYearList);
-            } else if (1980 <= i && i < 1990) {
-                calendarsYearList.add(i + "");
-                YearDateMap.put("80后", calendarsYearList);
-            } else if (1990 <= i && i < 2000) {
-                calendarsYearList.add(i + "");
-                YearDateMap.put("90后", calendarsYearList);
-            }
-        }
-        List<YearAndMouthBean> yearStrList = new ArrayList<>();
-        Iterator<Map.Entry<String, List<String>>> iterator = YearDateMap.entrySet().iterator();
-        while (iterator.hasNext()) {
-            Map.Entry<String, List<String>> entry = iterator.next();
-            String keyList = entry.getKey();
-            String valueList = entry.getKey();
-            yearStrList.add(new YearAndMouthBean(keyList, valueList));
-        }
     }
 
     @Override

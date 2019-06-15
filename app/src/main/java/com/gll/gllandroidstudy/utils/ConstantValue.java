@@ -1,7 +1,5 @@
 package com.gll.gllandroidstudy.utils;
 
-import java.util.List;
-
 /**
  * Created by ZhouBin on 2017/8/7.
  * Effect: 存放常量信息
@@ -55,8 +53,6 @@ public interface ConstantValue {
             "http://img.mukewang.com/54c87c73000150cf06000338.jpg",
             "http://img.mukewang.com/548165820001b4b006000338.jpg",
     };
-
-
 
 
 }
