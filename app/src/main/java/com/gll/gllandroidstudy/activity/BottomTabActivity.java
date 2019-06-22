@@ -90,7 +90,6 @@ public class BottomTabActivity extends BaseActivity {
         recyclerViewLists.add(new RecyclerViewList(DateImageUtils.getImageUrl(), "你脚踩的地狱只是天堂的倒影,我唇角的故事也是时间的灰烬", "2019-02-27"));
         recyclerViewLists.add(new RecyclerViewList(DateImageUtils.getImageUrl(), "十年生死两茫茫，不思量，自难忘，千里孤坟，无处话凄凉", "2019-05-07"));
 
-
     }
 
 

@@ -38,4 +38,9 @@ public class DateImageUtils {
         return nineImageLists;
     }
 
+    public static String getVideoUrl() {
+        return "https://flv2.bn.netease.com/videolib1/1811/26/OqJAZ893T/HD/OqJAZ893T-mobile.mp4";//汽车视频
+    }
+
+
 }
