@@ -7,10 +7,11 @@ import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
 import com.gll.gllandroidstudy.guidview.GuideCaseQueue;
 import com.gll.gllandroidstudy.guidview.GuideCaseView;
+import com.gll.gllandroidstudy.guidview.OnCompleteListener;
 
 /**
  * Created by: Z_B on 2018/8/12.
- * Function:
+ * Function: 引导页面的使用
  */
 public class CacheActivity extends BaseActivity {
 

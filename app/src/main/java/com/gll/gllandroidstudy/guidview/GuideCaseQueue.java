@@ -24,7 +24,6 @@ public class GuideCaseQueue implements DismissListener {
 
     /**
      * Adds a GuideCaseView to the queue
-     *
      * @param showCaseView the view that should be added to the queue
      * @return Builder
      */

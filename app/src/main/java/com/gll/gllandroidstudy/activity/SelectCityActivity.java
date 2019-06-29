@@ -1,19 +1,13 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
-import com.gll.gllandroidstudy.base.BaseApplication;
 import com.gll.gllandroidstudy.callback.DownloadListener;
 import com.gll.gllandroidstudy.download.DownloadUtil;
-import com.gll.gllandroidstudy.utils.BarUtils;
 import com.gll.gllandroidstudy.utils.DateImageUtils;
 
 import me.weyye.hipermission.HiPermission;

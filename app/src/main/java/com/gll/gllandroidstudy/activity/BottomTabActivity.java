@@ -13,7 +13,6 @@ import com.gll.gllandroidstudy.find.SectionMessageList;
 import com.gll.gllandroidstudy.model.ColumnList;
 import com.gll.gllandroidstudy.model.RecyclerViewList;
 import com.gll.gllandroidstudy.section.SectionedRVAdapter;
-import com.gll.gllandroidstudy.utils.ConstantValue;
 import com.gll.gllandroidstudy.utils.DateImageUtils;
 
 import java.util.ArrayList;
@@ -72,12 +71,12 @@ public class BottomTabActivity extends BaseActivity {
         if (columnLists.size() > 0) columnLists.clear();
         if (recyclerViewLists.size() > 0) recyclerViewLists.clear();
 
-        bannerUrlList=DateImageUtils.imageData(5);
+        bannerUrlList = DateImageUtils.imageData(5);
 
 
-        columnLists.add(new ColumnList("重难点全面剖析", "李俊成", "化学大咖", "十年生死两茫茫，不思量，自难忘，千里孤坟，无处话凄凉",  DateImageUtils.getImageUrl()));
-        columnLists.add(new ColumnList("精英百题训练", "周小川", "圈粉人气王", "怀旧，不是因为那个时代多么好，而是那个时候，你年轻",  DateImageUtils.getImageUrl()));
-        columnLists.add(new ColumnList("中考前必看致胜锦囊", "黄家豪", "中考数学名师", "一举一动，都是承诺，会被另一个人看在眼里，记在心上的",  DateImageUtils.getImageUrl()));
+        columnLists.add(new ColumnList("重难点全面剖析", "李俊成", "化学大咖", "十年生死两茫茫，不思量，自难忘，千里孤坟，无处话凄凉", DateImageUtils.getImageUrl()));
+        columnLists.add(new ColumnList("精英百题训练", "周小川", "圈粉人气王", "怀旧，不是因为那个时代多么好，而是那个时候，你年轻", DateImageUtils.getImageUrl()));
+        columnLists.add(new ColumnList("中考前必看致胜锦囊", "黄家豪", "中考数学名师", "一举一动，都是承诺，会被另一个人看在眼里，记在心上的", DateImageUtils.getImageUrl()));
 
         recyclerViewLists.add(new RecyclerViewList(DateImageUtils.getImageUrl(), "一举一动，都是承诺，会被另一个人看在眼里，记在心上的", "2019-05-14"));
         recyclerViewLists.add(new RecyclerViewList(DateImageUtils.getImageUrl(), "当时年少春衫薄,骑马倚斜桥,满楼红袖招", "2018-12-16"));
