@@ -141,7 +141,9 @@ public class RightIndexBarActivity extends BaseActivity {
         CityListData.add(new CityItemMessage("32", "2154564"));
         CityListData.add(new CityItemMessage("33", "1445455"));
         CityListData.add(new CityItemMessage("34", "DadjkcdjS"));
-        CityListData.add(new CityItemMessage("35", "六安"));
+        CityListData.add(new CityItemMessage("35", "郑州"));
+        CityListData.add(new CityItemMessage("36", "康定"));
+        CityListData.add(new CityItemMessage("37", "南京"));
         return CityListData;
     }
 }

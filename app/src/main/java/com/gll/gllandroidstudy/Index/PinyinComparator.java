@@ -17,4 +17,5 @@ public class PinyinComparator implements Comparator<SortBaseModel> {
             return -1;
         }
     }
+
 }

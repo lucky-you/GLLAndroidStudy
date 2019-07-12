@@ -32,7 +32,7 @@ public class SideBarSortUtils {
 
     public Map<String, Object> setSourceDateList(List<CityItemMessage> SourceDate) {
         List<CityItemMessage> cityItemList = new ArrayList<>();
-        CharacterParser characterParser = CharacterParser.getInstance();
+//        Collections.sort(SourceDate, pinyinComparator);
         for (CityItemMessage cityItem : SourceDate) {
             String pinyin = characterParser.getSelling(cityItem.getName());
             String sortString = pinyin.substring(0, 1).toUpperCase();
@@ -42,7 +42,7 @@ public class SideBarSortUtils {
                 cityItem.setFirstWord("#");
             }
             Log.e("xy", "name=" + cityItem.getName() + "<-->FirstWord=" + cityItem.getFirstWord());
-            cityItemList.add(new CityItemMessage("101", cityItem.getName(), cityItem.getFirstWord()));
+            cityItemList.add(cityItem);
         }
 
         HashMap<String, List<CityItemMessage>> map = new HashMap<>();
@@ -65,8 +65,8 @@ public class SideBarSortUtils {
         Arrays.sort(keys);
         List<CityItemMessage> sortList = new ArrayList<>();
         for (Object key : keys) {
-            CityItemMessage t = getIndexItem(key.toString());
-            sortList.add(t);
+            CityItemMessage item = getIndexItem(key.toString());
+            sortList.add(item);
             sortList.addAll(map.get(key.toString()));
         }
         HashMap<String, Object> resultMap = new HashMap<>();
