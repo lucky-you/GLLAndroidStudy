@@ -1,10 +1,14 @@
 package com.gll.gllandroidstudy.Index;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by : Z_B on 2019/7/12.
@@ -30,7 +34,7 @@ public class SideBarSortUtils {
 //        setNewDataList(SourceDate);
 //    }
 
-    public List<CityItemMessage> setSourceDateList(List<CityItemMessage> SourceDate) {
+    public Map<String, Object> setSourceDateList(List<CityItemMessage> SourceDate) {
         List<CityItemMessage> cityItemList = new ArrayList<>();
         CharacterParser characterParser = CharacterParser.getInstance();
         for (CityItemMessage cityItem : SourceDate) {
@@ -44,9 +48,42 @@ public class SideBarSortUtils {
             Log.e("xy", "name=" + cityItem.getName() + "<-->FirstWord=" + cityItem.getFirstWord());
             cityItemList.add(new CityItemMessage("101", cityItem.getName(), cityItem.getFirstWord()));
         }
-        return cityItemList;
+
+        HashMap<String, List<CityItemMessage>> map = new HashMap<>();
+        for (CityItemMessage item : cityItemList) {
+            String firstWord;
+            if (TextUtils.isEmpty(item.getFirstWord())) {
+                firstWord = "#";
+            } else {
+                firstWord = item.getFirstWord().toUpperCase();
+            }
+            if (map.containsKey(firstWord)) {
+                map.get(firstWord).add(item);
+            } else {
+                List<CityItemMessage> mList = new ArrayList<>();
+                mList.add(item);
+                map.put(firstWord, mList);
+            }
+        }
+        Object[] keys = map.keySet().toArray();
+        Arrays.sort(keys);
+        List<CityItemMessage> sortList = new ArrayList<>();
+        for (Object key : keys) {
+            CityItemMessage t = getIndexItem(key.toString());
+            sortList.add(t);
+            sortList.addAll(map.get(key.toString()));
+        }
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("sortList", sortList);
+        resultMap.put("keys", keys);
+        return resultMap;
 
     }
 
-
+    private CityItemMessage getIndexItem(String firstWord) {
+        CityItemMessage entity = new CityItemMessage();
+        entity.setFirstWord(firstWord);
+        entity.setIndex(true);
+        return entity;
+    }
 }

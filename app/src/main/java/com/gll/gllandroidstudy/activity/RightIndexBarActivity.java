@@ -56,11 +56,11 @@ public class RightIndexBarActivity extends BaseActivity {
 //        sideBarSortMode.setSourceDateList(getCityList());
 //        rightIndexListAdapter.setNewData(getCityList());
 
-        SideBarSortUtils  sideBarSortUtils=new SideBarSortUtils();
-        List<CityItemMessage> cityList = sideBarSortUtils.setSourceDateList(getCityList());
-        if (cityList != null && !cityList.isEmpty()) {
-            Log.e("xy", "cityList=" + cityList.size());
-        }
+//        SideBarSortUtils  sideBarSortUtils=new SideBarSortUtils();
+//        List<CityItemMessage> cityList = sideBarSortUtils.setSourceDateList(getCityList());
+//        if (cityList != null && !cityList.isEmpty()) {
+//            Log.e("xy", "cityList=" + cityList.size());
+//        }
 
     }
 

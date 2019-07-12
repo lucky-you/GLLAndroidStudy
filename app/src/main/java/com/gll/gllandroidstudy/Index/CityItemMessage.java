@@ -18,6 +18,8 @@ public class CityItemMessage {
     private boolean isIndex;
 
 
+    public CityItemMessage(  ) {
+    }
     public CityItemMessage(String id, String name) {
         this.id = id;
         this.name = name;
