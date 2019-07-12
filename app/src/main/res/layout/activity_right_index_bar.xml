@@ -31,7 +31,7 @@
             android:textSize="25dp"
             android:visibility="gone" />
 
-        <com.gll.gllandroidstudy.Index.IndexSideBarView
+        <com.gll.gllandroidstudy.Index.IndexBar
             android:id="@+id/sideBar"
             android:layout_width="20dp"
             android:layout_height="match_parent"

@@ -176,10 +176,8 @@ public class CharacterParser {
             } else {
                 value = key;
             }
-
             this.buffer.append(value);
         }
-
         return this.buffer.toString();
     }
 

@@ -30,10 +30,6 @@ public class SideBarSortUtils {
 
     }
 
-//    public void setSourceDateList(List<CityItemMessage> SourceDate) {
-//        setNewDataList(SourceDate);
-//    }
-
     public Map<String, Object> setSourceDateList(List<CityItemMessage> SourceDate) {
         List<CityItemMessage> cityItemList = new ArrayList<>();
         CharacterParser characterParser = CharacterParser.getInstance();
@@ -77,7 +73,6 @@ public class SideBarSortUtils {
         resultMap.put("sortList", sortList);
         resultMap.put("keys", keys);
         return resultMap;
-
     }
 
     private CityItemMessage getIndexItem(String firstWord) {
