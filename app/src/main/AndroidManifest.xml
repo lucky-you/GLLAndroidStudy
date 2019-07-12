@@ -55,6 +55,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -105,7 +106,8 @@
         <activity android:name=".activity.ScrollWheelSowActivity" />
         <activity android:name=".activity.ShopCarActivity" />
         <activity android:name=".activity.BottomTabActivity" />
-        <activity android:name=".activity.ConstraintLayoutActivity"></activity>
+        <activity android:name=".activity.ConstraintLayoutActivity" />
+        <activity android:name=".activity.RightIndexBarActivity"></activity>
     </application>
 
 </manifest>

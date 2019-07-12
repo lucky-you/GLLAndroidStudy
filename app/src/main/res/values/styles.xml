@@ -88,6 +88,14 @@
 
     </style>
 
+    <style name="DivideLimitLine">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/grey_color_ccc</item>
+    </style>
+
+
+
     <style name="DefaultGuideCaseTitleStyle" parent="@android:style/Widget.TextView">
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">#FFFFFF</item>

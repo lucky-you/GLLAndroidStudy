@@ -15,7 +15,9 @@
     <color name="grey_color_ccc">#cccccc</color>
     <color name="background_color">#f8f8f8</color>
     <color name="divide_line_color">#f2f2f2</color>
-
+    <color name="black_lucency_11">#11000000</color>
+    <color name="black_lucency_33">#33000000</color>
+    <color name="black_lucency_3c">#3C000000</color>
 
     <color name="green_color">#7bc759</color>
     <color name="submit_btn_dis_bg">#DADADA</color>

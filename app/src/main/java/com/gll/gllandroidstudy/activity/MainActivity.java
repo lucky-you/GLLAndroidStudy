@@ -66,6 +66,7 @@ public class MainActivity extends BaseActivity {
         mClassesMap.put("RecyclerView嵌套实现购物车的逻辑", ShopCarActivity.class);
         mClassesMap.put("SectionedRV的使用", BottomTabActivity.class);
         mClassesMap.put("约束性布局的使用", ConstraintLayoutActivity.class);
+        mClassesMap.put("右侧字母快速索引", RightIndexBarActivity.class);
 
         for (Map.Entry<String, Class<?>> entry : mClassesMap.entrySet()) {
             System.out.println("Key: " + entry.getKey() + " Value: " + entry.getValue());
