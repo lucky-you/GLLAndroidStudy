@@ -3,24 +3,19 @@ package com.gll.gllandroidstudy.activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
 import android.widget.TextView;
 
+import com.gll.gllandroidstudy.Index.CenterLayoutManager;
 import com.gll.gllandroidstudy.Index.CityItemMessage;
-import com.gll.gllandroidstudy.Index.IndexBar;
-import com.gll.gllandroidstudy.Index.IndexSideBarView;
 import com.gll.gllandroidstudy.Index.OnTouchingLetterChangedListener;
+import com.gll.gllandroidstudy.Index.RightSideBar;
 import com.gll.gllandroidstudy.Index.SideBarSortMode;
-import com.gll.gllandroidstudy.Index.SideBarSortUtils;
 import com.gll.gllandroidstudy.R;
-import com.gll.gllandroidstudy.adapter.IndexBarListAdapter;
 import com.gll.gllandroidstudy.adapter.RightIndexListAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 右侧字母快速索引
@@ -28,12 +23,11 @@ import java.util.Map;
 public class RightIndexBarActivity extends BaseActivity {
     private RecyclerView cityRecyclerView;
     private TextView txtTip;
-    private IndexBar sideBar;
-    private SideBarSortMode sideBarSortMode = new SideBarSortMode();
     private RightIndexListAdapter rightIndexListAdapter;
-    private IndexBarListAdapter indexBarListAdapter;
-    private LinearLayoutManager linearLayoutManager;
-    private List<CityItemMessage> cityItemList = new ArrayList<>();
+    private RightSideBar rightSideBar;
+
+    private SideBarSortMode sideBarSortMode = new SideBarSortMode();
+    private List<CityItemMessage> cityList = new ArrayList<>();
 
     @Override
     protected void loadViewLayout() {
@@ -45,63 +39,39 @@ public class RightIndexBarActivity extends BaseActivity {
         initTitle("右侧字母快速索引");
         cityRecyclerView = get(R.id.cityRecyclerView);
         txtTip = get(R.id.txtTip);
-        sideBar = get(R.id.sideBar);
+        rightSideBar = get(R.id.rightSideBar);
+        rightSideBar.setTextView(txtTip);
 
-        sideBar.setSelectedIndexTextView(txtTip);
 
     }
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
 
+        rightIndexListAdapter = new RightIndexListAdapter(sideBarSortMode);
+        cityRecyclerView.setLayoutManager(new CenterLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
+        cityRecyclerView.setAdapter(rightIndexListAdapter);
 
-//        rightIndexListAdapter = new RightIndexListAdapter(sideBarSortMode);
-//        linearLayoutManager = new LinearLayoutManager(mContext);
-//        cityRecyclerView.setLayoutManager(linearLayoutManager);
-//        cityRecyclerView.setAdapter(rightIndexListAdapter);
+        cityList = getCityList();
 
-
-//        sideBarSortMode.setSourceDateList(getCityList());
-//        rightIndexListAdapter.setNewData(getCityList());
-
-
-        SideBarSortUtils sideBarSortUtils = new SideBarSortUtils();
-        Map<String, Object> cityList = sideBarSortUtils.setSourceDateList(getCityList());
-        Log.e("xy", "cityListSize=" + cityList.size());
-        if (cityList != null && !cityList.isEmpty()) {
-            cityItemList.clear();
-            cityItemList.addAll((List<CityItemMessage>) cityList.get("sortList"));
-            Object[] keys = (Object[]) cityList.get("keys");
-            String[] letters = new String[keys.length];
-            for (int i = 0; i < keys.length; i++) {
-                letters[i] = keys[i].toString();
-            }
-            sideBar.setIndexs(letters);
-        }
-
-        Log.e("xy", "cityItemListSize=" + cityItemList.size());
-        indexBarListAdapter = new IndexBarListAdapter(mContext, cityItemList);
-        linearLayoutManager = new LinearLayoutManager(mContext);
-        cityRecyclerView.setLayoutManager(linearLayoutManager);
-        cityRecyclerView.setAdapter(indexBarListAdapter);
+        sideBarSortMode.setSourceDateList(cityList);
+        rightIndexListAdapter.setNewData(cityList);
 
     }
 
     @Override
     protected void setListener() {
-        sideBar.setOnIndexChangedListener(new IndexBar.OnIndexChangedListener() {
+        rightSideBar.setOnTouchingLetterChangedListener(new OnTouchingLetterChangedListener() {
             @Override
-            public void onIndexChanged(String index) {
-                for (int i = 0; i < cityItemList.size(); i++) {
-                    String firstWord = cityItemList.get(i).getFirstWord();
-                    if (index.equals(firstWord)) {
-                        // 滚动列表到指定的位置
-                        linearLayoutManager.scrollToPositionWithOffset(i, 0);
-                        return;
-                    }
+            public void onTouchingLetterChanged(String s) {
+                //该字母首次出现的位置
+                int position = sideBarSortMode.getPositionForSection(s.charAt(0));
+                if (position != -1) {
+                    ((LinearLayoutManager) cityRecyclerView.getLayoutManager()).scrollToPositionWithOffset(position, 0);
                 }
             }
         });
+
     }
 
     private List<CityItemMessage> getCityList() {
@@ -144,6 +114,7 @@ public class RightIndexBarActivity extends BaseActivity {
         CityListData.add(new CityItemMessage("35", "郑州"));
         CityListData.add(new CityItemMessage("36", "康定"));
         CityListData.add(new CityItemMessage("37", "南京"));
+        CityListData.add(new CityItemMessage("38", "聃州"));
         return CityListData;
     }
 }

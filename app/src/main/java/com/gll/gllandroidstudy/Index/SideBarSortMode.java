@@ -6,16 +6,15 @@ import android.util.SparseArray;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by : Z_B on 2019/7/12.
- * describe：
+ * Created by cnsunrun on 2018-03-28.
  */
+
 public class SideBarSortMode {
-    private List<? extends SortBaseModel> sourceDateList;//数据源
-    private List<? extends SortBaseModel> currentDateList;//当前使用的数据源
+    private List<? extends SortModel> sourceDateList;//数据源
+    private List<? extends SortModel> currentDateList;//当前使用的数据源
     /**
      * 首字母与首字母首次在数据源中出现的位置的映射
      */
@@ -30,6 +29,7 @@ public class SideBarSortMode {
     private CharacterParser characterParser = CharacterParser.getInstance();
 
     public SideBarSortMode() {
+
     }
 
     /**
@@ -37,9 +37,9 @@ public class SideBarSortMode {
      *
      * @param sourceDateList 数据源
      */
-    public void setSourceDateList(List<? extends SortBaseModel> sourceDateList) {
+    public void setSourceDateList(List<? extends SortModel> sourceDateList) {
         this.sourceDateList = sourceDateList;
-        filledData(sourceDateList);
+        SideBarUtils.filledData(sourceDateList);
         // 根据a-z进行排序源数据
         Collections.sort(sourceDateList, pinyinComparator);
         updateSourceData(sourceDateList);
@@ -50,7 +50,7 @@ public class SideBarSortMode {
      *
      * @param sourceDateList 数据源
      */
-    private void updateSourceData(List<? extends SortBaseModel> sourceDateList) {
+    private void updateSourceData(List<? extends SortModel> sourceDateList) {
         this.currentDateList = sourceDateList;
         String chart = "";
         sparseArray.clear();
@@ -73,12 +73,13 @@ public class SideBarSortMode {
         return sparseArray.get(position);
     }
 
+
     /**
-     * 根据输入框中的值来过滤数据并更新RecyclerView
+     * 根据输入框中的值来过滤数据并更新ListView
      *
      * @param filterStr 过滤文本(搜索关键字)
      */
-    public <T extends SortBaseModel> List<T> getData(String filterStr) {
+    public <T extends SortModel> List<T> getData(String filterStr) {
         List<T> filterDateList = new ArrayList<T>();
         if (TextUtils.isEmpty(filterStr)) {
             if (sourceDateList != null) {
@@ -87,17 +88,17 @@ public class SideBarSortMode {
         } else {
             filterDateList.clear();
             if (sourceDateList != null)
-                for (SortBaseModel SortBaseModel : sourceDateList) {
-                    String name = String.valueOf(SortBaseModel);
-                    if (name.toLowerCase().contains(filterStr.toLowerCase()) || characterParser.getSelling(name).startsWith(filterStr)) {
-                        filterDateList.add((T) SortBaseModel);
+                for (SortModel sortModel : sourceDateList) {
+                    String name = String.valueOf(sortModel);
+                    if (name.toLowerCase().contains(filterStr.toString().toLowerCase()) || characterParser.getSelling(name).startsWith(filterStr.toString())) {
+                        filterDateList.add((T) sortModel);
                     }
                 }
         }
         // 根据a-z进行排序
         Collections.sort(filterDateList, pinyinComparator);
         updateSourceData(filterDateList);
-        return filterDateList;
+        return (List<T>) filterDateList;
     }
 
     /**
@@ -107,7 +108,7 @@ public class SideBarSortMode {
      * @param <T>
      * @return
      */
-    public <T extends SortBaseModel> T getItem(int position) {
+    public <T extends SortModel> T getItem(int position) {
         if (currentDateList != null && position < currentDateList.size() && position >= 0)
             return (T) currentDateList.get(position);
         return null;
@@ -123,7 +124,7 @@ public class SideBarSortMode {
     public int getPositionForSection(int section) {
         if (currentDateList != null && currentDateList.size() > 0) {
             for (int i = 0; i < currentDateList.size(); ++i) {
-                String sortStr = (currentDateList.get(i)).getSortLetters();
+                String sortStr = ((SortModel) currentDateList.get(i)).getSortLetters();
                 char firstChar = sortStr.toUpperCase().charAt(0);
                 if (firstChar == section) {
                     return i;
@@ -137,75 +138,15 @@ public class SideBarSortMode {
     /**
      * 获取position所在的section位置
      * 快速定位的首字母
+     *
+     * @return
      */
     public int getSectionForPosition(int position) {
-        return (currentDateList.get(position)).getSortLetters().charAt(0);
+        return ((SortModel) currentDateList.get(position)).getSortLetters().charAt(0);
     }
 
     private String getAlpha(String str) {
         String sortStr = str.trim().substring(0, 1).toUpperCase();
         return sortStr.matches("[A-Z]") ? sortStr : "#";
     }
-
-    /**
-     * 设置数据源
-     */
-    public static List<SortBaseModel> filledData(String[] date) {
-        CharacterParser characterParser = CharacterParser.getInstance();
-        List<SortBaseModel> mSortList = new ArrayList();
-        for (int i = 0; i < date.length; ++i) {
-            SortBaseModel SortBaseModel = new SortBaseModel();
-            SortBaseModel.setName(date[i]);
-            String pinyin = characterParser.getSelling(date[i]);
-            String sortString = pinyin.substring(0, 1).toUpperCase();
-            if (sortString.matches("[A-Z]")) {
-                SortBaseModel.setSortLetters(sortString.toUpperCase());
-            } else {
-                SortBaseModel.setSortLetters("#");
-            }
-            mSortList.add(SortBaseModel);
-        }
-        return mSortList;
-    }
-
-    /**
-     * 设置数据源
-     */
-    public void filledData(List<? extends SortBaseModel> date) {
-        CharacterParser characterParser = CharacterParser.getInstance();
-        int i = 0;
-        for (int length = date.size(); i < length; ++i) {
-            SortBaseModel SortBaseModel = date.get(i);
-            String pinyin = characterParser.getSelling(String.valueOf(date.get(i)));
-            String sortString = pinyin.substring(0, 1).toUpperCase();
-            if (sortString.matches("[A-Z]")) {
-                SortBaseModel.setSortLetters(sortString.toUpperCase());
-            } else {
-                SortBaseModel.setSortLetters("#");
-            }
-        }
-    }
-
-    public void filterData(String filterStr, List<SortBaseModel> SourceDateList) {
-        List<SortBaseModel> filterDateList = new ArrayList();
-        CharacterParser characterParser = CharacterParser.getInstance();
-        if (!TextUtils.isEmpty(filterStr)) {
-            filterDateList.clear();
-            Iterator var5 = SourceDateList.iterator();
-            while (true) {
-                SortBaseModel SortBaseModel;
-                String name;
-                do {
-                    if (!var5.hasNext()) {
-                        return;
-                    }
-                    SortBaseModel = (SortBaseModel) var5.next();
-                    name = SortBaseModel.getName();
-                }
-                while (name.indexOf(filterStr.toString()) == -1 && !characterParser.getSelling(name).startsWith(filterStr.toString()));
-                filterDateList.add(SortBaseModel);
-            }
-        }
-    }
-
 }

@@ -46,7 +46,7 @@ public class IndexBarListAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (getItemViewType(position) == VIEW_INDEX) {
-            ((IndexViewHolder) holder).tvIndex.setText(mList.get(position).getFirstWord());
+            ((IndexViewHolder) holder).tvIndex.setText(mList.get(position).getName());
         } else {
             ((ContentViewHolder) holder).tvName.setText(mList.get(position).getName());
         }
@@ -59,7 +59,7 @@ public class IndexBarListAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemViewType(int position) {
-        if (mList.get(position).isIndex()) {
+        if (mList.isEmpty()) {
             return VIEW_INDEX;
         } else {
             return VIEW_CONTENT;

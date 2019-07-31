@@ -14,31 +14,31 @@ import android.widget.TextView;
 import com.gll.gllandroidstudy.R;
 
 /**
- * Created by : Z_B on 2019/7/12.
- * describe：右侧的索引
+ * Created by : Z_B on 2019/7/31.
+ * describe：
  */
-public class IndexSideBarView extends View {
+public class RightSideBar extends View {
     private OnTouchingLetterChangedListener onTouchingLetterChangedListener;
-    public String[] baseIndex = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
+    public String[] b = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
     private int choose = -1;
     private Paint paint = new Paint();
     private TextView mTextDialog;
-    private int mTextColor = Color.parseColor("#666666");
+    private int mTextColor = Color.parseColor("#444444");
     private int mSelectTextColor = Color.parseColor("#3399ff");
 
     public void setTextView(TextView mTextDialog) {
         this.mTextDialog = mTextDialog;
     }
 
-    public IndexSideBarView(Context context, AttributeSet attrs, int defStyle) {
+    public RightSideBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public IndexSideBarView(Context context, AttributeSet attrs) {
+    public RightSideBar(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public IndexSideBarView(Context context) {
+    public RightSideBar(Context context) {
         super(context);
     }
 
@@ -50,18 +50,19 @@ public class IndexSideBarView extends View {
         this.mSelectTextColor = mSelectTextColor;
     }
 
-    public void setBaseIndex(String[] aZSet) {
+    public void setB(String[] aZSet) {
         if (aZSet != null) {
-            this.baseIndex = aZSet;
+            this.b = aZSet;
         }
+
     }
 
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int height = this.getHeight();
         int width = this.getWidth();
-        int singleHeight = height / this.baseIndex.length;
-        for (int i = 0; i < this.baseIndex.length; ++i) {
+        int singleHeight = height / this.b.length;
+        for (int i = 0; i < this.b.length; ++i) {
             this.paint.setColor(this.mTextColor);
             this.paint.setTypeface(Typeface.DEFAULT_BOLD);
             this.paint.setAntiAlias(true);
@@ -70,9 +71,10 @@ public class IndexSideBarView extends View {
                 this.paint.setColor(this.mSelectTextColor);
                 this.paint.setFakeBoldText(true);
             }
-            float xPos = (float) (width / 2) - this.paint.measureText(this.baseIndex[i]) / 2.0F;
+
+            float xPos = (float) (width / 2) - this.paint.measureText(this.b[i]) / 2.0F;
             float yPos = (float) (singleHeight * i + singleHeight);
-            canvas.drawText(this.baseIndex[i], xPos, yPos, this.paint);
+            canvas.drawText(this.b[i], xPos, yPos, this.paint);
             this.paint.reset();
         }
 
@@ -83,25 +85,25 @@ public class IndexSideBarView extends View {
         float y = event.getY();
         int oldChoose = this.choose;
         OnTouchingLetterChangedListener listener = this.onTouchingLetterChangedListener;
-        int c = (int) (y / (float) this.getHeight() * (float) this.baseIndex.length);
+        int c = (int) (y / (float) this.getHeight() * (float) this.b.length);
         switch (action) {
             case 1:
                 this.setBackgroundDrawable(new ColorDrawable(0));
                 this.choose = -1;
                 this.invalidate();
                 if (this.mTextDialog != null) {
-                    this.mTextDialog.setVisibility(4);
+                    this.mTextDialog.setVisibility(View.GONE);
                 }
                 break;
             default:
                 this.setBackgroundResource(R.drawable.sidebar_background);
-                if (oldChoose != c && c >= 0 && c < this.baseIndex.length) {
+                if (oldChoose != c && c >= 0 && c < this.b.length) {
                     if (listener != null) {
-                        listener.onTouchingLetterChanged(this.baseIndex[c]);
+                        listener.onTouchingLetterChanged(this.b[c]);
                     }
                     if (this.mTextDialog != null) {
-                        this.mTextDialog.setText(this.baseIndex[c]);
-                        this.mTextDialog.setVisibility(0);
+                        this.mTextDialog.setText(this.b[c]);
+                        this.mTextDialog.setVisibility(View.VISIBLE);
                     }
                     this.choose = c;
                     this.invalidate();
@@ -114,8 +116,10 @@ public class IndexSideBarView extends View {
         this.onTouchingLetterChangedListener = onTouchingLetterChangedListener;
     }
 
+
     public int sp2px(float spValue) {
         float fontScale = this.getResources().getDisplayMetrics().scaledDensity;
         return (int) (spValue * fontScale + 0.5F);
     }
+
 }

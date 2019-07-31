@@ -4,7 +4,7 @@ package com.gll.gllandroidstudy.Index;
  * Created by : Z_B on 2019/7/12.
  * describe：
  */
-public class CityItemMessage {
+public class CityItemMessage extends SortModel {
     /**
      * id : 1
      * pid : 0
@@ -12,24 +12,17 @@ public class CityItemMessage {
      */
 
     private String id;
-    private String pid;
-    private String name;
-    private String firstWord;
-    private boolean isIndex;
+    private String title;
 
 
-    public CityItemMessage(  ) {
+    public CityItemMessage() {
     }
-    public CityItemMessage(String id, String name) {
+
+    public CityItemMessage(String id, String title) {
         this.id = id;
-        this.name = name;
+        this.title = title;
     }
 
-    public CityItemMessage(String id, String name, String firstWord) {
-        this.id = id;
-        this.name = name;
-        this.firstWord = firstWord;
-    }
 
     public String getId() {
         return id;
@@ -39,35 +32,16 @@ public class CityItemMessage {
         this.id = id;
     }
 
-    public String getPid() {
-        return pid;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPid(String pid) {
-        this.pid = pid;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getFirstWord() {
-        return firstWord;
-    }
-
-    public void setFirstWord(String firstWord) {
-        this.firstWord = firstWord;
-    }
-
-    public boolean isIndex() {
-        return isIndex;
-    }
-
-    public void setIndex(boolean index) {
-        isIndex = index;
+    @Override
+    public String toString() {
+        return title;
     }
 }
