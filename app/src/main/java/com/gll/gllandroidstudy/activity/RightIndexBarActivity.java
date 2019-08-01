@@ -3,6 +3,7 @@ package com.gll.gllandroidstudy.activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.gll.gllandroidstudy.Index.CenterLayoutManager;
@@ -56,6 +57,10 @@ public class RightIndexBarActivity extends BaseActivity {
 
         sideBarSortMode.setSourceDateList(cityList);
         rightIndexListAdapter.setNewData(cityList);
+
+        String title[] = sideBarSortMode.getSortLetterTitle();
+        rightSideBar.setLetterList(title);
+
 
     }
 

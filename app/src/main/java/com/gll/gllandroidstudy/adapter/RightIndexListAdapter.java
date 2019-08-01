@@ -1,7 +1,5 @@
 package com.gll.gllandroidstudy.adapter;
 
-import android.util.Log;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.gll.gllandroidstudy.Index.CityItemMessage;
@@ -10,7 +8,7 @@ import com.gll.gllandroidstudy.R;
 
 /**
  * Created by : Z_B on 2019/7/12.
- * describe：
+ * describe：右侧快速索引
  */
 public class RightIndexListAdapter extends BaseQuickAdapter<CityItemMessage, BaseViewHolder> {
 
@@ -23,8 +21,7 @@ public class RightIndexListAdapter extends BaseQuickAdapter<CityItemMessage, Bas
 
     @Override
     protected void convert(BaseViewHolder helper, CityItemMessage item) {
-        String sortLetterTitle = sideBarSortMode.getSortLetterTitle(helper.getLayoutPosition() - getHeaderLayoutCount());
-        Log.e("xy", "sortLetterTitle=" + sortLetterTitle);
+        String sortLetterTitle = sideBarSortMode.getSortLetterTitle(helper.getAdapterPosition());
         helper.setText(R.id.txtCityInitial, sortLetterTitle);
         helper.setText(R.id.txtCityName, item.getTitle());
         helper.setGone(R.id.txtCityInitial, sortLetterTitle != null);

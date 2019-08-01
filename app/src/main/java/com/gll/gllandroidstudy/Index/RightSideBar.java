@@ -50,7 +50,7 @@ public class RightSideBar extends View {
         this.mSelectTextColor = mSelectTextColor;
     }
 
-    public void setB(String[] aZSet) {
+    public void setLetterList(String[] aZSet) {
         if (aZSet != null) {
             this.b = aZSet;
         }

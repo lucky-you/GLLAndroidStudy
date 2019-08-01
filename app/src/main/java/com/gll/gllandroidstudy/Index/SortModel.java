@@ -2,7 +2,7 @@ package com.gll.gllandroidstudy.Index;
 
 /**
  * Created by : Z_B on 2019/7/31.
- * describe：
+ * describe：排序的基类
  */
 public class SortModel {
     public String name;
