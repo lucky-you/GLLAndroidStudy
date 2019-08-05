@@ -52,7 +52,7 @@ public class MainActivity extends BaseActivity {
         mClassesMap.put("NestedScrollView滑动的监听", SignInStepViewActivity.class);
         mClassesMap.put("SpannableString", SpannableStringActivity.class);
         mClassesMap.put("BaseSimpleRecyclerView", RecyclerViewActivity.class);
-        mClassesMap.put("图片选择", SelectImageViewActivity.class);
+        mClassesMap.put("自定义图表", SelectImageViewActivity.class);
         mClassesMap.put("下载文件到本地", SelectCityActivity.class);
         mClassesMap.put("自定义ViewGroup显示九宫格图片", StarBarActivity.class);
         mClassesMap.put("自定义ViewGroup显示九宫格列表展示", ViewPagerVideoActivity.class);

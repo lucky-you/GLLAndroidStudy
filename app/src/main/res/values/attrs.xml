@@ -158,10 +158,32 @@
 
 
     <declare-styleable name="LGNineGridView">
-        <attr name="space" format="dimension"/>
-        <attr name="singleImageRatio" format="float"/>
-        <attr name="singleImageWidthRatioToParent" format="float"/>
-        <attr name="singleImageRatioMode" format="integer"/>
+        <attr name="space" format="dimension" />
+        <attr name="singleImageRatio" format="float" />
+        <attr name="singleImageWidthRatioToParent" format="float" />
+        <attr name="singleImageRatioMode" format="integer" />
     </declare-styleable>
+
+
+    <!--圆环形进度条-->
+    <declare-styleable name="CircleProgressView">
+        <attr name="maxProgress" format="integer" />
+        <attr name="ring_color" format="color" />
+        <attr name="progress_color" format="color" />
+        <attr name="text_color" format="color" />
+        <attr name="text_size" format="dimension" />
+        <attr name="text_visible" format="boolean" />
+    </declare-styleable>
+
+    <!--折线图-->
+    <declare-styleable name="LineChartView">
+        <attr name="axesColor" format="color" /> <!--坐标轴颜色-->
+        <attr name="axesWidth" format="dimension" /><!--坐标轴宽度-->
+        <attr name="textColor" format="color" /> <!--x轴字体颜色-->
+        <attr name="textSize" format="dimension" /> <!--字体大小-->
+        <attr name="lineColor" format="color" /> <!--折线颜色-->
+        <attr name="bgColor" format="color" /> <!--背景色-->
+    </declare-styleable>
+
 
 </resources>
