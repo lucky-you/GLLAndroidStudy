@@ -60,7 +60,7 @@ public class MainActivity extends BaseActivity {
         mClassesMap.put("流式布局的自定义", SelectYearAndMouthActivity.class);
         mClassesMap.put("九宫格图片显示", NineImageViewActivity.class);
         mClassesMap.put("自定义Banner", ScrollWheelSowActivity.class);
-        mClassesMap.put("商品总数的滚动监听", ProductTotalSizeActivity.class);
+        mClassesMap.put("FlexboxLayout的使用", ProductTotalSizeActivity.class);
         mClassesMap.put("GreenDao的使用", GreenDaoActivity.class);
         mClassesMap.put("TextView的展开与收起", ExpandableTextViewActivity.class);
         mClassesMap.put("RecyclerView嵌套实现购物车的逻辑", ShopCarActivity.class);
