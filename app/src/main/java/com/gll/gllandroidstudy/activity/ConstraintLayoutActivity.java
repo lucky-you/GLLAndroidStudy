@@ -1,12 +1,15 @@
 package com.gll.gllandroidstudy.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetDialog;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
 
 /**
- * 约束性布局的使用
+ * BottomSheet的使用
  */
 public class ConstraintLayoutActivity extends BaseActivity {
 
@@ -18,7 +21,8 @@ public class ConstraintLayoutActivity extends BaseActivity {
 
     @Override
     protected void bindViews() {
-        initTitle("约束性布局的使用");
+        initTitle("BottomSheet的使用");
+        get(R.id.btnStart).setOnClickListener(this);
     }
 
     @Override
@@ -28,6 +32,26 @@ public class ConstraintLayoutActivity extends BaseActivity {
 
     @Override
     protected void setListener() {
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnStart:
+                showBottomDialog();
+
+                break;
+        }
+    }
+
+    private void showBottomDialog() {
+
+        BottomSheetDialog dialog = new BottomSheetDialog(mContext);
+        View dialogView = LayoutInflater.from(mContext).inflate(R.layout.include_bottom_dialog_layout, null);
+        dialog.setContentView(dialogView);
+        dialog.show();
+
 
     }
+
 }

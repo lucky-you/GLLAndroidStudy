@@ -19,6 +19,8 @@
         android:layout_height="@dimen/spacing_4" />
 
 
+    <!--   justifyContent:沿主轴的对齐方向
+    alignContent：沿副轴的对齐方向-->
     <com.google.android.flexbox.FlexboxLayout
         android:id="@+id/flexboxLayout"
         android:layout_width="match_parent"

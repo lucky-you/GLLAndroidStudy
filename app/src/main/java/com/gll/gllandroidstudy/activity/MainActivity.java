@@ -54,8 +54,8 @@ public class MainActivity extends BaseActivity {
         mClassesMap.put("BaseSimpleRecyclerView", RecyclerViewActivity.class);
         mClassesMap.put("自定义图表", SelectImageViewActivity.class);
         mClassesMap.put("下载文件到本地", SelectCityActivity.class);
-        mClassesMap.put("自定义ViewGroup显示九宫格图片", StarBarActivity.class);
-        mClassesMap.put("自定义ViewGroup显示九宫格列表展示", ViewPagerVideoActivity.class);
+        mClassesMap.put("####", StarBarActivity.class);
+        mClassesMap.put("#####", ViewPagerVideoActivity.class);
         mClassesMap.put("自定义验证码输入框", EditTextCodeActivity.class);
         mClassesMap.put("流式布局的自定义", SelectYearAndMouthActivity.class);
         mClassesMap.put("九宫格图片显示", NineImageViewActivity.class);
@@ -65,7 +65,7 @@ public class MainActivity extends BaseActivity {
         mClassesMap.put("TextView的展开与收起", ExpandableTextViewActivity.class);
         mClassesMap.put("RecyclerView嵌套实现购物车的逻辑", ShopCarActivity.class);
         mClassesMap.put("SectionedRV的使用", BottomTabActivity.class);
-        mClassesMap.put("约束性布局的使用", ConstraintLayoutActivity.class);
+        mClassesMap.put("BottomSheet的使用", ConstraintLayoutActivity.class);
         mClassesMap.put("右侧字母快速索引", RightIndexBarActivity.class);
 
         for (Map.Entry<String, Class<?>> entry : mClassesMap.entrySet()) {

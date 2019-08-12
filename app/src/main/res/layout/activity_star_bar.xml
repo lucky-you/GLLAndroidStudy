@@ -11,10 +11,4 @@
     <include layout="@layout/include_titlebar" />
 
 
-    <com.gll.gllandroidstudy.view.LGNineGridView
-        android:id="@+id/nineGridView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_10"
-        app:singleImageRatio="1" />
 </LinearLayout>

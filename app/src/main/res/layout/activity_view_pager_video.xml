@@ -6,6 +6,5 @@
 
     <include layout="@layout/include_titlebar" />
 
-    <include layout="@layout/include_recyclerview_layout" />
 
 </LinearLayout>

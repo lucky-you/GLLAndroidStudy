@@ -50,7 +50,7 @@ public class ViewFlipperActivity extends BaseActivity {
     @Override
     protected void processLogic(Bundle savedInstanceState) {
         List<NoticeMessage> noticeMessageList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 14; i++) {
             noticeMessageList.add(new NoticeMessage("会员120" + i, "编号:4877" + i));
         }
 

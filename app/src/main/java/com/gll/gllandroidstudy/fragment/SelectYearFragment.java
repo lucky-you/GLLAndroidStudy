@@ -2,19 +2,11 @@ package com.gll.gllandroidstudy.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.gll.gllandroidstudy.R;
-import com.gll.gllandroidstudy.adapter.SelectYearDateAdapter;
-import com.gll.gllandroidstudy.model.SelectYearDateList;
-import com.gll.gllandroidstudy.model.YearAndMouthBean;
 import com.gll.gllandroidstudy.utils.ConstantValue;
-import com.gll.gllandroidstudy.widget.DivideLineItemDecoration;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * author      : Z_B
@@ -24,7 +16,6 @@ import java.util.List;
 public class SelectYearFragment extends LibFragment {
 
     private RecyclerView selectYearRecyclerView;
-    private SelectYearDateAdapter selectYearDateAdapter;
 
     public static SelectYearFragment newInstance(int type) {
         SelectYearFragment selectYearDateFragment = new SelectYearFragment();
@@ -51,11 +42,6 @@ public class SelectYearFragment extends LibFragment {
 
     @Override
     public void processLogic(Bundle savedInstanceState) {
-//        List<SelectYearDateList> selectYearDateLists = new ArrayList<>();
-//        List<YearAndMouthBean> calendarsYearList = new ArrayList<>();
-//        selectYearDateAdapter = new SelectYearDateAdapter(selectYearDateLists);
-//        selectYearRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-//        selectYearRecyclerView.setAdapter(selectYearDateAdapter);
     }
 
     @Override

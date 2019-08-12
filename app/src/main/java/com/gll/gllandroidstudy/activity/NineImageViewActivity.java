@@ -42,7 +42,6 @@ public class NineImageViewActivity extends BaseActivity {
     protected void processLogic(Bundle savedInstanceState) {
 
 
-
         nineGridViewImageAdapter = new NineGridViewImageAdapter(DateImageUtils.getNineImageList(), mContext);
         recyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView.setAdapter(nineGridViewImageAdapter);
