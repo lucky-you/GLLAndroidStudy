@@ -1,19 +1,31 @@
 package com.gll.gllandroidstudy.activity;
 
+import android.content.Context;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.adapter.ProductTotalSizeAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
+import com.gll.gllandroidstudy.model.AllAreaList;
+import com.gll.gllandroidstudy.model.AreaComparatorLetter;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.android.flexbox.JustifyContent;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ProductTotalSizeActivity extends BaseActivity implements BaseQuickAdapter.OnItemClickListener {
@@ -51,6 +63,39 @@ public class ProductTotalSizeActivity extends BaseActivity implements BaseQuickA
         recyclerView.setAdapter(productTotalSizeAdapter);
         productTotalSizeAdapter.setOnItemClickListener(this::onItemClick);
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Type listType = new TypeToken<ArrayList<AllAreaList>>() {
+                }.getType();
+                Gson gson = new Gson();
+                String JsonData = getJson(mContext, "all_area.json");//获取assets目录下的json文件数据
+                final List<AllAreaList> list = gson.fromJson(JsonData, listType);
+                Collections.sort(list, new AreaComparatorLetter());
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.e("xy", "listSize=" + list.size() + "\n" + "list=" + list.toString());
+                    }
+                });
+            }
+        }).start();
+    }
+
+
+    public String getJson(Context context, String fileName) {
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            AssetManager assetManager = context.getAssets();
+            BufferedReader bf = new BufferedReader(new InputStreamReader(assetManager.open(fileName)));
+            String line;
+            while ((line = bf.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stringBuilder.toString();
     }
 
     private List<String> getList() {
