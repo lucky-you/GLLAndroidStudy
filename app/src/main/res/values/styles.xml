@@ -94,8 +94,6 @@
         <item name="android:background">@color/grey_color_ccc</item>
     </style>
 
-
-
     <style name="DefaultGuideCaseTitleStyle" parent="@android:style/Widget.TextView">
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">#FFFFFF</item>
@@ -103,4 +101,8 @@
     </style>
 
     <style name="TextAppearanceBase" parent="android:TextAppearance.Holo" />
+
+
+
+
 </resources>

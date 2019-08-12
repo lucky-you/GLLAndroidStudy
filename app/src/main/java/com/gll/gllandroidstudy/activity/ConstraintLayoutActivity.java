@@ -39,7 +39,6 @@ public class ConstraintLayoutActivity extends BaseActivity {
         switch (view.getId()) {
             case R.id.btnStart:
                 showBottomDialog();
-
                 break;
         }
     }
@@ -50,7 +49,6 @@ public class ConstraintLayoutActivity extends BaseActivity {
         View dialogView = LayoutInflater.from(mContext).inflate(R.layout.include_bottom_dialog_layout, null);
         dialog.setContentView(dialogView);
         dialog.show();
-
 
     }
 
