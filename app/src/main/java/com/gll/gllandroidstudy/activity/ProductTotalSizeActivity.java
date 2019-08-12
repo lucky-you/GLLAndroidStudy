@@ -80,14 +80,15 @@ public class ProductTotalSizeActivity extends BaseActivity implements BaseQuickA
                 });
             }
         }).start();
-    }
 
+    }
 
     public String getJson(Context context, String fileName) {
         StringBuilder stringBuilder = new StringBuilder();
         try {
             AssetManager assetManager = context.getAssets();
-            BufferedReader bf = new BufferedReader(new InputStreamReader(assetManager.open(fileName)));
+            BufferedReader bf = new BufferedReader(new InputStreamReader(
+                    assetManager.open(fileName)));
             String line;
             while ((line = bf.readLine()) != null) {
                 stringBuilder.append(line);
