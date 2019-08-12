@@ -14,21 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <View
-        style="@style/DivideLimitLine"
-        android:layout_height="@dimen/spacing_4" />
 
-
-    <!--   justifyContent:沿主轴的对齐方向
-    alignContent：沿副轴的对齐方向-->
-    <com.google.android.flexbox.FlexboxLayout
-        android:id="@+id/flexboxLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:alignContent="flex_start"
-        app:flexDirection="row"
-        app:flexWrap="wrap"
-        app:justifyContent="flex_start" />
 
 
 </LinearLayout>

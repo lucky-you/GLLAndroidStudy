@@ -3,7 +3,6 @@ package com.gll.gllandroidstudy.activity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.gll.gllandroidstudy.R;
@@ -11,7 +10,6 @@ import com.gll.gllandroidstudy.adapter.ProductTotalSizeAdapter;
 import com.gll.gllandroidstudy.base.BaseActivity;
 import com.google.android.flexbox.FlexDirection;
 import com.google.android.flexbox.FlexWrap;
-import com.google.android.flexbox.FlexboxLayout;
 import com.google.android.flexbox.FlexboxLayoutManager;
 import com.google.android.flexbox.JustifyContent;
 
@@ -23,9 +21,6 @@ public class ProductTotalSizeActivity extends BaseActivity implements BaseQuickA
     private RecyclerView recyclerView;
     private ProductTotalSizeAdapter productTotalSizeAdapter;
 
-
-    private FlexboxLayout flexboxLayout;
-
     @Override
     protected void loadViewLayout() {
         setContentView(R.layout.activity_product_total_size);
@@ -35,13 +30,11 @@ public class ProductTotalSizeActivity extends BaseActivity implements BaseQuickA
     protected void bindViews() {
         initTitle("FlexboxLayout的使用");
         recyclerView = get(R.id.recyclerView);
-        flexboxLayout = get(R.id.flexboxLayout);
     }
 
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-
 
         productTotalSizeAdapter = new ProductTotalSizeAdapter(getList());
 
@@ -53,18 +46,12 @@ public class ProductTotalSizeActivity extends BaseActivity implements BaseQuickA
         flexboxLayoutManager.setFlexWrap(FlexWrap.WRAP);//按正常方向换行
         //justifyContent 属性定义了项目在主轴上的对齐方式。
         flexboxLayoutManager.setJustifyContent(JustifyContent.FLEX_START);//交叉轴的起点对齐。
+
         recyclerView.setLayoutManager(flexboxLayoutManager);
-
         recyclerView.setAdapter(productTotalSizeAdapter);
-
         productTotalSizeAdapter.setOnItemClickListener(this::onItemClick);
 
-
-        for (int i = 0; i < getList().size(); i++) {
-            flexboxLayout.addView(getFlexboxLayoutItemView(i));
-        }
     }
-
 
     private List<String> getList() {
         List<String> textList = new ArrayList<>();
@@ -81,17 +68,13 @@ public class ProductTotalSizeActivity extends BaseActivity implements BaseQuickA
         textList.add("呼啦呼啦花脸节啊安徽接电话");
         textList.add("安康交换机你们");
         textList.add("安康机你们");
+        textList.add("几点回家啊韩剧撒旦教");
+        textList.add("按格式金黄色的和");
+        textList.add("大姐姐萨大是点击姐姐萨科技上科他技上");
+        textList.add("回到家卡号是大括号上架到打麻将你的卡");
         return textList;
     }
 
-
-    //获取FlexboxLayout的子View
-    private View getFlexboxLayoutItemView(int position) {
-        View view = getLayoutInflater().inflate(R.layout.include_product_total_size_item_view, null, false);
-        TextView itemTv = (TextView) view.findViewById(R.id.tvTitle);
-        itemTv.setText(getList().get(position));
-        return view;
-    }
 
     @Override
     protected void setListener() {
