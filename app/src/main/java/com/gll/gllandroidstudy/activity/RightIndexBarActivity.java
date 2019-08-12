@@ -3,7 +3,6 @@ package com.gll.gllandroidstudy.activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.widget.TextView;
 
 import com.gll.gllandroidstudy.Index.CenterLayoutManager;
