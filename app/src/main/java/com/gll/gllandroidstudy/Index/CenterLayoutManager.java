@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 
 /**
  * Created by : Z_B on 2019/7/31.
- * describe：
+ * describe： LinearLayoutManager
  */
 public class CenterLayoutManager extends LinearLayoutManager {
 

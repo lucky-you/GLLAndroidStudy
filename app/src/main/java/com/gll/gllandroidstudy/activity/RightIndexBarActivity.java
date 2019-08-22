@@ -47,16 +47,12 @@ public class RightIndexBarActivity extends BaseActivity {
 
     @Override
     protected void processLogic(Bundle savedInstanceState) {
-
         rightIndexListAdapter = new RightIndexListAdapter(sideBarSortMode);
-        cityRecyclerView.setLayoutManager(new CenterLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
+        cityRecyclerView.setLayoutManager(new CenterLayoutManager(mContext));
         cityRecyclerView.setAdapter(rightIndexListAdapter);
-
         cityList = getCityList();
-
         sideBarSortMode.setSourceDateList(cityList);
         rightIndexListAdapter.setNewData(cityList);
-
         String title[] = sideBarSortMode.getSortLetterTitle();
         rightSideBar.setLetterList(title);
 
