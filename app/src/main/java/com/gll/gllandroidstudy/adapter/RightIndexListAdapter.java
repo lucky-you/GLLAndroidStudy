@@ -1,5 +1,7 @@
 package com.gll.gllandroidstudy.adapter;
 
+import android.text.TextUtils;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.gll.gllandroidstudy.Index.CityItemMessage;
@@ -24,6 +26,6 @@ public class RightIndexListAdapter extends BaseQuickAdapter<CityItemMessage, Bas
         String sortLetterTitle = sideBarSortMode.getSortLetterTitle(helper.getAdapterPosition());
         helper.setText(R.id.txtCityInitial, sortLetterTitle);
         helper.setText(R.id.txtCityName, item.getTitle());
-        helper.setGone(R.id.txtCityInitial, sortLetterTitle != null);
+        helper.setGone(R.id.txtCityInitial, !TextUtils.isEmpty(sortLetterTitle));
     }
 }
