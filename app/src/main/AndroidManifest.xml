@@ -3,7 +3,6 @@
     package="com.gll.gllandroidstudy">
 
 
-
     <!-- 读写权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -26,7 +25,6 @@
     <uses-permission android:name="android.permission.USE_SIP" />
 
 
-
     <!-- 网络权限 -->
     <application
         android:name=".base.BaseApplication"
@@ -37,13 +35,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.SplashActivity">
+        <activity android:name="com.gll.gllandroidstudy.activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".activity.MainActivity" />
 
         <activity android:name=".activity.ViewFlipperActivity" />
@@ -88,8 +87,6 @@
                 android:resource="@xml/provider_paths" />
         </provider>
     </application>
-
-
 
 
 </manifest>

@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 28
+    buildToolsVersion = '28.0.3'
     defaultConfig {
         applicationId "com.gll.gllandroidstudy"
         minSdkVersion 19
@@ -23,6 +24,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 
