@@ -54,7 +54,7 @@ public class MainActivity extends BaseActivity {
         mClassesMap.put("BaseSimpleRecyclerView", RecyclerViewActivity.class);
         mClassesMap.put("自定义图表", SelectImageViewActivity.class);
         mClassesMap.put("下载文件到本地", SelectCityActivity.class);
-        mClassesMap.put("####", StarBarActivity.class);
+        mClassesMap.put("CoordinatorLayout的使用", StarBarActivity.class);
         mClassesMap.put("#####", ViewPagerVideoActivity.class);
         mClassesMap.put("自定义验证码输入框", EditTextCodeActivity.class);
         mClassesMap.put("流式布局的自定义", SelectYearAndMouthActivity.class);

@@ -38,7 +38,6 @@ public class SelectYearAndMouthActivity extends BaseActivity {
         tagAdapter.addTags(ResUtils.getStringArray(R.array.tags_values));
         tagAdapter.setSelectedPositions(2);
         flowTagLayout.setOnTagSelectListener((parent, position, selectedList) -> showToast(getSelectedText(parent, selectedList)));
-
     }
 
     private String getSelectedText(FlowTagLayout parent, List<Integer> selectedList) {
