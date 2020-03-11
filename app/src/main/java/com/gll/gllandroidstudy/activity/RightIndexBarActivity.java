@@ -115,6 +115,7 @@ public class RightIndexBarActivity extends BaseActivity {
         CityListData.add(new CityItemMessage("36", "康定"));
         CityListData.add(new CityItemMessage("37", "南京"));
         CityListData.add(new CityItemMessage("38", "聃州"));
+        CityListData.add(new CityItemMessage("38", "六安"));
         return CityListData;
     }
 }
