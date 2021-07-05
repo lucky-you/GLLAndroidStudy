@@ -1,14 +1,17 @@
 package com.gll.gllandroidstudy.db;
 
 
+import com.gll.gllandroidstudy.ClassModelDao;
 import com.gll.gllandroidstudy.DaoMaster;
 import com.gll.gllandroidstudy.DaoSession;
 import com.gll.gllandroidstudy.GoodMessageDao;
+import com.gll.gllandroidstudy.SchoolModelDao;
+import com.gll.gllandroidstudy.StudentModelDao;
 import com.gll.gllandroidstudy.base.BaseApplication;
 
 public class DBManager {
 
-    private static final String DB_NAME = "GLL.db";
+    private static final String DB_NAME = "Android_GLL.db";
     private static DBManager instance;
     private static DaoMaster daoMaster;
     private static DaoSession daoSession;
@@ -38,5 +41,15 @@ public class DBManager {
         return getDaoSession().getGoodMessageDao();
     }
 
+    public SchoolModelDao getSchoolModelDao() {
+        return getDaoSession().getSchoolModelDao();
+    }
 
+    public ClassModelDao getClassModelDao() {
+        return getDaoSession().getClassModelDao();
+    }
+
+    public StudentModelDao getStudentModelDao() {
+        return getDaoSession().getStudentModelDao();
+    }
 }

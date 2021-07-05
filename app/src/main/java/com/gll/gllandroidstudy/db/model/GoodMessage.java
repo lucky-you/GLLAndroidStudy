@@ -1,4 +1,4 @@
-package com.gll.gllandroidstudy.db;
+package com.gll.gllandroidstudy.db.model;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;

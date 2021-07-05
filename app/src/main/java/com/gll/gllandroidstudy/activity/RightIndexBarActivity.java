@@ -41,8 +41,6 @@ public class RightIndexBarActivity extends BaseActivity {
         txtTip = get(R.id.txtTip);
         rightSideBar = get(R.id.rightSideBar);
         rightSideBar.setTextView(txtTip);
-
-
     }
 
     @Override
@@ -55,7 +53,6 @@ public class RightIndexBarActivity extends BaseActivity {
         rightIndexListAdapter.setNewData(cityList);
         String title[] = sideBarSortMode.getSortLetterTitle();
         rightSideBar.setLetterList(title);
-
 
     }
 

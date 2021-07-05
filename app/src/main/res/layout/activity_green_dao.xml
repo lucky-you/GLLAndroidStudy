@@ -4,71 +4,452 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <include layout="@layout/include_titlebar" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_40"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvAddNumber"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="增加数量"
-            android:textColor="@color/text_color_666"
-            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvReduceNumber"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="减少数量"
-            android:textColor="@color/text_color_666"
-            android:textSize="14sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
 
-        <TextView
-            android:id="@+id/tvEditNumber"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="修改数量"
-            android:textColor="@color/text_color_666"
-            android:textSize="14sp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="学校ID："
+                    android:textColor="@color/blue_color"
+                    android:textSize="15sp" />
 
-        <TextView
-            android:id="@+id/tvQueriesNumber"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="查询数量"
-            android:textColor="@color/text_color_666"
-            android:textSize="14sp" />
+                <EditText
+                    android:id="@+id/editSchoolID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入学校ID："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
 
-    </LinearLayout>
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="学校名称："
+                    android:textColor="@color/blue_color"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editSchoolName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入学校名称："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="班级ID："
+                    android:textColor="@color/red_color_ff404a"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editClassOneID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入班级ID："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/spacing_1"
-        android:background="@color/divide_line_color" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
 
-    <TextView
-        android:id="@+id/tvCurrentNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_10"
-        android:text="当前数量："
-        android:textColor="@color/text_color_666"
-        android:textSize="14sp" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="班级名称："
+                    android:textColor="@color/red_color_ff404a"
+                    android:textSize="15sp" />
 
+                <EditText
+                    android:id="@+id/editClassOneName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入班级名称："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="学生ID："
+                    android:textColor="@color/green_color_63d86b"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editClassOneStudentOne"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入学生ID："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="学生ID："
+                    android:textColor="@color/green_color_63d86b"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editClassOneStudentTwo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入学生ID："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="学生ID："
+                    android:textColor="@color/green_color_63d86b"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editClassOneStudentThree"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入学生ID："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="班级ID："
+                    android:textColor="@color/red_color_ff404a"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editClassTwoID"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入班级ID："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="班级名称："
+                    android:textColor="@color/red_color_ff404a"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editClassTwoName"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入班级名称："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="学生ID："
+                    android:textColor="@color/green_color_63d86b"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editClassTwoStudentOne"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入学生ID："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="学生ID："
+                    android:textColor="@color/green_color_63d86b"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editClassTwoStudentTwo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入学生ID："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="学生ID："
+                    android:textColor="@color/green_color_63d86b"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editClassTwoStudentThree"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入学生ID："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:padding="@dimen/spacing_5">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="3"
+                    android:gravity="center"
+                    android:text="学生ID："
+                    android:textColor="@color/green_color_63d86b"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/editClassTwoStudentFour"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:hint="请输入学生ID："
+                    android:textColor="@color/text_color_333"
+                    android:textColorHint="@color/text_color_999"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/DivideLimitLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spacing_46"
+                android:layout_margin="5dp">
+
+                <Button
+                    android:id="@+id/btnSaveData"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="保存数据"
+                    android:textColor="@color/green_color"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btnDeleteData"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="删除数据"
+                    android:textColor="@color/green_color"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/btnQueryData"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="查询数据"
+                    android:textColor="@color/green_color"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>
