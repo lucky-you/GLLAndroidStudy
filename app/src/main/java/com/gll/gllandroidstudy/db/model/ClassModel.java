@@ -1,11 +1,9 @@
 package com.gll.gllandroidstudy.db.model;
 
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.NotNull;
 import org.greenrobot.greendao.annotation.ToMany;
 
 import java.util.List;
@@ -21,26 +19,23 @@ import com.gll.gllandroidstudy.ClassModelDao;
  * 班级
  */
 @Entity
-public class ClassModel implements Parcelable {
+public class ClassModel {
     @Id(autoincrement = true)
     private Long id;
-    private long classId;
+    @NotNull
+    private Long classId;
     private String className;
     @ToMany(referencedJoinProperty = "studentId")
     private List<StudentModel> studentList;
-    /**
-     * Used to resolve relations
-     */
+    /** Used to resolve relations */
     @Generated(hash = 2040040024)
     private transient DaoSession daoSession;
-    /**
-     * Used for active entity operations.
-     */
+    /** Used for active entity operations. */
     @Generated(hash = 953521382)
     private transient ClassModelDao myDao;
 
-    @Generated(hash = 227031575)
-    public ClassModel(Long id, long classId, String className) {
+    @Generated(hash = 1930951255)
+    public ClassModel(Long id, @NotNull Long classId, String className) {
         this.id = id;
         this.classId = classId;
         this.className = className;
@@ -50,27 +45,14 @@ public class ClassModel implements Parcelable {
     public ClassModel() {
     }
 
-    protected ClassModel(Parcel in) {
-        if (in.readByte() == 0) {
-            id = null;
-        } else {
-            id = in.readLong();
-        }
-        classId = in.readLong();
-        className = in.readString();
+    @Override
+    public String toString() {
+        return "ClassModel{" +
+                "classId=" + classId +
+                ", className='" + className + '\'' +
+                ", studentList=" + studentList +
+                '}';
     }
-
-    public static final Creator<ClassModel> CREATOR = new Creator<ClassModel>() {
-        @Override
-        public ClassModel createFromParcel(Parcel in) {
-            return new ClassModel(in);
-        }
-
-        @Override
-        public ClassModel[] newArray(int size) {
-            return new ClassModel[size];
-        }
-    };
 
     public Long getId() {
         return this.id;
@@ -80,11 +62,11 @@ public class ClassModel implements Parcelable {
         this.id = id;
     }
 
-    public long getClassId() {
+    public Long getClassId() {
         return this.classId;
     }
 
-    public void setClassId(long classId) {
+    public void setClassId(Long classId) {
         this.classId = classId;
     }
 
@@ -119,9 +101,7 @@ public class ClassModel implements Parcelable {
         return studentList;
     }
 
-    /**
-     * Resets a to-many relationship, making the next get call to query for a fresh result.
-     */
+    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
     @Generated(hash = 1628625923)
     public synchronized void resetStudentList() {
         studentList = null;
@@ -163,42 +143,10 @@ public class ClassModel implements Parcelable {
         myDao.update(this);
     }
 
-    /**
-     * called by internal mechanisms, do not call yourself.
-     */
+    /** called by internal mechanisms, do not call yourself. */
     @Generated(hash = 574607210)
     public void __setDaoSession(DaoSession daoSession) {
         this.daoSession = daoSession;
         myDao = daoSession != null ? daoSession.getClassModelDao() : null;
-    }
-
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        if (id == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeLong(id);
-        }
-        dest.writeLong(classId);
-        dest.writeString(className);
-    }
-
-    @Override
-    public String toString() {
-        return "ClassModel{" +
-                "id=" + id +
-                ", classId=" + classId +
-                ", className='" + className + '\'' +
-                ", studentList=" + studentList +
-                ", daoSession=" + daoSession +
-                ", myDao=" + myDao +
-                '}';
     }
 }

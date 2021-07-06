@@ -6,18 +6,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.gll.gllandroidstudy.GoodMessageDao;
+import com.gll.gllandroidstudy.ClassModelDao;
 import com.gll.gllandroidstudy.R;
 import com.gll.gllandroidstudy.base.BaseActivity;
-import com.gll.gllandroidstudy.db.DBManager;
+import com.gll.gllandroidstudy.db.manager.DBManager;
 import com.gll.gllandroidstudy.db.model.ClassModel;
-import com.gll.gllandroidstudy.db.model.GoodMessage;
 import com.gll.gllandroidstudy.db.model.SchoolModel;
 import com.gll.gllandroidstudy.db.model.StudentModel;
-import com.gll.gllandroidstudy.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,10 +82,20 @@ public class GreenDaoActivity extends BaseActivity {
             case R.id.btnQueryData:
                 //查询数据
                 List<SchoolModel> schoolModelList = DBManager.getInstance().getSchoolModelDao().queryBuilder().build().list();
-                List<ClassModel> classModelList = DBManager.getInstance().getClassModelDao().queryBuilder().build().list();
-                List<StudentModel> studentModelList = DBManager.getInstance().getStudentModelDao().queryBuilder().build().list();
+//                List<ClassModel> classModelList = DBManager.getInstance().getClassModelDao().queryBuilder().build().list();
+//                List<StudentModel> studentModelList = DBManager.getInstance().getStudentModelDao().queryBuilder().build().list();
+//                Log.e("xy", "schoolModelList:" + schoolModelList + "\n classModelList:" + classModelList + "\nstudentModelList:" + studentModelList);
+                if (schoolModelList != null && !schoolModelList.isEmpty()) {
+                    Long schoolId = schoolModelList.get(0).getId();
+                    List<ClassModel> classModelList = DBManager.getInstance().getClassModelDao().queryBuilder().where(ClassModelDao.Properties.ClassId.eq(schoolId)).build().list();
 
-                Log.e("xy", "schoolModelList:" + schoolModelList + "\n classModelList:" + classModelList + "\nstudentModelList:" + studentModelList);
+                    if (classModelList != null && !classModelList.isEmpty()) {
+                        for (int i = 0; i < classModelList.size(); i++) {
+                            Log.e("xy", "classLongId:" + classModelList.get(i).getId() + "---className:" + classModelList.get(i).getClassName());
+                        }
+                    }
+                }
+
 
                 break;
 
@@ -98,16 +104,18 @@ public class GreenDaoActivity extends BaseActivity {
 
     private void saveData() {
 
-
-        /*班级1的学生*/
+        /*  *//*班级1的学生*//*
         List<StudentModel> studentModelOneList = new ArrayList<>();
 
         StudentModel classOneStudentOne = new StudentModel(Long.parseLong(editClassOneStudentOne.getText().toString().trim()));
         StudentModel classOneStudentTwo = new StudentModel(Long.parseLong(editClassOneStudentTwo.getText().toString().trim()));
         StudentModel classOneStudentThree = new StudentModel(Long.parseLong(editClassOneStudentThree.getText().toString().trim()));
 
+        studentModelOneList.add(classOneStudentOne);
+        studentModelOneList.add(classOneStudentTwo);
+        studentModelOneList.add(classOneStudentThree);
 
-        /*班级2的学生*/
+        *//*班级2的学生*//*
         List<StudentModel> studentModelTwoList = new ArrayList<>();
 
         StudentModel classTwoStudentOne = new StudentModel(Long.parseLong(editClassTwoStudentOne.getText().toString().trim()));
@@ -115,43 +123,57 @@ public class GreenDaoActivity extends BaseActivity {
         StudentModel classTwoStudentThree = new StudentModel(Long.parseLong(editClassTwoStudentThree.getText().toString().trim()));
         StudentModel classTwoStudentFour = new StudentModel(Long.parseLong(editClassTwoStudentFour.getText().toString().trim()));
 
+        studentModelTwoList.add(classTwoStudentOne);
+        studentModelTwoList.add(classTwoStudentTwo);
+        studentModelTwoList.add(classTwoStudentThree);
+        studentModelTwoList.add(classTwoStudentFour);
 
-        /*班级1*/
+        *//*班级1*//*
         List<ClassModel> classModelOneList = new ArrayList<>();
         ClassModel classModelOne = new ClassModel();
         classModelOne.setClassId(Long.parseLong(editClassOneID.getText().toString().trim()));
         classModelOne.setClassName(editClassOneName.getText().toString().trim());
+        classModelOneList.add(classModelOne);
 
 
-        /*班级2*/
+        *//*班级2*//*
         List<ClassModel> classModelTwoList = new ArrayList<>();
         ClassModel classModelTwo = new ClassModel();
         classModelTwo.setClassId(Long.parseLong(editClassTwoID.getText().toString().trim()));
         classModelTwo.setClassName(editClassTwoName.getText().toString().trim());
+        classModelTwoList.add(classModelTwo);
 
-
-        /*学校*/
+        *//*学校*//*
         SchoolModel schoolModel = new SchoolModel();
         schoolModel.setSchoolId(Integer.parseInt(editSchoolID.getText().toString().trim()));
         schoolModel.setSchoolName(editSchoolName.getText().toString().trim());
+*/
+        SchoolModel schoolModel = new SchoolModel();
+        schoolModel.setSchoolName("田家炳小学");
+        schoolModel.setSchoolId(new Random(1).nextInt(100));
+        long schoolTagId = DBManager.getInstance().getSchoolModelDao().insert(schoolModel);
 
 
-        DBManager.getInstance().getStudentModelDao().insert(classOneStudentOne);
-        DBManager.getInstance().getStudentModelDao().insert(classOneStudentTwo);
-        DBManager.getInstance().getStudentModelDao().insert(classOneStudentThree);
+        for (int i = 0; i < 3; i++) {
+            ClassModel classModelCus = new ClassModel();
+            classModelCus.setClassId(schoolTagId);
+            classModelCus.setClassName("田家炳小学班级" + i);
 
-        DBManager.getInstance().getStudentModelDao().insert(classTwoStudentOne);
-        DBManager.getInstance().getStudentModelDao().insert(classTwoStudentTwo);
-        DBManager.getInstance().getStudentModelDao().insert(classTwoStudentThree);
-        DBManager.getInstance().getStudentModelDao().insert(classTwoStudentFour);
+            long classTagId = DBManager.getInstance().getClassModelDao().insert(classModelCus);
+            List<StudentModel> studentModelList = new ArrayList<>();
+            for (int j = 0; j < 5; j++) {
+                StudentModel studentModelCus = new StudentModel();
+                studentModelCus.setStudentId(classTagId);
+                studentModelCus.setStudentName("学生" + j);
+                studentModelCus.setStudentPhoto("http://www.baidu.com");
+                studentModelList.add(studentModelCus);
+            }
+            DBManager.getInstance().getStudentModelDao().insertInTx(studentModelList);
 
-        DBManager.getInstance().getClassModelDao().insert(classModelOne);
+        }
 
-        DBManager.getInstance().getClassModelDao().insert(classModelTwo);
 
-        DBManager.getInstance().getSchoolModelDao().insert(schoolModel);
     }
-
 
     private void deleteData() {
         DBManager.getInstance().getSchoolModelDao().deleteAll();

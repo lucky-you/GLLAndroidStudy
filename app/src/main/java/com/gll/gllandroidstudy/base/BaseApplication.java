@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 
-import com.gll.gllandroidstudy.db.DBManager;
+import com.gll.gllandroidstudy.db.manager.DBManager;
 
 
 /**

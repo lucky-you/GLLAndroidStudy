@@ -1,4 +1,4 @@
-package com.gll.gllandroidstudy.db;
+package com.gll.gllandroidstudy.db.manager;
 
 
 import com.gll.gllandroidstudy.ClassModelDao;

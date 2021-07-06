@@ -1,8 +1,5 @@
 package com.gll.gllandroidstudy.db.model;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.ToMany;
@@ -20,7 +17,7 @@ import com.gll.gllandroidstudy.SchoolModelDao;
  * 学校
  */
 @Entity
-public class SchoolModel  implements Parcelable {
+public class SchoolModel {
     @Id(autoincrement = true)
     private Long id;
     private int schoolId;
@@ -48,28 +45,6 @@ public class SchoolModel  implements Parcelable {
     @Generated(hash = 237173047)
     public SchoolModel() {
     }
-
-    protected SchoolModel(Parcel in) {
-        if (in.readByte() == 0) {
-            id = null;
-        } else {
-            id = in.readLong();
-        }
-        schoolId = in.readInt();
-        schoolName = in.readString();
-    }
-
-    public static final Creator<SchoolModel> CREATOR = new Creator<SchoolModel>() {
-        @Override
-        public SchoolModel createFromParcel(Parcel in) {
-            return new SchoolModel(in);
-        }
-
-        @Override
-        public SchoolModel[] newArray(int size) {
-            return new SchoolModel[size];
-        }
-    };
 
     public Long getId() {
         return this.id;
@@ -171,33 +146,12 @@ public class SchoolModel  implements Parcelable {
         myDao = daoSession != null ? daoSession.getSchoolModelDao() : null;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        if (id == null) {
-            dest.writeByte((byte) 0);
-        } else {
-            dest.writeByte((byte) 1);
-            dest.writeLong(id);
-        }
-        dest.writeInt(schoolId);
-        dest.writeString(schoolName);
-    }
-
     @Override
     public String toString() {
         return "SchoolModel{" +
-                "id=" + id +
-                ", schoolId=" + schoolId +
+                "schoolId=" + schoolId +
                 ", schoolName='" + schoolName + '\'' +
                 ", classModelList=" + classModelList +
-                ", daoSession=" + daoSession +
-                ", myDao=" + myDao +
                 '}';
     }
 }
